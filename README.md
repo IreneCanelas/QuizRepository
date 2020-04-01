@@ -2,7 +2,7 @@
 ## Identificação:
 <p> </p>
 
-## Pré-requisitos
+## Pré-requisitos:
 
 - Editor de código fonte. 
 Sugestão:
@@ -17,7 +17,7 @@ Sugestão:
 [Trello](https://trello.com/)
 
 
-## Tutoriais
+## Tutoriais:
 Abaixo estão listados alguns tutorias utilizados para criar este código:
 
 [HTML](https://www.w3schools.com/html/)
@@ -35,17 +35,17 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 [JQUERY](https://www.w3schools.com/jquery/)
 
 
-## Tarefas 
+## Tarefas:
 
-## Histórico de Releases
+## Histórico de Releases:
 
-## Autoria
+## Autoria:
 - Irene Canelas : [@ccxirene](https://www.github.com/ccxirene)
 - Layla Reis : [@reislayla](https://www.github.com/reislayla)
 - Márcia Ferreira : [@marciandreia11](https://www.github.com/marciandreia11)
 - Sara Rocha : [@sararocha25](https://www.github.com/sararocha25)
 
-## Agradecimentos
+## Agradecimentos:
 
 
-## Contribuições 
+## Contribuições: 
