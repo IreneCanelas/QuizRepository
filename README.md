@@ -1,6 +1,8 @@
 # Projeto: Quiz Website
 ## Identificação:
 <p> </p>
+- Nome BD: quizwebsite
+- Nome table: quizzes
 
 ## Pré-requisitos:
 
