@@ -36,9 +36,10 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 
 
 ## Tarefas:
-x [ ] Criar interface geral da página inicial;
-x [ ] Criar botão de registo do utilizador;
-x [ ] Criar botão de login;
+- [ ] Criar interface geral da página inicial;
+- [ ] Criar botão de registo do utilizador;
+- [ ] Criar botão de login;
+
 
 ## Histórico de Releases:
 
