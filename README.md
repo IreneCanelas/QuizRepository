@@ -40,7 +40,7 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 ## Histórico de Releases:
 
 ## Autoria:
-- Irene Canelas : [@ccxirene](https://www.github.com/ccxirene)
+- Irene Canelas : [@IreneCanelas](https://www.github.com/ccxirene)
 - Layla Reis : [@reislayla](https://www.github.com/reislayla)
 - Márcia Ferreira : [@marciandreia11](https://www.github.com/marciandreia11)
 - Sara Rocha : [@sararocha25](https://www.github.com/sararocha25)
