@@ -87,7 +87,7 @@
           <a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram"></i></a>
       </div>
       <hr class="baixo"></hr>
-      2020 &copy; QuizQuiz
+      2020 &copy;QuizQuiz
   </div>
 </footer>
 
