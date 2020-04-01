@@ -1,6 +1,7 @@
 # Projeto: Quiz Website
 ## Identificação:
-<p> </p>
+<p>O site QuizQuiz tem como principal objetivo a prática e teste de conhecimento ao responder questões de Quizzes. O site contempla quizzes na área da Matemática, Biologia e Tecnologia. A plataforma é simples e intuitiva possibilitando uma experiência divertida e interativa com o utilizador. É possível participar dos quizzes estando registado ou não no site. Entretanto, para aqueles utilizadores registados haverá uma conta com todos os resultados e estatísticas para que possa avaliar seu desempenho sempre que desejar.</p>
+
 - Nome BD: quizwebsite <p>
 - Nome table: quizzes
 
@@ -52,6 +53,5 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - Sara Rocha : [@sararocha25](https://www.github.com/sararocha25)
 
 ## Agradecimentos:
-
 
 ## Contribuições: 
