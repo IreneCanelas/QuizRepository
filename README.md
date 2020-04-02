@@ -42,7 +42,8 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Criar interface geral da página inicial;
 - [X] Criar botão de registo do utilizador;
 - [X] Criar botão de login;
-
+- [ ] Formulário de login;
+- [ ] Formulário de registo do utilizador;
 
 ## Histórico de Releases:
 
@@ -55,3 +56,9 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 ## Agradecimentos:
 
 ## Contribuições: 
+
+- Faça o fork do projeto;
+- Crie uma branch para sua modificação;
+- Faça o commit;
+- Push;
+- Crie um novo Pull Request. 
