@@ -50,8 +50,49 @@
   <a class="logo" href="index.php"><img src="images/Logo.png"></a>
 </div>
   <div id="Menubuttons">
-    <button type="button" class="btn btn-primary btn-lg"> Registar </button>
-    <button type="button" class="btn btn-primary btn-lg"> Login </button>
+
+    <button class="btn btn-primary btn-lg" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Registar</button> 
+  
+      <div id="id01" class="modal">
+        <!--Botão X para fechar registo -->
+        <!--<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>-->
+          <form class="modal-content" action="/action_page.php">
+            <div class="container">
+              <h1>Registo</h1>
+              <p>Por favor, preencha este formulário para criar uma conta.</p>
+              <hr>
+              <label for="name"><b>Nome</b></label>
+              <input type="text" placeholder="Inserir Nome" name="name" required>
+
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Inserir Email" name="email" required>
+
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Inserir Password" name="psw" required>
+
+              <label for="psw-repeat"><b>Repetir Password</b></label>
+              <input type="password" placeholder="Repetir Password" name="psw-repeat" required>
+              
+              <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">Recordar minhas informações
+              </label>
+
+              <p>Ao criar a conta você concorda com a nossa <a href="#" style="color:dodgerblue">Política de privacidade</a>.</p>
+
+              <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="submit" class="signupbtn">Registar</button>
+              </div>
+            </div>
+          </form>
+      </div>
+
+<script>
+var modal = document.getElementById('id01');
+</script>
+    
+      
+<button type="button" class="btn btn-primary btn-lg"> Login </button>
   </div>
 
 <!-- Quizz -->

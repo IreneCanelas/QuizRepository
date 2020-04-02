@@ -4,6 +4,7 @@ body{
     font-family: 'Lato', sans-serif; 
 }
 
+
 #menu {
    display: inline-block;
 }
@@ -94,4 +95,95 @@ footer a {
 
 p a:hover {
     color: #d3802e;
+}
+
+/*----- Formulário de Registo -----*/
+
+/*ESTA CLASSE NÃO ESTÁ A FUNCIONAR. ACHO QUE A #MENUBUTTONS ESTÁ SOBREPOSTA*/
+/* Botão de cancelar vermelho*/
+.cancelbtn {
+    background-color: #f44336;
+}
+  
+/* Posição e tamanho dos botões de cancelar e registar */
+.cancelbtn, .signupbtn {
+    float: left;
+    padding: 14px 20px;
+    width: 50%;
+    height: 50%;
+}
+
+  
+/* Conteúdo do modal (padding) */
+.container {
+    padding: 16px;
+}
+
+/* Modal (background) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+}
+  
+/* Caixa Modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; 
+    border: 10px solid #d3802e;
+    width: 25%; /* Reduzir caso fique muito grande */
+}
+  
+/* Linha horizontal do registo*/
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+   
+/* Botão de fechar modal (x) 
+.close {
+    position: absolute;
+    right: 35%;
+    top: 10%;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f44336;
+    border-radius: 50%;
+    background: #6bbaa7;
+    text-align: center;
+}
+  
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}*/
+  
+/* Limpar floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+  
+/* Resposividade dos bts cancel e registar */
+@media screen and (max-width: 300px) {
+.cancelbtn, .signupbtn {
+    width: 100%;
+}}
+
+/* Campos de input */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* Adicione uma cor de fundo nos inputs*/
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
 }
