@@ -80,16 +80,16 @@
               <p>Ao criar a conta você concorda com a nossa <a href="#" style="color:dodgerblue">Política de privacidade</a>.</p>
 
               <div class="clearfix">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <!--Botão Cancelar -->
+                <button value="Hover" onmouseout="this.style.backgroundColor='#128568'; this.style.borderColor='#26a773'"       onmouseover="this.style.backgroundColor='#f44336';this.style.borderColor='#ff4d3e'" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            
+                <!--Botão Registar -->
                 <button type="submit" class="signupbtn">Registar</button>
               </div>
             </div>
           </form>
       </div>
 
-<script>
-var modal = document.getElementById('id01');
-</script>
     
       
 <button type="button" class="btn btn-primary btn-lg"> Login </button>

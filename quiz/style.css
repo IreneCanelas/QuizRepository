@@ -100,10 +100,6 @@ p a:hover {
 /*----- Formulário de Registo -----*/
 
 /*ESTA CLASSE NÃO ESTÁ A FUNCIONAR. ACHO QUE A #MENUBUTTONS ESTÁ SOBREPOSTA*/
-/* Botão de cancelar vermelho*/
-.cancelbtn {
-    background-color: #f44336;
-}
   
 /* Posição e tamanho dos botões de cancelar e registar */
 .cancelbtn, .signupbtn {
@@ -112,7 +108,6 @@ p a:hover {
     width: 50%;
     height: 50%;
 }
-
   
 /* Conteúdo do modal (padding) */
 .container {
