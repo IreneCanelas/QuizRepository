@@ -102,7 +102,6 @@
     foreach($quizzes as $quiz) { ?>
         <div class="col-md-3">
             <div class="details_quiz">
-                <h3> <?php echo $quiz['name'] ?> </h3>
                 <img src="<?php echo $quiz['photo_url'] ?>" id="details_photo">
                 <button class="btn btn-outline-dark" type="submit"> Fazer este! </button>
             </div>
