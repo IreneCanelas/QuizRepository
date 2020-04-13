@@ -138,11 +138,6 @@
 =======
       </div>
 
-    
-      
-<button type="button" class="btn btn-primary btn-lg"> Login </button>
-  </div>
-
 <!-- Quizz -->
 <div class="offset"> 
   <div class="row text-center">
