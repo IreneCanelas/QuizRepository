@@ -134,21 +134,6 @@
               </div>
             </div>
           </form>
-<<<<<<< HEAD
-=======
-      </div>
-
-<!-- Quizz -->
-<div class="offset"> 
-  <div class="row text-center">
-    <?php
-    foreach($quizzes as $quiz) { ?>
-        <div class="col-md-3">
-            <div class="details_quiz">
-                <img src="<?php echo $quiz['photo_url'] ?>" id="details_photo">
-                <button class="btn btn-outline-dark" type="submit"> Fazer este! </button>
-            </div>
->>>>>>> 98a575ace83f8fe2d2e679366455a2305d6ed27c
         </div>
       </div>
     </div>
