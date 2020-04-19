@@ -4,6 +4,7 @@
 
 - Nome BD: quizwebsite <p>
 - Nome table: quizzes
+- Nome table: registos
 
 ## Pré-requisitos:
 
