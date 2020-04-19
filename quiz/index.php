@@ -148,7 +148,7 @@
               <input type="password" placeholder="Inserir Password" name="psw" required>
               
               <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">Recordar as minhas informações
+                <input type="checkbox" checked="checked" name="remember">Recordar as minhas informações
               </label>
 
               <div class="clearfix">
@@ -191,7 +191,7 @@
               <div class="text-red"><?php echo $errors['psw_repeat']; ?></div>
               
               <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">Recordar as minhas informações
+                <input type="checkbox" checked="checked" name="remember">Recordar as minhas informações
               </label>
 
               <p>Ao criar a conta você concorda com a nossa <a href="#" style="color:dodgerblue">Política de privacidade</a>.</p>
