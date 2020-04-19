@@ -43,6 +43,71 @@
       echo "0 results";
   }
 
+
+  // dados de registo - nome, email, pass, repetir pass
+	$name = $email = $psw = $psw_repeat = '';
+	$errors = array('name' => '', 'email' => '', 'psw' => '', 'psw_repeat' => '');
+
+	if(isset($_POST['submit'])){
+    
+    // check name
+		if(empty($_POST['name'])){
+			$errors['name'] = 'Um nome é obrigatório.';
+		} else{
+			$name = $_POST['name'];
+			if(!preg_match('/^[a-zA-Z\s]+$/', $name)){
+				$errors['name'] = 'O nome só pode conter letras e espaços.';
+			}
+    }
+    
+		// check email
+		if(empty($_POST['email'])){
+			$errors['email'] = 'Um email é obrigatório.';
+		} else{
+			$email = $_POST['email'];
+			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+				$errors['email'] = 'É necessário um endereço de email válido.';
+			}
+		}
+
+    // check password
+    if(empty($_POST['psw'])){
+			$errors['psw'] = 'Uma palavra-passe é obrigatória.';
+		} else{
+			$psw = $_POST['psw'];
+			if(!preg_match('#.*^(?=.{6,15})(?=.*[a-z])(?=.*[A-Z]).*$#', $psw)){
+				$errors['psw'] = 'A palavra-passe têm de conter entre 6 a 15 caracteres, incluindo uma letra minúscula e uma letra maiúscula.';
+      }
+    }
+
+    // check segunda versão da psw
+    if(empty($_POST['psw_repeat']) && $_POST['psw'] != $_POST['psw_repeat'])
+    {
+      $errors['psw_repeat'] = 'A palavra-passe digitada é diferente.';
+    }
+
+
+    if(array_filter($errors)){
+			//echo 'errors in form';
+		} else {
+			// escape sql chars
+			$name = mysqli_real_escape_string($conn, $_POST['name']);
+			$email = mysqli_real_escape_string($conn, $_POST['email']);
+			$psw = mysqli_real_escape_string($conn, $_POST['psw']);
+
+			// create sql
+			$sql = "INSERT INTO registos(email, name, psw) VALUES('$email','$name','$psw')";
+
+			// save to db and check
+			if(mysqli_query($conn, $sql)){
+				// success
+				header('Location: index.php');
+			} else {
+				echo 'query error: '. mysqli_error($conn);
+			}
+		}
+  }
+
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -68,7 +133,7 @@
     <!-- Login -->
     <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
-          <form class="modal-content" action="/action_page.php" method="POST">
+          <form class="modal-content" action="index.php" method="POST">
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('login').style.display='none'" class="close">&times;</button>
             </div>
@@ -95,10 +160,12 @@
             </div>
           </form>
         </div>
+
+
       <!-- Registo -->
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="document.getElementById('registo').style.display='block'" style="width:auto;">Registo</button> 
       <div id="registo" class="modal">
-          <form class="modal-content" action="/action_page.php">
+          <form class="modal-content" action="index.php" method='POST'>
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('registo').style.display='none'" class="close">&times;</button>
             </div>
@@ -108,16 +175,20 @@
               <p>Por favor, preencha este formulário para criar uma conta.</p>
               <hr>
               <label for="name"><b>Nome</b></label>
-              <input type="text" placeholder="Inserir Nome" name="name" required>
+              <input type="text" placeholder="Inserir Nome" value="<?php echo htmlspecialchars($name) ?>" name="name" required>
+              <div class="text-red"><?php echo $errors['name']; ?></div>
 
               <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Inserir Email" name="email" required>
+              <input type="text" placeholder="Inserir Email" value="<?php echo htmlspecialchars($email) ?>" name="email" required>
+              <div class="text-red"><?php echo $errors['email']; ?></div>
 
               <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Inserir Password" name="psw" required>
+              <input type="password" placeholder="Inserir Password" value="<?php echo htmlspecialchars($psw) ?>" name="psw" required>
+              <div class="text-red"><?php echo $errors['psw']; ?></div>
 
-              <label for="psw-repeat"><b>Repetir Password</b></label>
-              <input type="password" placeholder="Repetir Password" name="psw-repeat" required>
+              <label for="psw_repeat"><b>Repetir Password</b></label>
+              <input type="password" placeholder="Repetir Password" value="<?php echo htmlspecialchars($psw_repeat) ?>" name="psw_repeat" required>
+              <div class="text-red"><?php echo $errors['psw_repeat']; ?></div>
               
               <label>
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">Recordar as minhas informações
@@ -129,7 +200,7 @@
                 <!--Botão Cancelar -->
                 <button value="Hover" type="button" onclick="document.getElementById('registo').style.display='none'" class="cancelbtn">Cancelar</button>
                 <!--Botão Registar -->
-                <button type="submit" class="btn-info" id="Menubuttons">Registar</button>
+                <button type="submit" name="submit" class="btn-info" id="Menubuttons">Registar</button>
               </div>
             </div>
           </form>
@@ -137,6 +208,7 @@
       </div>
     </div>
 </nav>
+
 
 <!-- Quizzes -->
 <div class="center">
