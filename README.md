@@ -43,10 +43,13 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Criar interface geral da página inicial;
 - [X] Criar botão de registo do utilizador;
 - [X] Criar botão de login;
-- [ ] Formulário de login;
-- [ ] Formulário de registo do utilizador;
+- [X] Formulário de login;
+- [X] Formulário de registo do utilizador;
 - [X] Criar registos na Base de Dados;
 - [ ] Criar _quizzes_ diversos;
+- [ ] Configurar registo;
+- [ ] Configurar login;
+- [ ] Configurar _quizzes_
 
 ## Histórico de Releases:
 
