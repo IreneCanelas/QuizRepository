@@ -4,9 +4,10 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "quizwebsite";
+$email = "email";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname. $email);
 
 // Check connection
 if ($conn->connect_error) {
