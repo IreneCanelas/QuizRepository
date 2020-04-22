@@ -1,7 +1,5 @@
 <?php
 include "connection.php";
-include "registo.php";
-include "login.php";
 ?>
 
 <!DOCTYPE html>

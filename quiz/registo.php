@@ -2,9 +2,10 @@
 
 include "connection.php";
 
- // descomentar login
- //juntar à bd
- //ficar parado se houver erro e escrever a vermelho
+
+ // 1) ficar parado se houver erro
+ // 2) escrever a vermelho
+ // 3) repete registo na bd : resolvido
 
  // dados de registo - nome, email, pass, repetir pass
  $name = $email = $psw = $psw_repeat = '';
