@@ -7,7 +7,7 @@ $dbname = "quizwebsite";
 $email = "email";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname, $email);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
