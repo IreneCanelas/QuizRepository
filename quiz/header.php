@@ -42,12 +42,12 @@ include "login.php";
     <!-- Login -->
     <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
-          <form class="modal-content" action="index.php" method="POST">
+          <form class="modal-content" action="/action_page.php" method="POST">
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('login').style.display='none'" class="close">&times;</button>
             </div>
             <div class="container">
-              <h1>Login</h1>
+              <h1>Lgoiin</h1>
               <hr>
 
               <label for="email"><b>Email</b></label>
@@ -74,7 +74,7 @@ include "login.php";
       <!-- Registo -->
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="document.getElementById('registo').style.display='block'" style="width:auto;">Registo</button> 
       <div id="registo" class="modal">
-          <form class="modal-content" action="index.php" method='POST'>
+          <form class="modal-content" action="/action_page.php" method='POST'>
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('registo').style.display='none'" class="close">&times;</button>
             </div>

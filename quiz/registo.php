@@ -2,6 +2,12 @@
 
 include "connection.php";
 
+  //Join to table
+  $sql = "SELECT name, email, psw FROM registos";
+
+  $result = $conn->query($sql);
+  $registos = [];
+
  // dados de registo - nome, email, pass, repetir pass
  $name = $email = $psw = $psw_repeat = '';
  $errors = array('name' => '', 'email' => '', 'psw' => '', 'psw_repeat' => '');
@@ -59,7 +65,7 @@ include "connection.php";
      // save to db and check
      if(mysqli_query($conn, $sql)){
        // success
-       header('Location: index.php');
+       header('Location: /action_page.php');
      } else {
        echo 'query error: '. mysqli_error($conn);
      }
