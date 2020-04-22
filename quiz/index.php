@@ -101,7 +101,7 @@ include "connection.php";
 
 ?>
 
-<!--Barra de navegaçãp-->
+<!--Barra de navegação-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">
     <img src="images/Logo.png" width="60" height="60" alt="">
