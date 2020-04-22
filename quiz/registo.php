@@ -2,11 +2,9 @@
 
 include "connection.php";
 
-  //Join to table
-  $sql = "SELECT name, email, psw FROM registos";
-
-  $result = $conn->query($sql);
-  $registos = [];
+ // descomentar login
+ //juntar à bd
+ //ficar parado se houver erro e escrever a vermelho
 
  // dados de registo - nome, email, pass, repetir pass
  $name = $email = $psw = $psw_repeat = '';
@@ -45,7 +43,7 @@ include "connection.php";
    }
 
    // check segunda versão da psw
-   if(empty($_POST['psw_repeat']) && $_POST['psw'] != $_POST['psw_repeat'])
+   if(empty($_POST['psw_repeat']) || $_POST['psw'] !== $_POST['psw_repeat'])
    {
      $errors['psw_repeat'] = 'A palavra-passe digitada é diferente.';
    }
@@ -65,7 +63,7 @@ include "connection.php";
      // save to db and check
      if(mysqli_query($conn, $sql)){
        // success
-       header('Location: /action_page.php');
+       header('Location: initialPage.php');
      } else {
        echo 'query error: '. mysqli_error($conn);
      }

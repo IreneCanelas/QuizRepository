@@ -74,7 +74,7 @@ include "login.php";
       <!-- Registo -->
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="document.getElementById('registo').style.display='block'" style="width:auto;">Registo</button> 
       <div id="registo" class="modal">
-          <form class="modal-content" action="/action_page.php" method='POST'>
+          <form class="modal-content" action="initialPage.php" method='POST'>
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('registo').style.display='none'" class="close">&times;</button>
             </div>
@@ -85,19 +85,19 @@ include "login.php";
               <hr>
               <label for="name"><b>Nome</b></label>
               <input type="text" placeholder="Inserir Nome" value="<?php echo htmlspecialchars($name) ?>" name="name" required>
-              <div class="text-red"><?php echo $errors['name']; ?></div>
+              <div class="erro"><?php echo $errors['name']; ?></div>
 
               <label for="email"><b>Email</b></label>
               <input type="text" placeholder="Inserir Email" value="<?php echo htmlspecialchars($email) ?>" name="email" required>
-              <div class="text-red"><?php echo $errors['email']; ?></div>
+              <div class="erro"><?php echo $errors['email']; ?></div>
 
               <label for="psw"><b>Password</b></label>
               <input type="password" placeholder="Inserir Password" value="<?php echo htmlspecialchars($psw) ?>" name="psw" required>
-              <div class="text-red"><?php echo $errors['psw']; ?></div>
+              <div class="erro"><?php echo $errors['psw']; ?></div>
 
               <label for="psw_repeat"><b>Repetir Password</b></label>
               <input type="password" placeholder="Repetir Password" value="<?php echo htmlspecialchars($psw_repeat) ?>" name="psw_repeat" required>
-              <div class="text-red"><?php echo $errors['psw_repeat']; ?></div>
+              <div class="erro"><?php echo $errors['psw_repeat']; ?></div>
               
               <label>
                 <input type="checkbox" checked="checked" name="remember">Recordar as minhas informações
