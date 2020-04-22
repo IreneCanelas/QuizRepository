@@ -184,6 +184,3 @@ include "connection.php";
       </div>
     </div>
 </nav>
-
-</body>
-</html>
