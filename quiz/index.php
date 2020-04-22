@@ -1,3 +1,7 @@
+<?php
+include "connection.php";
+?>
+
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -14,19 +18,6 @@
 <body> 
 
 <?php
-
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "quizwebsite";
-
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
 
   //Join to table
   $sql = "SELECT id, name, photo_url FROM quizzes";
@@ -110,6 +101,7 @@
 
 ?>
 
+<!--Barra de navegaçãp-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">
     <img src="images/Logo.png" width="60" height="60" alt="">
