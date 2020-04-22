@@ -2,10 +2,6 @@
 include "connection.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="">
-<body> 
-
 <?php
 
   //Join to table
@@ -51,7 +47,3 @@ include "connection.php";
 <?php 
   include "footer.html";
 ?>
-
-
-</body>
-</html>
