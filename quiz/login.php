@@ -1,4 +1,6 @@
 <?php
+include "connection.php"
+include "registo.php"
 // começar ou retomar uma sessão
 session_start();
  
