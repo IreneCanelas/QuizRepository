@@ -19,85 +19,69 @@ include "connection.php";
 
 <?php
 
-  //Join to table
-  $sql = "SELECT id, name, photo_url FROM quizzes";
+ // dados de registo - nome, email, pass, repetir pass
+ $name = $email = $psw = $psw_repeat = '';
+ $errors = array('name' => '', 'email' => '', 'psw' => '', 'psw_repeat' => '');
 
-  $result = $conn->query($sql);
-  $quizzes = [];
+ if(isset($_POST['submit'])){
+   
+   // check name
+   if(empty($_POST['name'])){
+     $errors['name'] = 'Um nome é obrigatório.';
+   } else{
+     $name = $_POST['name'];
+     if(!preg_match('/^[a-zA-Z\s]+$/', $name)){
+       $errors['name'] = 'O nome só pode conter letras e espaços.';
+     }
+   }
+   
+   // check email
+   if(empty($_POST['email'])){
+     $errors['email'] = 'Um email é obrigatório.';
+   } else{
+     $email = $_POST['email'];
+     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+       $errors['email'] = 'É necessário um endereço de email válido.';
+     }
+   }
 
-  if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-          $quizzes[] = $row;
-      }
-  } else {
-      echo "0 results";
-  }
+   // check password
+   if(empty($_POST['psw'])){
+     $errors['psw'] = 'Uma palavra-passe é obrigatória.';
+   } else{
+     $psw = $_POST['psw'];
+     if(!preg_match('#.*^(?=.{6,15})(?=.*[a-z])(?=.*[A-Z]).*$#', $psw)){
+       $errors['psw'] = 'A palavra-passe têm de conter entre 6 a 15 caracteres, incluindo uma letra minúscula e uma letra maiúscula.';
+     }
+   }
 
-
-  // dados de registo - nome, email, pass, repetir pass
-	$name = $email = $psw = $psw_repeat = '';
-	$errors = array('name' => '', 'email' => '', 'psw' => '', 'psw_repeat' => '');
-
-	if(isset($_POST['submit'])){
-    
-    // check name
-		if(empty($_POST['name'])){
-			$errors['name'] = 'Um nome é obrigatório.';
-		} else{
-			$name = $_POST['name'];
-			if(!preg_match('/^[a-zA-Z\s]+$/', $name)){
-				$errors['name'] = 'O nome só pode conter letras e espaços.';
-			}
-    }
-    
-		// check email
-		if(empty($_POST['email'])){
-			$errors['email'] = 'Um email é obrigatório.';
-		} else{
-			$email = $_POST['email'];
-			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-				$errors['email'] = 'É necessário um endereço de email válido.';
-			}
-		}
-
-    // check password
-    if(empty($_POST['psw'])){
-			$errors['psw'] = 'Uma palavra-passe é obrigatória.';
-		} else{
-			$psw = $_POST['psw'];
-			if(!preg_match('#.*^(?=.{6,15})(?=.*[a-z])(?=.*[A-Z]).*$#', $psw)){
-				$errors['psw'] = 'A palavra-passe têm de conter entre 6 a 15 caracteres, incluindo uma letra minúscula e uma letra maiúscula.';
-      }
-    }
-
-    // check segunda versão da psw
-    if(empty($_POST['psw_repeat']) && $_POST['psw'] != $_POST['psw_repeat'])
-    {
-      $errors['psw_repeat'] = 'A palavra-passe digitada é diferente.';
-    }
+   // check segunda versão da psw
+   if(empty($_POST['psw_repeat']) && $_POST['psw'] != $_POST['psw_repeat'])
+   {
+     $errors['psw_repeat'] = 'A palavra-passe digitada é diferente.';
+   }
 
 
-    if(array_filter($errors)){
-			//echo 'errors in form';
-		} else {
-			// escape sql chars
-			$name = mysqli_real_escape_string($conn, $_POST['name']);
-			$email = mysqli_real_escape_string($conn, $_POST['email']);
-			$psw = mysqli_real_escape_string($conn, $_POST['psw']);
+   if(array_filter($errors)){
+     //echo 'errors in form';
+   } else {
+     // escape sql chars
+     $name = mysqli_real_escape_string($conn, $_POST['name']);
+     $email = mysqli_real_escape_string($conn, $_POST['email']);
+     $psw = mysqli_real_escape_string($conn, $_POST['psw']);
 
-			// create sql
-			$sql = "INSERT INTO registos(email, name, psw) VALUES('$email','$name','$psw')";
+     // create sql
+     $sql = "INSERT INTO registos(email, name, psw) VALUES('$email','$name','$psw')";
 
-			// save to db and check
-			if(mysqli_query($conn, $sql)){
-				// success
-				header('Location: index.php');
-			} else {
-				echo 'query error: '. mysqli_error($conn);
-			}
-		}
-  }
+     // save to db and check
+     if(mysqli_query($conn, $sql)){
+       // success
+       header('Location: index.php');
+     } else {
+       echo 'query error: '. mysqli_error($conn);
+     }
+   }
+ }
 
 ?>
 
@@ -200,46 +184,3 @@ include "connection.php";
       </div>
     </div>
 </nav>
-
-
-<!-- Quizzes -->
-<div class="center">
-  <div class="offset"> 
-    <div class="row text-center">
-      <?php
-      foreach($quizzes as $quiz) { ?>
-          <div class="col-md-4">
-              <div class="details_quiz">
-                  <h3> <?php echo $quiz['name'] ?> </h3>
-                  <img src="<?php echo $quiz['photo_url'] ?>" id="details_photo">
-                  <button class="btn btn-outline-dark" type="submit"> Fazer este! </button>
-              </div>
-          </div>
-          <?php
-      }?>
-    </div>
-  </div>
-</div>
-<!-- Fim Quizzes -->
-
-
-
-<!-- Footer -->
-<footer>
-  <div class="row justify-content-center"> 
-      <div class="col-md-5 text-center"> 
-          <img src="images/LOGO.png">
-          <p> Se tiver alguma dúvida ou sugestão, entre em contacto connosco para que o possamos ajudar com a maior brevidade. </p>
-          <strong> Informação de Contactos: </strong>
-          <p> (+351) 111 222 333 <br> <a href="mailto:email@mailsquizz.pt?Subject=MailsQuiz Website"> email@quizwebsite.pt </a></p>
-          <a href="https://www.facebook.com/" target="_blank"> <i class="fab fa-facebook-square"></i></a>
-          <a href="https://twitter.com/" target="_blank"> <i class="fab fa-twitter-square"></i></a>
-          <a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram"></i></a>
-      </div>
-      <hr class="footerHr"></hr>
-      2020 &copy;QuizQuiz
-  </div>
-</footer>
-
-</body>
-</html>
