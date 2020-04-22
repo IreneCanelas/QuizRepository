@@ -1,8 +1,10 @@
 <?php 
+include "connection.php";
+
+$email = $_POST['email'];
+$password = md5($_POST['psw']);
 $login = $_POST['login'];
-$entrar = $_POST['entrar'];
-$senha = md5($_POST['senha']);
-$connect = mysql_connect('name','email','psw');
+$connect = mysql_connect('localhost','email','psw');
 $db = mysql_select_db('registos');
   if (isset($entrar)) {
            
