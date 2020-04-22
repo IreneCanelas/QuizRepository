@@ -15,7 +15,7 @@ $db = mysql_select_db('registos');
         die();
       }else{
         setcookie("login",$login);
-        header("Location:header.php");
+        header("Location:index.php");
       }
   }
 ?>
