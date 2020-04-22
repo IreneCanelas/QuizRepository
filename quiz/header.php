@@ -1,5 +1,7 @@
 <?php
 include "connection.php";
+include "registo.php";
+
 ?>
 
 <!DOCTYPE html>
