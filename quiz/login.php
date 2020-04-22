@@ -23,7 +23,7 @@ if (!empty($_POST)) {
 		// o utilizador está correctamente validado
 		// guardamos as suas informações numa sessão
 		$_SESSION['id'] = mysql_result($login, 0, 0);
-		$_SESSION['mail'] = mysql_result($login, 0, 1);
+		$_SESSION['email'] = mysql_result($login, 0, 1);
  
 		echo "<p>Sess&atilde;o iniciada com sucesso como {$_SESSION['email']}</p>";
 	} else {
