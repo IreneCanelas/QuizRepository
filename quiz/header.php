@@ -47,7 +47,7 @@ include "login.php";
               <button type="button" onclick="document.getElementById('login').style.display='none'" class="close">&times;</button>
             </div>
             <div class="container">
-              <h1>Lgoiin</h1>
+              <h1>Login</h1>
               <hr>
 
               <label for="email"><b>Email</b></label>
