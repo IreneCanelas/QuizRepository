@@ -131,7 +131,7 @@ include "connection.php";
                 <!--Botão Cancelar -->
                 <button value="Hover" type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancelar</button>
                 <!--Botão Login -->
-                <button type="submit" class="btn-info" id="Menubuttons">Looogin</button>
+                <button type="submit" name="submit" class="btn-info" id="Menubuttons">Login</button>
               </div>
             </div>
           </form>
