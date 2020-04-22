@@ -201,28 +201,10 @@ include "connection.php";
     </div>
 </nav>
 
-
-<!-- Quizzes -->
-<div class="center">
-  <div class="offset"> 
-    <div class="row text-center">
-      <?php
-      foreach($quizzes as $quiz) { ?>
-          <div class="col-md-4">
-              <div class="details_quiz">
-                  <h3> <?php echo $quiz['name'] ?> </h3>
-                  <img src="<?php echo $quiz['photo_url'] ?>" id="details_photo">
-                  <button class="btn btn-outline-dark" type="submit"> Fazer este! </button>
-              </div>
-          </div>
-          <?php
-      }?>
-    </div>
-  </div>
-</div>
-<!-- Fim Quizzes -->
-
-
+<!--Categoria dos Quizzes-->
+<?php
+    include "select_exam.php";
+?>
 
 <!-- Footer -->
 <footer>
