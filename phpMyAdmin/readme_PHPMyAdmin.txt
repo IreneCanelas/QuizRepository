@@ -12,9 +12,17 @@ Nesta pasta encontram-se todos os ficheiros necessários para o funcionamento do
 
 Descrição dos ficheiros:
 
+1.
 	Nome: quizzes.sql
 	Função: 
 
+2.
+	Nome: registos.sql
+	Função: 
+
+3.
+	Nome: questions.sql
+	Função: Tabela com as questões dos quizzes, opções de respostas, resposta corretea e suas respetivas categorias. 
  
 
 
