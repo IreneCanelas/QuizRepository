@@ -46,7 +46,7 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Formulário de login;
 - [X] Formulário de registo do utilizador;
 - [X] Criar registos na Base de Dados;
-- [ ] Criar _quizzes_ diversos;
+- [X] Criar _quizzes_ diversos;
 - [ ] Configurar registo;
 - [ ] Configurar login;
 - [ ] Configurar _quizzes_
