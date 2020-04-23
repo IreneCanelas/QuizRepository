@@ -13,7 +13,7 @@
                   <h3> <?php echo $quiz['name'] ?> </h3>
                   <img src="<?php echo $quiz['photo_url'] ?>" id="details_photo">
                   <!--Trocar o nome do onclick para o arquivo da Sara-->
-                  <button class="btn btn-outline-dark" type="submit" onclick="document.location.href='index.php'">Fazer este!</button>
+                  <button class="btn btn-outline-dark" type="submit" onclick="document.location.href='initialPage.php'">Fazer este!</button>
               </div>
           </div>
           <?php
