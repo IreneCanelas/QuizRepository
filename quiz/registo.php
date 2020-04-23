@@ -2,7 +2,6 @@
 
 include "connection.php";
 
-
  // 1) ficar parado se houver erro
  // 2) escrever a vermelho
  // 3) repete registo na bd : resolvido
@@ -11,9 +10,17 @@ include "connection.php";
  $name = $email = $psw = $psw_repeat = '';
  $errors = array('name' => '', 'email' => '', 'psw' => '', 'psw_repeat' => '');
 
- if(isset($_POST['submit'])){
+ if(isset($_POST['submit'])){ 
+
+  //Terminar de configurar janela para manter-se aberta (LAYLA)
+    echo "
+    <script type=\"text/javascript\">
+    $(function() {                      
+      $('#myModal').modal('show');    
+    ;
+    </script>";
    
-   // check name
+   //check name
    if(empty($_POST['name'])){
      $errors['name'] = 'Um nome é obrigatório.';
    } else{

@@ -1,7 +1,6 @@
 <?php
 include "connection.php";
 include "registo.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +73,9 @@ include "registo.php";
       <!-- Registo -->
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="document.getElementById('registo').style.display='block'" style="width:auto;">Registo</button> 
       <div id="registo" class="modal">
-          <form class="modal-content" action="initialPage.php" method='POST'>
+
+          <!--Início do Formulário-->
+          <form class="modal-content" action="initialPage.php" method='POST' onSubmit="return checkform()">
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('registo').style.display='none'" class="close">&times;</button>
             </div>
@@ -83,18 +84,23 @@ include "registo.php";
               <h1>Registo</h1>
               <p>Por favor, preencha este formulário para criar uma conta.</p>
               <hr>
+
+              <!--Nome-->
               <label for="name"><b>Nome</b></label>
               <input type="text" placeholder="Inserir Nome" value="<?php echo htmlspecialchars($name) ?>" name="name" required>
               <div class="erro"><?php echo $errors['name']; ?></div>
 
+              <!--Email-->
               <label for="email"><b>Email</b></label>
               <input type="text" placeholder="Inserir Email" value="<?php echo htmlspecialchars($email) ?>" name="email" required>
               <div class="erro"><?php echo $errors['email']; ?></div>
 
+              <!--Password-->
               <label for="psw"><b>Password</b></label>
               <input type="password" placeholder="Inserir Password" value="<?php echo htmlspecialchars($psw) ?>" name="psw" required>
               <div class="erro"><?php echo $errors['psw']; ?></div>
 
+              <!--Confirmação Password-->
               <label for="psw_repeat"><b>Repetir Password</b></label>
               <input type="password" placeholder="Repetir Password" value="<?php echo htmlspecialchars($psw_repeat) ?>" name="psw_repeat" required>
               <div class="erro"><?php echo $errors['psw_repeat']; ?></div>
@@ -106,9 +112,10 @@ include "registo.php";
               <p>Ao criar a conta você concorda com a nossa <a href="#" style="color:dodgerblue">Política de privacidade</a>.</p>
 
               <div class="clearfix">
-                <!--Botão Cancelar -->
+                <!--Botão Cancelar Registo -->
                 <button value="Hover" type="button" onclick="document.getElementById('registo').style.display='none'" class="cancelbtn">Cancelar</button>
-                <!--Botão Registar -->
+
+                <!--Botão Confirmar Registo -->
                 <button type="submit" name="submit" class="btn-info" id="Menubuttons">Registar</button>
               </div>
             </div>
@@ -117,3 +124,5 @@ include "registo.php";
       </div>
     </div>
 </nav>
+
+
