@@ -1,5 +1,5 @@
 <?php
-include "connection.php";
+include "header.php";
 ?>
 
 <div class="row" style="...">
