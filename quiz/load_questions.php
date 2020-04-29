@@ -56,19 +56,6 @@ else {
                     }
                 ?>
             </td>
-
-            <td style="padding-left: 10px">
-                <?php
-                    if(strpos($opt1,'images/')!=false) {
-                ?>
-                    <!-- <img src="lalala"> -->
-                <?php
-                    }
-                    else {
-                        echo $opt1;
-                    }
-                ?>
-            </td>
         </tr>
 
         <tr>
@@ -77,18 +64,6 @@ else {
                 <?php
                     if($ans==$opt2) {
                         echo "checked";
-                    }
-                ?>
-            </td>
-            <td style="padding-left: 10px">
-                <?php
-                    if(strpos($opt2,'images/')!=false) {
-                ?>
-                    <img src="lalala">
-                <?php
-                    }
-                    else {
-                        echo $opt2;
                     }
                 ?>
             </td>
@@ -103,18 +78,6 @@ else {
                     }
                 ?>
             </td>
-            <td style="padding-left: 10px">
-                <?php
-                    if(strpos($opt3,'images/')!=false) {
-                ?>
-                    <img src="lalala">
-                <?php
-                    }
-                    else {
-                        echo $opt3;
-                    }
-                ?>
-            </td>
         </tr>
 
         <tr>
@@ -123,18 +86,6 @@ else {
                 <?php
                     if($ans==$opt4) {
                         echo "checked";
-                    }
-                ?>
-            </td>
-            <td style="padding-left: 10px">
-                <?php
-                    if(strpos($opt4,'images/')!=false) {
-                ?>
-                    <img src="lalala">
-                <?php
-                    }
-                    else {
-                        echo $opt4;
                     }
                 ?>
             </td>
