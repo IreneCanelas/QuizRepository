@@ -20,13 +20,8 @@ if(isset($_SESSION["answer"][$queno])) {
     $ans=$_SESSION["answer"][$queno];
 }
 
-<<<<<<< HEAD
 $res=msqli_query($link, "select * from questions where category='$_SESSION[category]' && question_num=$_GET[questionno]");
 $count=mysqli_num_rows($res);
-=======
-$res=msqli_query($link, "SELECT * from questions where category='$_SESSION[category]' && questionnum=$_GET[question_num]");
-$count=msqli_num_rows($res);
->>>>>>> de629e664d0995f80b004c09102d12a72bd02d41
 
 if ($count==0) {
    echo "over";
