@@ -42,7 +42,7 @@ include "header.php";
                document.getElementById("total_questions").innerHTML=xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","forajax/load_total_questions.php, true);
+        xmlhttp.open("GET","load_total_questions.php", true);
         xmlhttp.send(null);
     }
 
@@ -65,7 +65,7 @@ include "header.php";
                 }
             }
         };
-        xmlhttp.open("GET","forajax/load_questions.php?questionno="+ questionno, true);
+        xmlhttp.open("GET","load_questions.php?questionno="+ questionno, true);
         xmlhttp.send(null);
     }
 
