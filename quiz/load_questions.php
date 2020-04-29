@@ -24,6 +24,7 @@ $res=msqli_query($link, "select * from questions where category='$_SESSION[categ
 $count=mysqli_num_rows($res);
 
 if ($count==0) {
+    //se a contagem for zero acabou
    echo "over";
 }
 else {
@@ -43,7 +44,7 @@ else {
     <table>
         <tr>
             <td style='font-weight:bold; font-size:18px' colspan='2'>
-            <?php echo "(".$questionnum ." ) ".$question;?>
+            <?php echo "(".$question_num ." ) ".$question;?>
         </tr>
     </table>
 
