@@ -1,6 +1,7 @@
 <?php
 
 include "connection.php";
+include "load_total_questions.php";
 
 $id="";
 $question_num="";
@@ -20,7 +21,7 @@ if(isset($_SESSION["answer"][$queno])) {
     $ans=$_SESSION["answer"][$queno];
 }
 
-$res=msqli_query($link, "select * from questions where category='$_SESSION[category]' && question_num=$_GET[questionno]");
+$res=mysqli_query($conn, "select * from questions where category='$_SESSION[category]' && question_num=$_GET[questionno]");
 $count=mysqli_num_rows($res);
 
 if ($count==0) {
@@ -37,7 +38,7 @@ else {
         $opt4=$row["op4"];
 
     }
-//}
+}
 ?>
     <br>
     <!-- imprimir questao -->
