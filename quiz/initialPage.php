@@ -24,7 +24,9 @@ include "connection.php";
 ?>
 
 
-<!-- Quizzes -->
+<!-- CONFIRMAR SE VAI O CODIGO ABAIXO OU O INCLUDE -->
+  
+<!--Quizzes 
 <div class="center">
   <div class="offset"> 
     <div class="row text-center">
@@ -41,7 +43,12 @@ include "connection.php";
       }?>
     </div>
   </div>
-</div>
+</div>-->
+
+<?php
+    include "select_exam.php";
+?>
+
 <!-- Fim Quizzes -->
 
 <?php 
