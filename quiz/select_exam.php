@@ -2,6 +2,25 @@
     include "connection.php";
 ?>
 
+<?php
+
+  //Join to table
+  $sql = "SELECT id, name, photo_url FROM quizzes";
+
+  $result = $conn->query($sql);
+  $quizzes = [];
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $quizzes[] = $row;
+      }
+  } else {
+      echo "0 results";
+  }
+
+?>
+
 <!-- Categoria dos Quizzes -->
 <div class="center">
   <div class="offset"> 
