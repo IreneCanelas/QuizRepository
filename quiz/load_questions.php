@@ -1,7 +1,9 @@
 <?php
 
+include "connection.php";
+
 $id="";
-$questionnum="";
+$question_num="";
 $question="";
 $opt1="";
 $opt2="";
@@ -12,14 +14,14 @@ $category="";
 $count=0;
 $ans="";
 
-$ques_num=$_GET["question_num"];
+$queno=$_GET["questionno"];
 
-if(isset($_SESSION["answer"][$ques_num])) {
-    $ans=$_SESSION["answer"][$ques_num];
+if(isset($_SESSION["answer"][$queno])) {
+    $ans=$_SESSION["answer"][$queno];
 }
 
-$res=msqli_query($link, "select * from questions where category='$_SESSION[category]' && questionnum=$_GET[question_num]");
-$count=msqli_num_rows($res);
+$res=msqli_query($link, "select * from questions where category='$_SESSION[category]' && question_num=$_GET[questionno]");
+$count=mysqli_num_rows($res);
 
 if ($count==0) {
    echo "over";
@@ -91,3 +93,6 @@ else {
             </td>
         </tr>
     </table>
+<?php
+}
+?>
