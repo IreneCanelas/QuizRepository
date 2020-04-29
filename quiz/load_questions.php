@@ -18,7 +18,7 @@ if(isset($_SESSION["answer"][$ques_num])) {
     $ans=$_SESSION["answer"][$ques_num];
 }
 
-$res=msqli_query($link, "select * from questions where category='$_SESSION[category]' && questionnum=$_GET[question_num]");
+$res=msqli_query($link, "SELECT * from questions where category='$_SESSION[category]' && questionnum=$_GET[question_num]");
 $count=msqli_num_rows($res);
 
 if ($count==0) {
@@ -56,6 +56,19 @@ else {
                     }
                 ?>
             </td>
+
+            <td style="padding-left: 10px">
+                <?php
+                    if(strpos($opt1,'images/')!=false) {
+                ?>
+                    <!-- <img src="lalala"> -->
+                <?php
+                    }
+                    else {
+                        echo $opt1;
+                    }
+                ?>
+            </td>
         </tr>
 
         <tr>
@@ -64,6 +77,18 @@ else {
                 <?php
                     if($ans==$opt2) {
                         echo "checked";
+                    }
+                ?>
+            </td>
+            <td style="padding-left: 10px">
+                <?php
+                    if(strpos($opt2,'images/')!=false) {
+                ?>
+                    <img src="lalala">
+                <?php
+                    }
+                    else {
+                        echo $opt2;
                     }
                 ?>
             </td>
@@ -78,6 +103,18 @@ else {
                     }
                 ?>
             </td>
+            <td style="padding-left: 10px">
+                <?php
+                    if(strpos($opt3,'images/')!=false) {
+                ?>
+                    <img src="lalala">
+                <?php
+                    }
+                    else {
+                        echo $opt3;
+                    }
+                ?>
+            </td>
         </tr>
 
         <tr>
@@ -89,5 +126,18 @@ else {
                     }
                 ?>
             </td>
+            <td style="padding-left: 10px">
+                <?php
+                    if(strpos($opt4,'images/')!=false) {
+                ?>
+                    <img src="lalala">
+                <?php
+                    }
+                    else {
+                        echo $opt4;
+                    }
+                ?>
+            </td>
         </tr>
+
     </table>
