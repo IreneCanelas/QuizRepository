@@ -27,7 +27,7 @@ include "header2.php";
                         <div style="min-height: 10px">
                             <div class="col-lg-12 text-center">
                             <input type="button" id="btnPrevious" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp;
-                            <input type="button" id="btnNext" style="float:left" class="btn btn-success" value="Next" onclick="load_next();">&nbsp;
+                            <input type="button" id="btnNext" class="btn btn-success" value="Next" onclick="load_next();">&nbsp;
                         </div>
                     </div>
                 </div>
