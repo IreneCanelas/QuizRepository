@@ -1,5 +1,24 @@
 <?php
 include "connection.php";
+
+  // Botao de Pesquisa na nav  
+  if(!empty($_GET['search'])) {
+    $search = $_GET['search'];
+    $sql = "SELECT id, name, photo_url FROM quizzes WHERE name='" . $search . "'";
+  } else {
+      $sql = "SELECT id, name, photo_url FROM quizzes";
+  }
+
+  $result = $conn->query($sql);
+  $quizzes = [];
+
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          $quizzes[] = $row;
+      }
+  } else {
+      echo "0 results";
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +40,7 @@ include "connection.php";
   <a class="navbar-brand" href="initialPage.php">
     <img src="images/Logo.png" width="60" height="60" alt="">
   </a>
-  <a class="navbar-brand" href="#">QuizQuiz</a>
+  <a class="navbar-brand" href="initialPage.php">QuizQuiz</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -38,7 +57,7 @@ include "connection.php";
 
     <!--Campo Pesquisar-->
     <div class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Procure aqui" aria-label="Search"></input>
+      <input class="form-control mr-sm-2" type="search" name="search" placeholder="Procure aqui" aria-label="Search" id="pesquisa" value="<?php if(!empty($search)) { echo $search; }?>">
       <button type="submit" class="btn btn-link">
         <i class="glyphicon glyphicon-search"></i>
       </button>
