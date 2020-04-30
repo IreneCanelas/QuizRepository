@@ -18,7 +18,7 @@ include "connection.php";
 <body> 
 <!--Barra de navegação-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="initialPage.php">
     <img src="images/Logo.png" width="60" height="60" alt="">
   </a>
   <a class="navbar-brand" href="#">QuizQuiz</a>
@@ -32,7 +32,7 @@ include "connection.php";
         <a class="nav-link" href="#">Ínicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Os nossos quizzes</a>
+        <a class="nav-link" href="#">Os nossos quizzes </a>
       </li>
     </ul>
 
