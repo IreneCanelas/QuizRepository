@@ -32,12 +32,12 @@ if ($stmt = $con->prepare('SELECT id, psw FROM registos WHERE email = ?')) {
 			$_SESSION['loggedin'] = TRUE;
 			$_SESSION['name'] = $_POST['username'];
 			$_SESSION['id'] = $id;
-			echo 'Welcome ' . $_SESSION['name'] . '!';
+			echo 'Bem vindo,  ' . $_SESSION['name'] . '!';
 		} else {
-			echo 'Incorrect password!';
+			echo 'Password errada!';
 		}
 	} else {
-		echo 'Incorrect email!';
+		echo 'Email errado!';
 	}
 
 	$stmt->close();
