@@ -2,65 +2,38 @@
 include "header2.php";
 ?>
 
-<div class="centerdash" style="width: 21.5em;margin:0 auto;">
-    <div>    
-        <div class="card text-center" style="width: 18rem;">
-            <div class="card-body">
-
-                <!--Número da questão no início do card-->
-                <h5 id="current_que" class="card-title"></h5>
-
-                <div> 
-                <!--Load questions passa as questoes e opcoes-->
-                <!--Não funciona-->
-                <div id="load_questions">
-                    <div id="total_questions">Total questions?</div>
-                </div>
-                        <!--Não está assim no video-->
-                        <!--Temos que conectar as questões-->
-                        <p class="card-text">Op1</p>
-                        <p class="card-text">Op2</p>
-                        <p class="card-text">Op3</p>
-                        <p class="card-text">Op4</p>
-                    </div>
-                    <div class="row" style="margin-top:10px">
-                        <div style="min-height: 10px">
-                            <div class="col-lg-12 text-center">
-                            <input type="button" id="btnPrevious" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp;
-                            <input type="button" id="btnNext" class="btn btn-success" value="Next" onclick="load_next();">&nbsp;
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="centerdash" style="width: 21.5em;margin:0 auto;">  
+    <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
         
-        <!--Início da edição DE ACORDO COM O VIDEO DO HOMENZINHO
-        <br>
-        <div class="row">
-            <br>
-            <div class="col-lg-2 col-lg-push-10">
-                <div id="current_que" style="float:left">0</div>
-                <div style="float:left">0</div>
-                <div id="total_questions" style="float:left">0</div>
+            <div>
+                <h5 class="card-title">Quiz de <nomedoQuiz> </h5>
+                <!--Aqui vai aparecer questão "1/4"... -->
+                <!--Número da questão no início do card-->
+                <div id="current_que">0</div>
+                <div>/</div>
+                <!--Não anda, não funciona-->
+                <div id="total_questions">0</div>
             </div>
-            <div class="row" style="magin-top: 30px">
+
+        <!--Ler as questões-->
+            <div>
+                <!--Não funciona-->
+                <p>Aparecer questões aqui embaixo:</p>
+                <div id="load_questions">
+                </div>
+            </div>
                 
-                <div class="row">
-                    <div class="col-lg-10 col-lg-push-1" style="min-height: 300px; background-color: white" id="load_questions">
+        <!--Botões Prev e Next-->
+            <div class="row" style="margin-top:10px">
+                <div style="min-height: 10px">
+                    <div class="col-lg-12 text-center">
+                    <input type="button" id="btnPrevious" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp;
+                    <input type="button" id="btnNext" class="btn btn-success" value="Next" onclick="load_next();">&nbsp;
                     </div>
-                </div> 
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-lg-6 col-lg-push-3" style="min-height: 50px">
-                <div class="col-lg-12 text-center">
-                    <input type="button" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp;
-                    <input type="button" class="btn btn-success" value="Next" onclick="load_next();">&nbsp;
                 </div>
             </div>
         </div>
-        <!--Fim da edição-->
     </div>
 </div>
 
@@ -69,11 +42,11 @@ include "header2.php";
     {
         var xmlhttp=new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                document.getElementById("total_questions").innerHTML=xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","load_total_questions.php", true);
+        xmlhttp.open("GET","forajax/load_total_questions.php", true);
         xmlhttp.send(null);
     }
 
@@ -92,11 +65,11 @@ include "header2.php";
                 }
                 else{
                     document.getElementByID("load_questions").innerHTML=xmlhttp.responseText;
-                    load_total_que();
+                    load_total_questions();
                 }
             }
         };
-        xmlhttp.open("GET","load_questions.php?questionno="+ questionno, true);
+        xmlhttp.open("GET","forajax/load_questions.php?questionno="+ questionno, true);
         xmlhttp.send(null);
     }
 
