@@ -2,7 +2,7 @@
     session_start();
     include "connection.php";
 
-    $category=$_GET['name'];
+    $category=$_GET['category'];
     $_SESSION['category']=$category;
     $res=mysqli_query($conn, "SELECT * from questions where category='$category'");
 
