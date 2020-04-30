@@ -1,11 +1,42 @@
 <?php
-include "header.php";
+include "header2.php";
 ?>
 
-<div class="row" style="...">
-    <div class="col-lg-6 col-lg-push-3" style="...">
+<div class="centerdash" style="width: 21.5em;margin:0 auto;">
+    <div>    
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+
+                <!--Número da questão no início do card-->
+                <h5 id="current_que" class="card-title"></h5>
+
+                <div> 
+                <!--Load questions passa as questoes e opcoes-->
+                <!--Não funciona-->
+                <div id="load_questions">
+                    <div id="total_questions">Total questions?</div>
+                </div>
+                        <!--Não está assim no video-->
+                        <!--Temos que conectar as questões-->
+                        <p class="card-text">Op1</p>
+                        <p class="card-text">Op2</p>
+                        <p class="card-text">Op3</p>
+                        <p class="card-text">Op4</p>
+                    </div>
+                    <div class="row" style="margin-top:10px">
+                        <div style="min-height: 10px">
+                            <div class="col-lg-12 text-center">
+                            <input type="button" id="btnPrevious" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp;
+                            <input type="button" id="btnNext" style="float:left" class="btn btn-success" value="Next" onclick="load_next();">&nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         
-        <!--Início da edição-->
+        <!--Início da edição DE ACORDO COM O VIDEO DO HOMENZINHO
         <br>
         <div class="row">
             <br>
@@ -82,7 +113,7 @@ include "header.php";
         }
     }
 
-    function load_previous()
+    function load_next()
     {   
         questionno=eval(questionno)+1;
         load_questions(questionno);
