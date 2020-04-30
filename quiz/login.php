@@ -27,6 +27,7 @@ if ($stmt = $con->prepare('SELECT id, psw FROM registos WHERE email = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
 	$stmt->bind_param('s', $_POST['email']);
 	$stmt->execute();
+
 	// Store the result so we can check if the account exists in the database.
 	$stmt->store_result();
 
@@ -34,7 +35,7 @@ if ($stmt = $con->prepare('SELECT id, psw FROM registos WHERE email = ?')) {
 		$stmt->bind_result($id, $psw);
 		$stmt->fetch();
 		// Account exists, now we verify the password.
-		// Note: remember to use password_hash in your registration file to store the hashed passwords.
+		
 		if ($_POST['psw'] === $psw) {
 			// Verification success! User has loggedin!
 			// Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
@@ -47,7 +48,7 @@ if ($stmt = $con->prepare('SELECT id, psw FROM registos WHERE email = ?')) {
 			echo 'Incorrect password!';
 		}
 	} else {
-		echo 'Incorrect username!';
+		echo 'Incorrect email!';
 	}
 
 
