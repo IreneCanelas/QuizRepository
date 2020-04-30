@@ -1,11 +1,33 @@
 <?php
-include "header.php";
+include "header2.php";
 ?>
 
-<div class="row" style="...">
-    <div class="col-lg-6 col-lg-push-3" style="...">
+<div class="centerdash" style="width: 21.5em;margin:0 auto;">
+    <div>    
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <h5 id="current_que" class="card-title">Question</h5>
+                <div id="load_questions">
+                    <div id="total_questions">
+                        <p class="card-text">Op1</p>
+                        <p class="card-text">Op2</p>
+                        <p class="card-text">Op3</p>
+                        <p class="card-text">Op4</p>
+                    </div>
+                    <div class="row" style="margin-top:10px">
+                        <div class="col-lg-6 col-lg-push-3" style="min-height: 50px">
+                            <div class="col-lg-12 text-center">
+                            <input type="button" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp;
+                            <input type="button" class="btn btn-success" value="Next" onclick="load_next();">&nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         
-        <!--Início da edição-->
+        <!--Início da edição
         <br>
         <div class="row">
             <br>
