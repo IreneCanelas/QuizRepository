@@ -1,5 +1,8 @@
 <?php
+    //session_start();
+
     include "connection.php";
+    include "header.php";
 ?>
 
 <!-- Categoria dos Quizzes -->
@@ -12,8 +15,8 @@
               <div class="details_quiz">
                   <h3> <?php echo $quiz['name'] ?> </h3>
                   <img src="<?php echo $quiz['photo_url'] ?>" id="details_photo">
-                  <!--Trocar o nome do onclick para o arquivo da Sara-->
-                  <button class="btn btn-outline-dark" type="submit" onclick="document.location.href='initialPage.php'">Fazer este!</button>
+                  <!--onclick abrir questões-->
+                  <button class="btn btn-outline-dark" type="submit" onclick="set_category_type_session(this.value);">Fazer este!</button>
               </div>
           </div>
           <?php
@@ -21,4 +24,23 @@
     </div>
   </div>
 </div>
+
+
+<?php 
+  include "footer.html";
+?>
+
+  
+<script type="text/javascript">
+  function set_category_type_session(quizzes) {
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        window.location = "dashboard.php";
+      }
+    };
+    xmlhttp.open("GET","set_category_type_session.php?quizzes="+ quizzes, true);
+    xmlhttp.send(null);
+  }
+</script>
 

@@ -1,35 +1,45 @@
 <?php
+
 include "connection.php";
 include "registo.php";
-// começar ou retomar uma sessão
+
 session_start();
- 
-// se vier um pedido para login
-if (!empty($_POST)) {
- 
-	// estabelecer ligação com a base de dados
-	mysql_connect('localhost', 'email', 'psw') or die(mysql_error());
-	mysql_select_db('registos');
- 
-	// receber o pedido de login com segurança
-	$email = mysql_real_escape_string($_POST['email']);
-	$psw = sha1($_POST['psw']);
- 
-	// verificar o utilizador em questão (pretendemos obter uma única linha de registos)
-	$login = mysql_query("SELECT id, email FROM registos WHERE email = '$email' AND psw = '$psw'");
- 
-	if ($login && mysql_num_rows($login) == 1) {
- 
-		// o utilizador está correctamente validado
-		// guardamos as suas informações numa sessão
-		$_SESSION['id'] = mysql_result($login, 0, 0);
-		$_SESSION['email'] = mysql_result($login, 0, 1);
- 
-		echo "<p>Sess&atilde;o iniciada com sucesso como {$_SESSION['email']}</p>";
+
+// Now we check if the data from the login form was submitted, isset() will check if the data exists.
+if ( !isset($_POST['email'], $_POST['psw']) ) {
+	// Could not get the data that should have been sent.
+	exit('Por favor preencha os campos email e password');
+}
+
+// Prepare our SQL, preparing the SQL statement will prevent SQL injection.
+if ($stmt = $con->prepare('SELECT id, psw FROM registos WHERE email = ?')) {
+	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
+	$stmt->bind_param('s', $_POST['email']);
+	$stmt->execute();
+
+	// Store the result so we can check if the account exists in the database.
+	$stmt->store_result();
+
+	if ($stmt->num_rows > 0) {
+		$stmt->bind_result($id, $psw);
+		$stmt->fetch();
+		// Account exists, now we verify the password.
+		
+		if ($_POST['psw'] === $psw) {
+			// Verification success! User has loggedin!
+			// Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
+			session_regenerate_id();
+			$_SESSION['loggedin'] = TRUE;
+			$_SESSION['name'] = $_POST['username'];
+			$_SESSION['id'] = $id;
+			echo 'Bem vindo,  ' . $_SESSION['name'] . '!';
+		} else {
+			echo 'Password errada!';
+		}
 	} else {
- 
-		// falhou o login
-		echo "<p>Email ou password invalidos. <a href=\"login.php\">Tente novamente</a></p>";
+		echo 'Email errado!';
 	}
+
+	$stmt->close();
 }
 ?>

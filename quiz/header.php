@@ -1,6 +1,25 @@
 <?php
 include "connection.php";
 include "registo.php";
+
+  // Botao de Pesquisa na nav  
+  if(!empty($_GET['search'])) {
+    $search = $_GET['search'];
+    $sql = "SELECT id, name, photo_url FROM quizzes WHERE name='" . $search . "'";
+  } else {
+      $sql = "SELECT id, name, photo_url FROM quizzes";
+  }
+
+  $result = $conn->query($sql);
+  $quizzes = [];
+
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          $quizzes[] = $row;
+      }
+  } else {
+      echo "0 results";
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +33,7 @@ include "registo.php";
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body> 
@@ -37,7 +57,7 @@ include "registo.php";
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Procure aqui" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Procure aqui" aria-label="Search" id="pesquisa" value="<?php if(!empty($search)) { echo $search; }?>">
     <!-- Login -->
     <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
