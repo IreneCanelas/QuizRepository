@@ -75,7 +75,7 @@ include "registo.php";
       <div id="registo" class="modal">
 
           <!--Início do Formulário-->
-          <form class="modal-content" action="initialPage.php" method='POST' onSubmit="return checkform()">
+          <form class="modal-content" action="<?php echo $_SERVER['PHP_SELF']?>" method='POST' onSubmit="return checkform()">
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('registo').style.display='none'" class="close">&times;</button>
             </div>
@@ -124,5 +124,7 @@ include "registo.php";
       </div>
     </div>
 </nav>
+
+
 
 
