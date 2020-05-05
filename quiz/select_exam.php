@@ -2,7 +2,7 @@
     //session_start();
 
     include "connection.php";
-    include "header.php";
+    //include "header.php";
 ?>
 
 <!-- Categoria dos Quizzes -->
@@ -24,11 +24,6 @@
     </div>
   </div>
 </div>
-
-
-<?php 
-  include "footer.html";
-?>
 
   
 <script type="text/javascript">
