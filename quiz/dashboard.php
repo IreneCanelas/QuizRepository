@@ -46,10 +46,12 @@ include "header2.php";
                document.getElementById("total_questions").innerHTML=xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","forajax/load_total_questions.php", true);
+        xmlhttp.open("GET","foarajax/load_total_questions.php", true);
         xmlhttp.send(null);
     }
 
+    //no need to declare variable $questionno = $_POST['questionno'] ?? '';
+    
     var questionno="1";
     load_questions(questionno)
 
@@ -69,7 +71,7 @@ include "header2.php";
                 }
             }
         };
-        xmlhttp.open("GET","forajax/load_questions.php?questionno="+ questionno, true);
+        xmlhttp.open("GET","foarajax/load_questions.php?questionno="+ questionno, true);
         xmlhttp.send(null);
     }
 
