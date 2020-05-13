@@ -1,16 +1,17 @@
 <?php
 include "connection.php";
 include "header2.php";
+session_start();
 ?>
 
-<!-- Grid column -->
-<form>
+<!-- Coluna -->
+
 <div class="col-lg-4 col-md-12 mx-auto mt-3">
 
 <!--Card Narrower-->
 <div class="card card-cascade narrower">
 
-  <!--Card image-->
+  <!--Imagem-->
   <div class="view view-cascade overlay">
     <img src="images/fundo.jpg" class="card-img-top"
       alt="imagem final">
@@ -18,20 +19,25 @@ include "header2.php";
       <div class="mask rgba-white-slight"></div>
     </a>
   </div>
-  <!--/.Card image-->
+  <!--Fim da imagem-->
 
-  <!--Card content-->
+  <!--Conteúdo-->
   <div class="card-body card-body-cascade">
     <form action="quizzes.php">
-    <h4 class="text-warning text-center"><i class="fas fa-poll"></i> Resultado</h5><br>  <!--Cor do texto não está a funcionar-->
-    <!--Title
+    <!--Título-->
+    <h4 class="text-warning text-center"><i class="fas fa-poll"></i> Resultado</h5><br>
+    <!--Subtítulo
     <h5 class="card-title">Veja aqui seu desempenho:</h4>-->
-    <!--Text-->
+    <!--Texto-->
+    <form action="examOK.php">
+      
+    <!--Resultado-->
     <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no = @$_SESSION['score'];
             session_unset(); ?></span><br>
             <span>Pontuação final:&nbsp<?php echo $no*2; ?></span></form>
-            <script type="text/javascript">
 
+
+            <script type="text/javascript">
                 function radioValidation(){
                     /* var useransj = document.getElementById('rd').value;
                     //document.cookie = "username = " + userans;
@@ -48,6 +54,7 @@ include "header2.php";
             </script>
             <br>
             <br>
+            <!--BOTOES REDES SOCIAIS-->
             <div class="text-center">
             <p>Compartilhe o resultado com seus amigos!</p>
             <!--Facebook-->

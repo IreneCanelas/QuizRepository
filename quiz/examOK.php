@@ -6,7 +6,9 @@
 ?>
 
 <div class="title">TITULO DO QUIZ</div>
-<?php   
+<?php
+
+   
 
     //Se for um clique ou o inicio
     if (isset($_POST['click']) || isset($_GET['start'])) {
@@ -113,7 +115,7 @@
       <!--Botão Próxima pergunta-->
       <tr>
         <td>
-        <button class="button3" name="click">Próxima!</button>
+        <button class="button3" name="click">Próxima</button>
         <br>
         <br>
         <br>
@@ -124,15 +126,20 @@
   </table>
 </form>
 
-<?php if($_SESSION['clicks']>10){
+<form action="result.php">
+<?php if($_SESSION['clicks']==11){ ?>
+  <button class="button3" name="click" onclick="result">Resultado</button>
+  <?php 
+   echo "entrei no if ==11";
 	$qry3 = "SELECT `answer`, `userans` FROM `questions`;";
 	$result3 = mysqli_query($conn,$qry3);
 	$storeArray = Array();
 	while ($row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC)) {
      if($row3['answer']==$row3['userans']){
-		 @$_SESSION['score'] += 1 ;
+     @$_SESSION['score'] += 1 ;
+     echo "<br>";
+     echo "SCORE = ".@$_SESSION['score'];
 	 }
-  }
-}
-?> 
-
+  } ?>
+</form>
+<?php } ?> 
