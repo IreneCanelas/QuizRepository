@@ -23,17 +23,19 @@
   }
 ?>
 
-    <div class="card text-center centerdash" style="width: 50rem; margin:0 auto;">
+    <div class="card centerdash" style="width: 50rem; margin:0 auto;">
         <div class="card-body">
             <div>
-            <h5 class="card-title">Quiz de <?php echo $category_selected ?> </h5>
-            <?php foreach ($questions as $question ) { ?>   
+            <h3 class="card-title">Quiz de <?php echo $category_selected ?> </h3>
+            <?php foreach ($questions as $question ) { ?> 
+           
         <!--Ler as questões-->
               <div>
               <tr>
                 <td>
+                  <hr>
                   <p><?php echo $question['question']; ?> </p>
-                  <br>
+                  <hr>
                 </td>
               </tr>
               <tr>
@@ -69,8 +71,8 @@
     <div class="row" style="margin-top:10px">
         <div style="min-height: 10px">
             <div class="col-lg-12 text-center">
-            <input type="button" id="btnPrevious" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp;
-            <input type="button" id="btnNext" class="btn btn-success" value="Next" onclick="load_next();">&nbsp;
+            <!-- <input type="button" id="btnPrevious" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp; -->
+            <!-- <input type="button" id="btnNext" class="btn btn-primary" value="Submeter" onclick="load_next();">&nbsp; -->
             </div>
         </div>
     </div>
