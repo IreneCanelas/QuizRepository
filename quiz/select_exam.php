@@ -2,7 +2,6 @@
     //session_start();
 
     include "connection.php";
-    //include "header.php";
 ?>
 
 <!-- Categoria dos Quizzes -->
@@ -38,4 +37,3 @@
     xmlhttp.send(null);
   }
 </script>
-

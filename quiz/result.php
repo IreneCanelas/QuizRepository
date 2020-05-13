@@ -4,6 +4,7 @@ include "header2.php";
 ?>
 
 <!-- Grid column -->
+<form>
 <div class="col-lg-4 col-md-12 mx-auto mt-3">
 
 <!--Card Narrower-->
@@ -21,13 +22,14 @@ include "header2.php";
 
   <!--Card content-->
   <div class="card-body card-body-cascade">
+    <form action="quizzes.php">
     <h4 class="text-warning text-center"><i class="fas fa-poll"></i> Resultado</h5><br>  <!--Cor do texto não está a funcionar-->
     <!--Title
     <h5 class="card-title">Veja aqui seu desempenho:</h4>-->
     <!--Text-->
     <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no = @$_SESSION['score'];
             session_unset(); ?></span><br>
-            <span>Pontuação final:&nbsp<?php echo $no*2; ?></span>
+            <span>Pontuação final:&nbsp<?php echo $no*2; ?></span></form>
             <script type="text/javascript">
 
                 function radioValidation(){
@@ -66,6 +68,7 @@ include "header2.php";
 </div>
 <!-- Grid column -->
 </div>
+</form>
 
 <?php
     include "footer.html";
