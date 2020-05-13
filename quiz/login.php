@@ -19,8 +19,9 @@ session_start();
         if(isset($resultado)){
             $_SESSION['registosId'] = $resultado['id'];
             $_SESSION['registosName'] = $resultado['name'];
-            $_SESSION['registosEmail'] = $resultado['email'];
-        //Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
+			$_SESSION['registosEmail'] = $resultado['email'];
+			
+        //Não foi encontrado um usuario na tabela registos com os mesmos dados digitado no formulário
         //redireciona o usuario para a página de login
         }else{    
             //Váriavel global recebendo a mensagem de erro
