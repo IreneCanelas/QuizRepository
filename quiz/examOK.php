@@ -82,7 +82,10 @@
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
       }
     ?>
-      <tr>
+        
+      <!--Se o click estiver entre 1 e 5 continuar a mostrar as perguntas-->
+      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
+        <tr>
         <td>
           <h3><br><?php echo @$row['question'];?></h3>
         </td>
