@@ -1,6 +1,7 @@
 <?php
 include "connection.php";
 include "registo.php";
+include "login.php";
 
   // Botao de Pesquisa na nav  
   if(!empty($_GET['search'])) {
@@ -61,7 +62,7 @@ include "registo.php";
     <!-- Login -->
     <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
-          <form class="modal-content" action="/login.php" method="POST">
+          <form class="modal-content" action="initialAfterLogin.php" method="POST">
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('login').style.display='none'" class="close">&times;</button>
             </div>
@@ -78,6 +79,11 @@ include "registo.php";
               <label>
                 <input type="checkbox" checked="checked" name="remember">Recordar as minhas informações
               </label>
+
+              <?php 
+                if(!empty($_GET['error']) && $_GET['error'] == 1) { 
+                    echo '<p style="color:red"> Nome de Utilizador ou Palavra-passe errada! </p>'; 
+              } ?>
 
               <div class="clearfix">
                 <!--Botão Cancelar -->
