@@ -74,24 +74,18 @@
     <?php if(isset($c)) 
       {   
         $fetchqry = "SELECT * FROM `questions` where id='$c'"; 
-        echo "<br>";
-        echo "ID da pergunta= ";
-        echo $c; 
         $result=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($result);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
       }
     ?>
-        
-      <!--Se o click estiver entre 1 e 5 continuar a mostrar as perguntas-->
-      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
-        <tr>
+      <tr>
         <td>
           <h3><br><?php echo @$row['question'];?></h3>
         </td>
       </tr> 
       
-      <!--Se o click estiver entre 1 e 10 continuar a mostrar as perguntas-->
+      <!--Se o click estiver entre 1 e 5 continuar a mostrar as perguntas-->
       <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
       <tr>
         <td>
