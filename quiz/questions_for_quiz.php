@@ -45,17 +45,18 @@
               <tr>
                 <td>
                 <input required type="radio" name="userans">&nbsp;<?php echo $question['opt2'];?>
+                <br>
                 </td>
               </tr>
               <tr>
                 <td>
                 <input required type="radio" name="userans">&nbsp;<?php echo $question['opt3']; ?>
+                <br>
                 </td>
               </tr>
               <tr>
                 <td>
                 <input required type="radio" name="userans" >&nbsp;<?php echo $question['opt4']; ?>
-                <br>
                 <br>
                 <br>
                 </td>
