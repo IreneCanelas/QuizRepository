@@ -6,7 +6,7 @@ include "registo.php";
 session_start();     
     //O campo email e password preenchido entra no if para validar
     if((isset($_POST['email'])) && (isset($_POST['psw']))){
-        $usuario = mysqli_real_escape_string($conn, $_POST['email']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
 		$psw = mysqli_real_escape_string($conn, $_POST['psw']);
 		
 		
