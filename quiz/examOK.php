@@ -44,7 +44,7 @@
           $userselected = $_POST['userans'];          
           $fetchqry2 = "UPDATE `questions` SET `userans`='$userselected' WHERE `id`=$c-1";
           echo "<br>";
-          echo "valor de c= ";
+          echo "valor de id para atualizar userans= ";
           echo $c-1; 
           echo "<br>";
           echo "valor de USERANS= ";
@@ -74,18 +74,24 @@
     <?php if(isset($c)) 
       {   
         $fetchqry = "SELECT * FROM `questions` where id='$c'"; 
+        echo "<br>";
+        echo "ID da pergunta= ";
+        echo $c; 
         $result=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($result);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
       }
     ?>
-      <tr>
+        
+      <!--Se o click estiver entre 1 e 5 continuar a mostrar as perguntas-->
+      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
+        <tr>
         <td>
           <h3><br><?php echo @$row['question'];?></h3>
         </td>
       </tr> 
       
-      <!--Se o click estiver entre 1 e 5 continuar a mostrar as perguntas-->
+      <!--Se o click estiver entre 1 e 10 continuar a mostrar as perguntas-->
       <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
       <tr>
         <td>
@@ -127,18 +133,21 @@
 </form>
 
 <form action="result.php">
-<?php if($_SESSION['clicks']==11){ ?>
+<?php if($_SESSION['clicks']>10){ ?>
   <button class="button3" name="click" onclick="result">Resultado</button>
   <?php 
    echo "entrei no if ==11";
-	$qry3 = "SELECT `answer`, `userans` FROM `questions`;";
+	$qry3 = "SELECT `answer`, `userans` FROM `questions` WHERE `id`<=10";
 	$result3 = mysqli_query($conn,$qry3);
-	$storeArray = Array();
+  $storeArray = Array();
+  unset($_SESSION["score"]);
 	while ($row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC)) {
      if($row3['answer']==$row3['userans']){
      @$_SESSION['score'] += 1 ;
      echo "<br>";
      echo "SCORE = ".@$_SESSION['score'];
+     echo "<br>";
+     echo "USERANS = ".$row3['userans'];
 	 }
   } ?>
 </form>
