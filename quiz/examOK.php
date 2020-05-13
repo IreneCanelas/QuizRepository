@@ -6,12 +6,15 @@
 ?>
 
 <div class="title">TITULO DO QUIZ</div>
-<?php
+
 
    
-
+<?php
     //Se for um clique ou o inicio
-    if (isset($_POST['click']) || isset($_GET['start'])) {
+    if (isset($_POST['click']) || isset($_GET['start'])) { ?>
+      <div id='demo'>  </div>
+      <div id='tenta'></div>
+      <?php
       echo "<br>";
       echo "ENTREI NO PRIMEIRO IF";
       echo "<br>";
@@ -145,4 +148,31 @@
 	 }
   } ?>
 </form>
-<?php } ?> 
+<?php } ?>
+
+<script>
+function countdown() {
+    var seconds = 10;
+    //var mins = 1;
+    function tick() {
+        var counter = document.getElementById("demo");
+        //var current_minutes = mins-1
+        seconds--;
+        counter.innerHTML = /*current_minutes.toString()*/ '0:' + (seconds < 10 ? "0" : "") + String(seconds);
+        if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        } else if( seconds == 0)
+        {
+          document.getElementById('tenta').innerHTML = 'Acabou o tempo! Passe para a próxima pergunta!';
+        }
+    }
+    tick();
+}
+countdown();
+
+/*else {
+            if(mins > 1){
+                countdown(mins-1);           
+            }
+        }*/
+</script>
