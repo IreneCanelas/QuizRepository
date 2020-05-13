@@ -4,8 +4,9 @@ include "header2.php";
 session_start();
 ?>
 
-<!-- Coluna -->
 
+
+<!-- Coluna -->
 <div class="col-lg-4 col-md-12 mx-auto mt-3">
 
 <!--Card Narrower-->

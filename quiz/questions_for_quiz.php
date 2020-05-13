@@ -72,7 +72,7 @@
         <div style="min-height: 10px">
             <div class="col-lg-12 text-center">
             <!-- <input type="button" id="btnPrevious" class="btn btn-warning" value="Previous" onclick="load_previous();">&nbsp; -->
-            <input type="button" id="btnNext" class="btn btn-primary" value="Submeter" onclick="load_next();">&nbsp;
+            <a href="result.php"> <input type="button" id="btnNext" class="btn btn-primary" value="Submeter" onclick="load_next();">&nbsp; </a>
             </div>
         </div>
     </div>
