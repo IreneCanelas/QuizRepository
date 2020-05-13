@@ -33,7 +33,7 @@ session_start();
       
     <!--Resultado-->
     <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no = @$_SESSION['score'];
-            session_unset(); ?></span><br>
+            unset($_SESSION["score"]); ?></span><br>
             <span>Pontuação final:&nbsp<?php echo $no*2; ?></span></form>
 
 
