@@ -79,7 +79,7 @@ include "connection.php";
      if(mysqli_query($conn, $sql)){
        // sucesso
        $var = $_SERVER['PHP_SELF'];
-       header('Location: header.php' );
+       header('Location: initialPage.php' );
      } else {
        echo 'query error: '. mysqli_error($conn);
      }

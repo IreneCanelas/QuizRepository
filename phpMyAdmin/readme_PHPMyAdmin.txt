@@ -18,11 +18,11 @@ Descrição dos ficheiros:
 
 2.
 	Nome: registos.sql
-	Função: 
+	Função: Tabela com informações relativas aos registos do utilizador, como nome, email e password.
 
 3.
 	Nome: questions.sql
-	Função: Tabela com as questões dos quizzes, opções de respostas, resposta corretea e suas respetivas categorias. 
+	Função: Tabela com as questões dos quizzes, opções de respostas, resposta correta e suas respetivas categorias. 
  
 
 
