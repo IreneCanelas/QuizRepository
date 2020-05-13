@@ -15,7 +15,7 @@ session_start();
         $resultado_registos = mysqli_query($conn, $result_registos);
         $resultado = mysqli_fetch_assoc($resultado_registos;
         
-        //Encontrado um user na tabela usuário com os mesmos dados digitado no formulário
+        //Encontrado um user na tabela registos com os mesmos dados digitado no formulário
         if(isset($resultado)){
             $_SESSION['registosId'] = $resultado['id'];
             $_SESSION['registosName'] = $resultado['name'];
