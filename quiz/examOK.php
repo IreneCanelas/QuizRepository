@@ -1,57 +1,35 @@
 <?php
     include "connection.php";
-    //include "quizzes.php";
     session_start();
-    //include "header.php";
+    include "header2.php";
 ?>
 
-<div class="title">TITULO DO QUIZ</div>
+<!--SELECIONAR CATEGORIA-->
+<?php 
+
+    $category_selected = $_GET['category'];
+    $db = "SELECT id, question_num, question, opt1, opt2, opt3, opt4, answer, userans, category FROM questions where category='" . $category_selected ."'";
+    $result = $conn->query($db);
+?>
 
 
-   
+<!--CONTAGEM DE CLICKS-->
 <?php
     //Se for um clique ou o inicio
     if (isset($_POST['click']) || isset($_GET['start'])) { ?>
-      <div id='demo'>  </div>
+      <div id='demo'></div>
       <div id='tenta'></div>
       <?php
-      echo "<br>";
-      echo "ENTREI NO PRIMEIRO IF";
-      echo "<br>";
-      echo "POST= ";
-      var_dump($_POST);
-      echo "<br>";
-      echo "GET= ";
-      var_dump($_GET);
-      //Somar +1 no valor de clicks
+          if(empty($category_selected)){
+            echo "Variavel vazia";
+          }
       @$_SESSION['clicks'] += 1 ;
-      //$clicks++;
-      echo "<br>";
-      echo "SESSION= ";
-      //var_dump($_SESSION);
-      //$c = @$_SESSION['clicks'];
       $c = $_SESSION['clicks'];
-      echo "<br>";
-      echo "valor de c= ";
-      echo $c; 
 
       if(isset($_POST['userans'])) 
         { 
-          //Atualizar a coluna userans com a resposta selecionada pelo utilizador
-          echo "<br>";
-          echo "<br>";
-          echo "ENTREI NO SEGUNDO IF";
-          echo "<br>";
-          echo "valor de c= ";
-          echo $c; 
           $userselected = $_POST['userans'];          
-          $fetchqry2 = "UPDATE `questions` SET `userans`='$userselected' WHERE `id`=$c-1";
-          echo "<br>";
-          echo "valor de id para atualizar userans= ";
-          echo $c-1; 
-          echo "<br>";
-          echo "valor de USERANS= ";
-          echo $userselected; 
+          $fetchqry2 = "UPDATE `questions` SET `userans`='$userselected' WHERE `questio_num`=$c-1 and ";
           $result2 = mysqli_query($conn,$fetchqry2);
         }
     } 
@@ -59,7 +37,7 @@
     else 
     {
       $_SESSION['clicks'] = 0;
-      echo "SESSAO NÃO INICIADA";
+      //echo "SESSAO NÃO INICIADA";
     }
     
     //Quantidade de cliques, apagar depois
@@ -67,8 +45,38 @@
     echo "Quantidade de clicks= ". $_SESSION['clicks'];
 ?>
 
+
+<!--TITULO DA CATEGORIA   OK  -->
+
+<div class="card centerdash mt-4" style="width: 50rem; margin:0 auto;">
+        <div class="card-body">
+            <div>
+            <div class="text-center">
+            <h3 class="card-title">Quiz de <?php echo $category_selected ?></h3>
+            <!--<img src="images/vamoscomecar.png" class="center" alt="imagem final"><a>-->
+            </div>
+
+
+
 <!--Se clicks = 0, Botão de Start visível-->
-<div class="bump"><br><form><?php if($_SESSION['clicks']==0){ ?> <button class="button" name="start" float="left"><span>Começar!</span></button> <?php } ?></form></div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <!--Botão Cancelar Quiz e voltar para a pagina inicial
+          <div><br>
+            <form><button class="button" name="cancelBack"><span>Não!</span></button> -->
+
+
+
+          <!--FOCO NESTE BOTÃO-->  
+          <!--Botão comecar quiz -->
+          <div class="bump"><br><form><?php if($_SESSION['clicks']==0){ ?> <button class="button" name="examOK.php?category=<?php echo $category_selected?>&start=0" float="left" ><span>Começar!</span></button> <?php } ?></form></div>
+      </div>
+    </div>
+  </div>
+</div>    
 
 
 <form action="" method="POST">
@@ -76,11 +84,12 @@
   <table>
     <?php if(isset($c)) 
       {   
-        $fetchqry = "SELECT * FROM `questions` where id='$c'"; 
+        $fetchqry = "SELECT * FROM `questions` where id='$c' and category='$category_selected'"; 
         $result=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($result);
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
       }
+      
     ?>
       <tr>
         <td>
@@ -176,3 +185,7 @@ countdown();
             }
         }*/
 </script>
+
+
+
+<!--ACRESCENTAR FOOTER-->
