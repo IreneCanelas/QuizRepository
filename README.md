@@ -12,6 +12,15 @@
 Sugestão:
 [Visual Studio](https://code.visualstudio.com/)
 
+- Gestão da Base de Dados. 
+Sugestão:
+[PHP MyAdmin](https://www.phpmyadmin.net/)
+
+- Pacote de Servidores. 
+Sugestão:
+[XAMPP](https://www.apachefriends.org/index.html)
+
+## Ferramentas Opcionais:
 - Sistema de controle de versões.
 Sugestão:
 [Git](https://git-scm.com/downloads)
@@ -47,11 +56,14 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Formulário de registo do utilizador;
 - [X] Criar registos na Base de Dados;
 - [X] Criar _quizzes_ diversos;
-- [ ] Configurar registo;
-- [ ] Configurar login;
+- [X] Configurar registo;
+- [X] Configurar login;
 - [ ] Configurar _quizzes_
 
 ## Histórico de Releases:
+
+- 1.0: Fim do Módulo I
+- 1.1: Fim do Módulo II
 
 ## Autoria:
 - Irene Canelas : [@IreneCanelas](https://www.github.com/ccxirene)
@@ -68,3 +80,13 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - Faça o commit;
 - Push;
 - Crie um novo Pull Request. 
+
+## Download e uso do código:
+
+- Instalar todos os pré-requisitos deste trabalho;   
+- Faça o download do projeto no formato .zip;
+. Guardar o código na pasta xampp/htdocs; 
+- Faça a descompactação do arquivo .zip;
+- Crie uma base de dados para o site no PHP MyAdmin e faça upload das tabelas;
+- No XAMPP Control Panel ativar o Apache e o MySQL;
+- Carregar o projeto no localhost utilizando o browser habitual. 
