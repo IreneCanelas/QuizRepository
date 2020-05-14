@@ -8,7 +8,7 @@
 <?php 
 
     $category_selected = $_GET['category'];
-    echo $category_selected;
+    //echo $category_selected;
     $db = "SELECT id, question_num, question, opt1, opt2, opt3, opt4, answer, userans, category FROM questions where category='" . $category_selected ."'";
     $result = $conn->query($db);
     if($result->num_rows > 0) {
@@ -18,7 +18,7 @@
   } else {
       echo "Sem resultados";
   }
-  var_dump($questions);
+  //var_dump($questions);
 ?>
 
 
@@ -26,8 +26,9 @@
 <?php
     //Se for um clique ou o inicio
     if (isset($_POST['click']) || isset($_GET['start'])) { ?>
-      <div id='demo'></div>
-      <div id='tenta'></div>
+      <div class="float-right mr-3 mt-3" id='demo'></div>
+      <br>
+      <div class="float-right mr-3" id='tenta'></div>
       <?php
           if(empty($category_selected)){
             echo "Variavel vazia";
@@ -49,9 +50,9 @@
       //echo "SESSAO NÃO INICIADA";
     }
     
-    //Quantidade de cliques, apagar depois
+    /*Quantidade de cliques, apagar depois
     echo "<br>";
-    echo "Quantidade de clicks= ". $_SESSION['clicks'];
+    echo "Quantidade de clicks= ". $_SESSION['clicks'];*/
 ?>
 
 
@@ -82,8 +83,9 @@
           <!--FOCO NESTE BOTÃO-->  
           <!--Botão comecar quiz -->
           <!-- -->
-          <a   href="examOK.php?category=<?php echo $category_selected?>&start=0"> <div class="bump"><br> <button class="button"float="left" ><span>Começar!</span></button></div> </a>
-          <?php echo $category_selected?>
+          <div>
+          <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="button"float="left" ><span>Começar!</span></button></div> </a> 
+          
       </div>
     </div>
   </div>
@@ -95,69 +97,70 @@
   <table>
     <?php if(isset($c)) 
       {   
-        $fetchqry = "SELECT * FROM 'questions' where id='$c' and category='$category_selected'"; 
-        $result=mysqli_query($conn,$fetchqry);
-        //$num=mysqli_num_rows($result);
-        //$row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
-      }
-      
-    ?>
-
-      
-      <!--Se o click estiver entre 1 e 5 continuar a mostrar as perguntas-->
-      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
-        <?php foreach ($questions as $question ) { ?> 
+        $fetchqry = "SELECT * FROM `questions` where `id`=$c and `category`='$category_selected'";
+        $resultt=mysqli_query($conn,$fetchqry);
+        $num=mysqli_num_rows($resultt);
+        $row = mysqli_fetch_array($resultt,MYSQLI_ASSOC); 
+      }      
+    ?> 
       <tr>
         <td>
-          <h3><br><?php echo @$question['question'];?></h3>
+          <h3><br><?php echo @$row['question'];?></h3>
         </td>
-      </tr> 
+      </tr>      
+      <!--Se o click estiver entre 1 e 10 continuar a mostrar as perguntas-->
+      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
+      
       <tr>
         <td>
-          <input required type="radio" name="userans" value="<?php echo $question['opt1'];?>">&nbsp;<?php echo $question['opt1']; ?>
+          <input required type="radio" name="userans" value="<?php echo $row['opt1'];?>">&nbsp;<?php echo $row['opt1']; ?>
           <br>
         </td>
       </tr>
       <tr>
         <td>
-        <input required type="radio" name="userans" value="<?php echo $question['opt2'];?>">&nbsp;<?php echo $question['opt2'];?>
+        <input required type="radio" name="userans" value="<?php echo $row['opt2'];?>">&nbsp;<?php echo $row['opt2'];?>
         </td>
       </tr>
       <tr>
         <td>
-        <input required type="radio" name="userans" value="<?php echo $question['opt3'];?>">&nbsp;<?php echo $question['opt3']; ?>
+        <input required type="radio" name="userans" value="<?php echo $row['opt3'];?>">&nbsp;<?php echo $row['opt3']; ?>
         </td>
       </tr>
       <tr>
         <td>
-        <input required type="radio" name="userans" value="<?php echo $row['opt4'];?>">&nbsp;<?php echo $question['opt4']; ?>
+        <input required type="radio" name="userans" value="<?php echo $row['opt4'];?>">&nbsp;<?php echo $row['opt4']; ?>
         <br>
         <br>
         <br>
         </td>
       </tr>
-      <?php }?>
-      <?php } ?>   
-      
-      <!--Botão Próxima pergunta-->
+
       <tr>
         <td>
+        <!--Botão Próxima pergunta-->
         <button class="button3" name="click">Próxima</button>
         <br>
         <br>
-        <br>
-        
+        <br>        
         </td>
       </tr> 
-
+      <?php }?>
+ 
   </table>
 </form>
 
+
+<!--ESTÁ A FUNCIONAR - VAI PARA PAGINA SEGUINTE-->
 <form action="result.php">
-<?php if($_SESSION['clicks']>$result->num_rows){ ?>
+<?php if($_SESSION['clicks']>10){ ?>
+  <div class="container">
+      <div class="row">
+        <div class="col text-center">
   <button class="button3" name="click" onclick="result">Resultado</button>
+  </div></div></div>
   <?php 
-   echo "entrei no if ==11";
+  //echo "entrei no if ==11";
 	$qry3 = "SELECT `answer`, `userans` FROM `questions` WHERE `id`<=10";
 	$result3 = mysqli_query($conn,$qry3);
   $storeArray = Array();
@@ -165,10 +168,10 @@
 	while ($row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC)) {
      if($row3['answer']==$row3['userans']){
      @$_SESSION['score'] += 1 ;
-     echo "<br>";
+     /*echo "<br>";
      echo "SCORE = ".@$_SESSION['score'];
      echo "<br>";
-     echo "USERANS = ".$row3['userans'];
+     echo "USERANS = ".$row3['userans'];*/
 	 }
   } ?>
 </form>
