@@ -8,8 +8,17 @@
 <?php 
 
     $category_selected = $_GET['category'];
+    echo $category_selected;
     $db = "SELECT id, question_num, question, opt1, opt2, opt3, opt4, answer, userans, category FROM questions where category='" . $category_selected ."'";
     $result = $conn->query($db);
+    if($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          $questions[] = $row;
+      }
+  } else {
+      echo "Sem resultados";
+  }
+  var_dump($questions);
 ?>
 
 
@@ -29,7 +38,7 @@
       if(isset($_POST['userans'])) 
         { 
           $userselected = $_POST['userans'];          
-          $fetchqry2 = "UPDATE `questions` SET `userans`='$userselected' WHERE `questio_num`=$c-1 and ";
+          $fetchqry2 = "UPDATE 'questions' SET 'userans'='$userselected' WHERE 'question_num'=$c-1 ";
           $result2 = mysqli_query($conn,$fetchqry2);
         }
     } 
@@ -72,7 +81,9 @@
 
           <!--FOCO NESTE BOTÃO-->  
           <!--Botão comecar quiz -->
-          <div class="bump"><br><form><?php if($_SESSION['clicks']==0){ ?> <button class="button" name="examOK.php?category=<?php echo $category_selected?>&start=0" float="left" ><span>Começar!</span></button> <?php } ?></form></div>
+          <!-- -->
+          <a   href="examOK.php?category=<?php echo $category_selected?>&start=0"> <div class="bump"><br> <button class="button"float="left" ><span>Começar!</span></button></div> </a>
+          <?php echo $category_selected?>
       </div>
     </div>
   </div>
@@ -84,45 +95,49 @@
   <table>
     <?php if(isset($c)) 
       {   
-        $fetchqry = "SELECT * FROM `questions` where id='$c' and category='$category_selected'"; 
+        $fetchqry = "SELECT * FROM 'questions' where id='$c' and category='$category_selected'"; 
         $result=mysqli_query($conn,$fetchqry);
-        $num=mysqli_num_rows($result);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
+        //$num=mysqli_num_rows($result);
+        //$row = mysqli_fetch_array($result,MYSQLI_ASSOC); 
       }
       
     ?>
-      <tr>
-        <td>
-          <h3><br><?php echo @$row['question'];?></h3>
-        </td>
-      </tr> 
+
       
       <!--Se o click estiver entre 1 e 5 continuar a mostrar as perguntas-->
       <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
+        <?php foreach ($questions as $question ) { ?> 
       <tr>
         <td>
-          <input required type="radio" name="userans" value="<?php echo $row['opt1'];?>">&nbsp;<?php echo $row['opt1']; ?>
+          <h3><br><?php echo @$question['question'];?></h3>
+        </td>
+      </tr> 
+      <tr>
+        <td>
+          <input required type="radio" name="userans" value="<?php echo $question['opt1'];?>">&nbsp;<?php echo $question['opt1']; ?>
           <br>
         </td>
       </tr>
       <tr>
         <td>
-        <input required type="radio" name="userans" value="<?php echo $row['opt2'];?>">&nbsp;<?php echo $row['opt2'];?>
+        <input required type="radio" name="userans" value="<?php echo $question['opt2'];?>">&nbsp;<?php echo $question['opt2'];?>
         </td>
       </tr>
       <tr>
         <td>
-        <input required type="radio" name="userans" value="<?php echo $row['opt3'];?>">&nbsp;<?php echo $row['opt3']; ?>
+        <input required type="radio" name="userans" value="<?php echo $question['opt3'];?>">&nbsp;<?php echo $question['opt3']; ?>
         </td>
       </tr>
       <tr>
         <td>
-        <input required type="radio" name="userans" value="<?php echo $row['opt4'];?>">&nbsp;<?php echo $row['opt4']; ?>
+        <input required type="radio" name="userans" value="<?php echo $row['opt4'];?>">&nbsp;<?php echo $question['opt4']; ?>
         <br>
         <br>
         <br>
         </td>
       </tr>
+      <?php }?>
+      <?php } ?>   
       
       <!--Botão Próxima pergunta-->
       <tr>
@@ -134,12 +149,12 @@
         
         </td>
       </tr> 
-    <?php } ?> 
+
   </table>
 </form>
 
 <form action="result.php">
-<?php if($_SESSION['clicks']>10){ ?>
+<?php if($_SESSION['clicks']>$result->num_rows){ ?>
   <button class="button3" name="click" onclick="result">Resultado</button>
   <?php 
    echo "entrei no if ==11";
