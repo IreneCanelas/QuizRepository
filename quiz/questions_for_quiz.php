@@ -21,6 +21,7 @@
   } else {
       echo "Sem resultados";
   }
+  var_dump($questions);
 ?>
 
     <div class="card centerdash" style="width: 50rem; margin:0 auto;">
