@@ -56,7 +56,7 @@
 
 <!--TITULO DA CATEGORIA   OK  -->
 
-<div class="card centerdash mt-4" style="width: 50rem; margin:0 auto;">
+<div class="card centerdash col-md-4" style=" margin:0 auto;">
   <div class="card-body">
       <div>
       <div class="text-center">
