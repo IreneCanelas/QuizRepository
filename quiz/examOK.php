@@ -35,9 +35,9 @@
       $c = $_SESSION['clicks'];
 
       if(isset($_POST['userans'])) 
-        { 
+        {
           $userselected = $_POST['userans'];          
-          $fetchqry2 = "UPDATE 'questions' SET 'userans'='$userselected' WHERE  'question_num'=$c-1 "; //WHERE 'question_num'=$c-1 FALTA VER A CATEGORIA PARA CHEGAR AO QUESTION_NUM CERTO
+          $fetchqry2 = "UPDATE questions SET userans='".$userselected."' WHERE question_num=".$c."-1 and category='".$category_selected."'"; //WHERE 'question_num'=$c-1 FALTA VER A CATEGORIA PARA CHEGAR AO QUESTION_NUM CERTO
           $result2 = mysqli_query($conn,$fetchqry2);
         }
     } 
@@ -69,15 +69,17 @@
 <!--Se clicks = 0, Botão de Start visível-->
 <!-- Se clicks > 0 -> Botao hide -->
 
-      <div class="container">
-        <div class="row">
-          <div class="col text-center">
-            <div>
-            <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary"float="left" ><span>Começar!</span></button></div> </a> 
-            
+      <?php if($_SESSION['clicks'] == 0) { ?> 
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <div>
+              <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary"float="left" ><span>Começar!</span></button></div> </a> 
+              
+            </div>
           </div>
         </div>
-      </div>
+      <?php }?>
     </div>  
   </div>
 
@@ -86,13 +88,15 @@
 
 <form action="" method="POST">
 <!--Se click >= 1 dar inicio do Quiz-->
-  <table>
+
+<table>
     <?php if(isset($c)) 
       {   
-        $fetchqry = "SELECT * FROM `questions` where `question_num`=$c and `category`='$category_selected'"; // `id`=$c and 
+        $fetchqry = "SELECT * FROM `questions` where `question_num`=".$c." and  `category`='$category_selected'"; // `id`=$c and 
         $resultt=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($resultt);
-        $row = mysqli_fetch_array($resultt,MYSQLI_ASSOC); 
+        $row = mysqli_fetch_array($resultt,MYSQLI_ASSOC);
+        
       }      
     ?> 
       <tr>
@@ -101,7 +105,7 @@
         </td>
       </tr>      
       <!--Se o click estiver entre 1 e 10 continuar a mostrar as perguntas-->
-      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ echo $result->num_rows?>
+      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < $result->num_rows+1){ echo $result->num_rows?>
       
       <tr>
         <td>
@@ -145,7 +149,7 @@
 
 <!--ESTÁ A FUNCIONAR - VAI PARA PAGINA SEGUINTE-->
 <form action="result.php">
-  <?php if($_SESSION['clicks']>10){ ?>
+  <?php if($_SESSION['clicks']>$result->num_rows){ ?>
     <div class="container">
         <div class="row">
           <div class="col text-center">
@@ -156,19 +160,20 @@
   
     <?php 
     //echo "entrei no if ==11";
-    $qry3 = "SELECT `answer`, `userans` FROM `questions` "; //WHERE `id`<=10"
+    $qry3 = "SELECT `answer`, `userans` FROM `questions` where category='".$category_selected."'"; //WHERE `id`<=10"
     $result3 = mysqli_query($conn,$qry3);
     $storeArray = Array();
-    unset($_SESSION["score"]);
+    $_SESSION["score"] = 0;
     while ($row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC)) {
       if($row3['answer']==$row3['userans']){
-      @$_SESSION['score'] += 1 ;
+      $_SESSION['score'] += 1 ;
       /*echo "<br>";
       echo "SCORE = ".@$_SESSION['score'];
       echo "<br>";
       echo "USERANS = ".$row3['userans'];*/
     }
-    } ?>
+    }
+    ?>
   </form>
 <?php } ?>
 </div>

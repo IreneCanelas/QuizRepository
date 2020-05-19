@@ -35,7 +35,7 @@ session_start();
     <!--Resultado-->
       <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no = @$_SESSION['score'];
         unset($_SESSION["score"]); ?></span><br>
-        <span>Pontuação final:&nbsp<?php echo $no*2; ?></span>
+           <span>Pontuação final:&nbsp<?php echo $no*2; ?></span> <!--Se categoria Biologia, x4 -->
     </form>
 
       <script type="text/javascript">
