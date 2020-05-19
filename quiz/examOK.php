@@ -33,8 +33,7 @@
           }
       @$_SESSION['clicks'] += 1 ;
       $c = $_SESSION['clicks'];
-      
-//-- RECEBER RESPOSTA DO UTILIZADOR
+
       if(isset($_POST['userans'])) 
         {
           $userselected = $_POST['userans'];          
@@ -68,7 +67,7 @@
 
 
 <!--Se clicks = 0, Botão de Start visível-->
-<!-- Se clicks > 0 -> Botao hide -->
+<!-- Se clicks == 0 -> Botao hide -->
 
       <?php if($_SESSION['clicks'] == 0) { ?> 
         <div class="container">
@@ -88,12 +87,10 @@
 
 
 <form action="" method="POST">
-<!--Se click >= 1 dar inicio do Quiz-->
-
 <table>
     <?php if(isset($c)) 
       {   
-        $fetchqry = "SELECT * FROM `questions` where `question_num`=".$c." and  `category`='$category_selected'"; // `id`=$c and 
+        $fetchqry = "SELECT * FROM `questions` where `question_num`=".$c." and  `category`='$category_selected'";
         $resultt=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($resultt);
         $row = mysqli_fetch_array($resultt,MYSQLI_ASSOC);
@@ -105,7 +102,7 @@
           <h3><br><?php echo @$row['question'];?></h3>
         </td>
       </tr>      
-      <!--Se o click estiver entre 1 e 10 continuar a mostrar as perguntas-->
+      <!--Se o click estiver entre 1 e nº total de perguntas por categoria continuar a mostrar as perguntas-->
       <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < $result->num_rows+1){ echo $result->num_rows?>
       
       <tr>
@@ -148,7 +145,6 @@
 </form>
  
 
-<!--ESTÁ A FUNCIONAR - VAI PARA PAGINA SEGUINTE-->
 <form action="result.php">
   <?php if($_SESSION['clicks']>$result->num_rows){ ?>
     <div class="container">
