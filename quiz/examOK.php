@@ -169,7 +169,8 @@
   </form>
 <?php } ?>
 </div> 
-
+<br>
+<br>
 <script>
   // countdown
 function countdown() {
