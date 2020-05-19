@@ -67,6 +67,7 @@
 
 
 <!--Se clicks = 0, Botão de Start visível-->
+<!-- Se clicks > 0 -> Botao hide -->
 
       <div class="container">
         <div class="row">
@@ -79,7 +80,7 @@
       </div>
     </div>  
   </div>
-</div>
+
 
 
 
@@ -88,7 +89,7 @@
   <table>
     <?php if(isset($c)) 
       {   
-        $fetchqry = "SELECT * FROM `questions` where `question_num`=$c and  `category`='$category_selected'"; // `id`=$c and 
+        $fetchqry = "SELECT * FROM `questions` where `question_num`=$c and `category`='$category_selected'"; // `id`=$c and 
         $resultt=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($resultt);
         $row = mysqli_fetch_array($resultt,MYSQLI_ASSOC); 
@@ -150,10 +151,12 @@
           <div class="col text-center">
     <button class="btn btn-primary" name="click" onclick="result">Resultado</button>
     </div>
+    </div>
+    </div>
   
     <?php 
     //echo "entrei no if ==11";
-    $qry3 = "SELECT `answer`, `userans` FROM `questions` WHERE `id`<=10"; //
+    $qry3 = "SELECT `answer`, `userans` FROM `questions` "; //WHERE `id`<=10"
     $result3 = mysqli_query($conn,$qry3);
     $storeArray = Array();
     unset($_SESSION["score"]);
@@ -168,6 +171,7 @@
     } ?>
   </form>
 <?php } ?>
+</div>
 </div> 
 <br>
 <br>
