@@ -33,7 +33,8 @@
           }
       @$_SESSION['clicks'] += 1 ;
       $c = $_SESSION['clicks'];
-
+      
+//-- RECEBER RESPOSTA DO UTILIZADOR
       if(isset($_POST['userans'])) 
         {
           $userselected = $_POST['userans'];          
