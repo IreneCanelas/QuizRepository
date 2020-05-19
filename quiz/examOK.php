@@ -1,12 +1,12 @@
 <?php
-    include "connection.php";
-    session_start();
-    include "header2.php";
+  include "connection.php";
+  include "header2.php";
+  session_start();
 ?>
 
-<!--SELECIONAR CATEGORIA-->
+<!---->
 <?php 
-
+// -- SELECIONAR CATEGORIA
     $category_selected = $_GET['category'];
     //echo $category_selected;
     $db = "SELECT id, question_num, question, opt1, opt2, opt3, opt4, answer, userans, category FROM questions where category='" . $category_selected ."'";
@@ -19,11 +19,9 @@
       echo "Sem resultados";
   }
   //var_dump($questions);
-?>
 
 
-<!--CONTAGEM DE CLICKS-->
-<?php
+//--CONTAGEM DE CLICKS
     //Se for um clique ou o inicio
     if (isset($_POST['click']) || isset($_GET['start'])) { ?>
       <div class="float-right mr-3 mt-3" id='demo'></div>
@@ -59,37 +57,30 @@
 <!--TITULO DA CATEGORIA   OK  -->
 
 <div class="card centerdash mt-4" style="width: 50rem; margin:0 auto;">
-        <div class="card-body">
-            <div>
-            <div class="text-center">
-            <h3 class="card-title">Quiz de <?php echo $category_selected ?></h3>
-            <!--<img src="images/vamoscomecar.png" class="center" alt="imagem final"><a>-->
-            </div>
+  <div class="card-body">
+      <div>
+      <div class="text-center">
+        <h3 class="card-title">Quiz de <?php echo $category_selected ?></h3>
+        <!--<img src="images/vamoscomecar.png" class="center" alt="imagem final"><a>-->
+      </div>
 
 
 
 <!--Se clicks = 0, Botão de Start visível-->
 
-
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <!--Botão Cancelar Quiz e voltar para a pagina inicial
-          <div><br>
-            <form><button class="button" name="cancelBack"><span>Não!</span></button> -->
-
-
-
-          <!--FOCO NESTE BOTÃO-->  
-          <!--Botão comecar quiz -->
-          <!-- -->
-          <div>
-          <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="button"float="left" ><span>Começar!</span></button></div> </a> 
-          
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <div>
+            <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary"float="left" ><span>Começar!</span></button></div> </a> 
+            
+          </div>
+        </div>
       </div>
-    </div>
+    </div>  
   </div>
-</div>    
+</div>
+
 
 
 <form action="" method="POST">
@@ -149,35 +140,37 @@
  
   </table>
 </form>
-
+</div>  
 
 <!--ESTÁ A FUNCIONAR - VAI PARA PAGINA SEGUINTE-->
 <form action="result.php">
-<?php if($_SESSION['clicks']>10){ ?>
-  <div class="container">
-      <div class="row">
-        <div class="col text-center">
-  <button class="button3" name="click" onclick="result">Resultado</button>
-  </div></div></div>
-  <?php 
-  //echo "entrei no if ==11";
-	$qry3 = "SELECT `answer`, `userans` FROM `questions` WHERE `id`<=10";
-	$result3 = mysqli_query($conn,$qry3);
-  $storeArray = Array();
-  unset($_SESSION["score"]);
-	while ($row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC)) {
-     if($row3['answer']==$row3['userans']){
-     @$_SESSION['score'] += 1 ;
-     /*echo "<br>";
-     echo "SCORE = ".@$_SESSION['score'];
-     echo "<br>";
-     echo "USERANS = ".$row3['userans'];*/
-	 }
-  } ?>
-</form>
+  <?php if($_SESSION['clicks']>10){ ?>
+    <div class="container">
+        <div class="row">
+          <div class="col text-center">
+    <button class="btn btn-primary" name="click" onclick="result">Resultado</button>
+    </div>
+  
+    <?php 
+    //echo "entrei no if ==11";
+    $qry3 = "SELECT 'answer', 'userans' FROM 'questions'"; //WHERE `id`<=10
+    $result3 = mysqli_query($conn,$qry3);
+    $storeArray = Array();
+    unset($_SESSION["score"]);
+    while ($row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC)) {
+      if($row3['answer']==$row3['userans']){
+      @$_SESSION['score'] += 1 ;
+      /*echo "<br>";
+      echo "SCORE = ".@$_SESSION['score'];
+      echo "<br>";
+      echo "USERANS = ".$row3['userans'];*/
+    }
+    } ?>
+  </form>
 <?php } ?>
 
 <script>
+  // countdown
 function countdown() {
     var seconds = 10;
     //var mins = 1;
@@ -207,3 +200,6 @@ countdown();
 
 
 <!--ACRESCENTAR FOOTER-->
+<?php
+    include "footer.html";
+?>
