@@ -88,7 +88,7 @@
   <table>
     <?php if(isset($c)) 
       {   
-        $fetchqry = "SELECT * FROM `questions` where `id`=$c and `category`='$category_selected'";
+        $fetchqry = "SELECT * FROM `questions` where `category`='$category_selected'";
         $resultt=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($resultt);
         $row = mysqli_fetch_array($resultt,MYSQLI_ASSOC); 
@@ -171,6 +171,7 @@
 </div> 
 <br>
 <br>
+
 <script>
   // countdown
 function countdown() {
