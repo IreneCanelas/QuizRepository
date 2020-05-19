@@ -26,46 +26,47 @@ session_start();
   <div class="card-body card-body-cascade">
     <form action="quizzes.php">
     <!--Título-->
-    <h4 class="text-warning text-center"><i class="fas fa-poll"></i> Resultado</h5><br>
+    <h4 class="text-warning text-center"><i class="fas fa-poll"></i> Resultado</h4><br>
     <!--Subtítulo
     <h5 class="card-title">Veja aqui seu desempenho:</h4>-->
     <!--Texto-->
     <form action="examOK.php">
       
     <!--Resultado-->
-    <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no = @$_SESSION['score'];
-            unset($_SESSION["score"]); ?></span><br>
-            <span>Pontuação final:&nbsp<?php echo $no*2; ?></span></form>
+      <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no = @$_SESSION['score'];
+        unset($_SESSION["score"]); ?></span><br>
+        <span>Pontuação final:&nbsp<?php echo $no*2; ?></span>
+    </form>
 
-
-            <script type="text/javascript">
-                function radioValidation(){
-                    /* var useransj = document.getElementById('rd').value;
-                    //document.cookie = "username = " + userans;
-                    alert(useransj); */
-                    var uans = document.getElementsByName('userans');
-                    var tok;
-                    for(var i = 0; i < uans.length; i++){
-                        if(uans[i].checked){
-                            tok = uans[i].value;
-                            alert(tok);
-                        }
-                    }
-                }
-            </script>
-            <br>
-            <br>
-            <!--BOTOES REDES SOCIAIS-->
-            <div class="text-center">
-            <p>Compartilhe o resultado com seus amigos!</p>
-            <!--Facebook-->
-            <a class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
-            <!--Twitter-->
-            <a class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
-            <!--Instagram-->
-            <a class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>
-            <!--WhatsApp-->
-            <a class="whatsapp-ic" role="button"><i class="fab fa-lg fa-whatsapp"></i></a></div>
+      <script type="text/javascript">
+          function radioValidation(){
+              /* var useransj = document.getElementById('rd').value;
+              //document.cookie = "username = " + userans;
+              alert(useransj); */
+              var uans = document.getElementsByName('userans');
+              var tok;
+              for(var i = 0; i < uans.length; i++){
+                  if(uans[i].checked){
+                      tok = uans[i].value;
+                      alert(tok);
+                  }
+              }
+          }
+      </script>
+      <br>
+      <br>
+      <!--BOTOES REDES SOCIAIS-->
+      <div class="text-center">
+        <p>Compartilhe o resultado com os seus amigos!</p>
+        <!--Facebook-->
+        <a class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
+        <!--Twitter-->
+        <a class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
+        <!--Instagram-->
+        <a class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>
+        <!--WhatsApp-->
+        <a class="whatsapp-ic" role="button"><i class="fab fa-lg fa-whatsapp"></i></a>
+      </div>
 
   </div>
   <!--/.Card content-->
@@ -75,8 +76,7 @@ session_start();
 
 </div>
 <!-- Grid column -->
-</div>
-</form>
+
 
 <?php
     include "footer.html";

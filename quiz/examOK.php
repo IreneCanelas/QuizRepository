@@ -37,7 +37,7 @@
       if(isset($_POST['userans'])) 
         { 
           $userselected = $_POST['userans'];          
-          $fetchqry2 = "UPDATE 'questions' SET 'userans'='$userselected' WHERE 'question_num'=$c-1 ";
+          $fetchqry2 = "UPDATE 'questions' SET 'userans'='$userselected' WHERE 'question_num'=$c-1 "; //WHERE 'question_num'=$c-1
           $result2 = mysqli_query($conn,$fetchqry2);
         }
     } 
@@ -140,7 +140,7 @@
  
   </table>
 </form>
-</div>  
+ 
 
 <!--ESTÁ A FUNCIONAR - VAI PARA PAGINA SEGUINTE-->
 <form action="result.php">
@@ -153,7 +153,7 @@
   
     <?php 
     //echo "entrei no if ==11";
-    $qry3 = "SELECT 'answer', 'userans' FROM 'questions'"; //WHERE `id`<=10
+    $qry3 = "SELECT `answer`, `userans` FROM `questions` WHERE `id`<=10"; //
     $result3 = mysqli_query($conn,$qry3);
     $storeArray = Array();
     unset($_SESSION["score"]);
@@ -168,6 +168,7 @@
     } ?>
   </form>
 <?php } ?>
+</div> 
 
 <script>
   // countdown
