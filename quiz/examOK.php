@@ -37,7 +37,7 @@
       if(isset($_POST['userans'])) 
         { 
           $userselected = $_POST['userans'];          
-          $fetchqry2 = "UPDATE 'questions' SET 'userans'='$userselected' WHERE 'question_num'=$c-1 "; //WHERE 'question_num'=$c-1
+          $fetchqry2 = "UPDATE 'questions' SET 'userans'='$userselected' WHERE  'question_num'=$c-1 "; //WHERE 'question_num'=$c-1 FALTA VER A CATEGORIA PARA CHEGAR AO QUESTION_NUM CERTO
           $result2 = mysqli_query($conn,$fetchqry2);
         }
     } 
@@ -100,7 +100,7 @@
         </td>
       </tr>      
       <!--Se o click estiver entre 1 e 10 continuar a mostrar as perguntas-->
-      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ ?>
+      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < 11){ echo $result->num_rows?>
       
       <tr>
         <td>
@@ -186,6 +186,7 @@ function countdown() {
             setTimeout(tick, 1000);
         } else if( seconds == 0)
         {
+          document.getElementById('tenta').style.color = "red";
           document.getElementById('tenta').innerHTML = 'Acabou o tempo! Passe para a próxima pergunta!';
         }
     }
