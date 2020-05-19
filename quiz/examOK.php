@@ -88,7 +88,7 @@
   <table>
     <?php if(isset($c)) 
       {   
-        $fetchqry = "SELECT * FROM `questions` where `category`='$category_selected'";
+        $fetchqry = "SELECT * FROM `questions` where `question_num`=$c and  `category`='$category_selected'"; // `id`=$c and 
         $resultt=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($resultt);
         $row = mysqli_fetch_array($resultt,MYSQLI_ASSOC); 
