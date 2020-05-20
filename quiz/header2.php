@@ -66,13 +66,6 @@ include "connection.php";
     </div>
   </div>
 
-  <div>
-      <a class="nav-link" style="color:grey;" href="user.php"> Conta</a>
-  </div>
-
-  <div>
-      <a class="nav-link" style="color:red;" href="logout.php">Logout</a>
-  </div>
 </nav>
 
 <!-- Mobile Menu end -->
