@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 include "registo.php";
-include "login.php";
+//include "login.php";
 
   // Botao de Pesquisa na nav  
   if(!empty($_GET['search'])) {
@@ -20,6 +20,18 @@ include "login.php";
       }
   } else {
       echo "0 results";
+
+      
+    if(!empty($_POST)) {
+        $result = mysqli_query($conn,"SELECT email, psw FROM registos WHERE email='" . $_POST["email"] . "' and psw = '". $_POST["psw"]."'");
+        $count  = mysqli_num_rows($result);
+        if($count==0) {
+            header('Location: initialPage.php?error=1');
+        } else {
+            header('Location: initialAfterLogin.php');
+        }
+      }
+    
 }
 ?>
 
