@@ -47,10 +47,10 @@
       $_SESSION['clicks'] = 0;
       //echo "SESSAO NÃO INICIADA";
     }
-    
-    /*Quantidade de cliques, apagar depois
-    echo "<br>";
-    echo "Quantidade de clicks= ". $_SESSION['clicks'];*/
+
+    $_SESSION['category'] = $category_selected;
+    $_SESSION['numberOfQuestions'] = $result->num_rows;
+
 ?>
 
 
@@ -60,7 +60,7 @@
   <div class="card-body">
       <div>
       <div class="text-center">
-        <h3 class="card-title">Quiz de <?php echo $category_selected ?></h3>
+        <h4 class="card-tile">Quiz de <?php echo $category_selected ?></h4> <hr>
         <!--<img src="images/vamoscomecar.png" class="center" alt="imagem final"><a>-->
       </div>
 
@@ -75,7 +75,7 @@
             <div class="col text-center">
               <div>
               <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary"float="left" ><span>Começar!</span></button></div> </a> 
-              
+
             </div>
           </div>
         </div>
@@ -103,7 +103,8 @@
         </td>
       </tr>      
       <!--Se o click estiver entre 1 e nº total de perguntas por categoria continuar a mostrar as perguntas-->
-      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < $result->num_rows+1){ echo $result->num_rows?>
+      <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < $result->num_rows+1){ ?>
+        <div class="" style="max-width:15%"> <?php echo $row['question_num']. "/". $result->num_rows?> </div>
       
       <tr>
         <td>
@@ -133,7 +134,7 @@
       <tr>
         <td>
         <!--Botão Próxima pergunta-->
-        <button class="button3" name="click">Próxima</button>
+        <button class="btn btn-dark" name="click">Próxima</button>
         <br>
         <br>
         <br>        
