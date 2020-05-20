@@ -21,9 +21,9 @@
 //--CONTAGEM DE CLICKS
     //Se for um clique ou o inicio
     if (isset($_POST['click']) || isset($_GET['start'])) { ?>
-      <div class="float-right mr-3 mt-3" id='demo'></div>
+      <!--<div class="float-right mr-3 mt-3" id='lugar'></div>
       <br>
-      <div class="float-right mr-3" id='tenta'></div>
+      <div class="float-right mr-3" id='tenta'></div>-->
       <?php
           if(empty($category_selected)){
             echo "Variavel vazia";
@@ -73,10 +73,6 @@
       <?php }?>
     </div>  
   </div>
-
-
-
-
 <form action="" method="POST">
 <table>
     <?php if(isset($c)) 
@@ -92,7 +88,7 @@
         <td>
           <h4><br><?php echo @$row['question'];?></h4>
         </td>
-      </tr>      
+      </tr>  
       <!--Se o click estiver entre 1 e nº total de perguntas por categoria continuar a mostrar as perguntas-->
       <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < $result->num_rows+1){ ?>
         <div class="" style="max-width:15%"> <?php echo $row['question_num']. "/". $result->num_rows?> </div>
@@ -165,34 +161,34 @@
 <br>
 <br>
 
+<!--
 <script>
   // countdown
 function countdown() {
-    var seconds = 10;
-    //var mins = 1;
+    var seconds = 60;
+    var mins = 4;
     function tick() {
-        var counter = document.getElementById("demo");
-        //var current_minutes = mins-1
+        var counter = document.getElementById("lugar");
+        var current_minutes = mins-1
         seconds--;
-        counter.innerHTML = /*current_minutes.toString()*/ '0:' + (seconds < 10 ? "0" : "") + String(seconds);
+        counter.innerHTML = current_minutes.toString() + ' : ' + (seconds < 10 ? "0" : "") + String(seconds);
         if( seconds > 0 ) {
             setTimeout(tick, 1000);
         } else if( seconds == 0)
         {
           document.getElementById('tenta').style.color = "red";
-          document.getElementById('tenta').innerHTML = 'Acabou o tempo! Passe para a próxima pergunta!';
+          document.getElementById('tenta').innerHTML = 'Acabou o tempo!';
         }
     }
     tick();
 }
 countdown();
-
 /*else {
             if(mins > 1){
                 countdown(mins-1);           
             }
         }*/
-</script>
+</script>-->
 
 
 

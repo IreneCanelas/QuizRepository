@@ -2,19 +2,20 @@
 
 include "connection.php";
 
-if(!empty($_POST)) {
-    $result = mysqli_query($conn,"SELECT email, psw FROM registos WHERE email='" . $_POST["email"] . "' and psw = '". $_POST["psw"]."'");
-    $count  = mysqli_num_rows($result);
-    if($count==0) {
-        header('Location: initialPage.php?error=1');
-    } else {
-        header('Location: initialAfterLogin.php');
-    }
+if(!empty($_POST["emailL"]) && !empty($_POST["pswL"])) {
+  $result = mysqli_query($conn,"SELECT id, email, psw FROM registos WHERE email='" . $_POST["emailL"] . "' and psw = '". $_POST["pswL"]."'");
+  $count  = mysqli_num_rows($result);
+  if($count==0) {
+      header('Location: initialPage.php?error=1');
+  } else {
+      header('Location: initialAfterLogin.php?id=#');
   }
+}
 ?>
 
-  <?php if(!empty($_GET['error']) && $_GET['error'] == 1) { ?>
+
+  <?php /* if(!empty($_GET['error']) && $_GET['error'] == 1) { ?>
     <script>
         $('#loginModal').modal('show');
     </script>
-<?php } ?>
+<?php } */?>

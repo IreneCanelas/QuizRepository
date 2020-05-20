@@ -19,8 +19,8 @@ include "login.php";
           $quizzes[] = $row;
       }
   } else {
-      echo "0 results";
-}
+      echo "0 results";   
+  }
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ include "login.php";
     <!-- Login -->
     <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
-          <form class="modal-content" action="initialAfterLogin.php" method="POST">
+          <form class="modal-content" action="" method="POST">
             <div class="modal-header">
               <button type="button" onclick="document.getElementById('login').style.display='none'" class="close">&times;</button>
             </div>
@@ -70,11 +70,11 @@ include "login.php";
               <h1>Login</h1>
               <hr>
 
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Inserir Email" name="email" required>
+              <label for="emaill"><b>Email</b></label>
+              <input type="text" placeholder="Inserir Email" name="emailL" required>
 
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Inserir Password" name="psw" required>
+              <label for="pswL"><b>Password</b></label>
+              <input type="password" placeholder="Inserir Password" name="pswL" required>
               
               <label>
                 <input type="checkbox" checked="checked" name="remember">Recordar as minhas informações
