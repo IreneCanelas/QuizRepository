@@ -118,7 +118,7 @@
 
       }
   };
-  xmlhttp.open("GET","forajax/load_timer.php",true);
+  xmlhttp.open("GET","load_timer.php",true);
   xmlhttp.send(null);
 }
 
