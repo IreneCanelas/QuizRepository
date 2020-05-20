@@ -3,8 +3,9 @@
 <p>O site QuizQuiz tem como principal objetivo a prática e teste de conhecimento ao responder questões de Quizzes. O site contempla quizzes na área da Matemática, Biologia e Tecnologia. A plataforma é simples e intuitiva possibilitando uma experiência divertida e interativa com o utilizador. É possível participar dos quizzes estando registado ou não no site. Entretanto, para aqueles utilizadores registados haverá uma conta com todos os resultados e estatísticas para que possa avaliar seu desempenho sempre que desejar.</p>
 
 - Nome BD: quizwebsite <p>
-- Nome table: quizzes <p>
-- Nome table: registos
+- Nome tabela: quizzes <p>
+- Nome tabela: registos <p>
+- Nome tabela: questions 
 
 ## Pré-requisitos:
 
