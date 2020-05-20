@@ -63,6 +63,8 @@ include "connection.php";
       <button type="submit" class="btn btn-link">
         <i class="glyphicon glyphicon-search"></i>
       </button>
+      <a class="nav-link" style="color:grey;" href="user.php"> Dados da sua conta</a>
+      <a class="nav-link" style="color:red;" href="logout.php">Logout</a>
     </div>
   </div>
 </nav>
