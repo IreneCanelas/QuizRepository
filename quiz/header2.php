@@ -39,10 +39,10 @@ include "connection.php";
 <body> 
 <!--Barra de navegação-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="initialAfterLogin.php">
+  <a class="navbar-brand" href="initialPage.php">
     <img src="images/Logo.png" width="60" height="60" alt="">
   </a>
-  <a class="navbar-brand" href="initialAfterLogin.php">QuizQuiz</a>
+  <a class="navbar-brand" href="initialPage.php">QuizQuiz</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -50,7 +50,7 @@ include "connection.php";
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="initialAfterLogin.php">Ínicio</a>
+        <a class="nav-link" href="initialPage.php">Ínicio</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Os nossos quizzes <span class="sr-only">(current)</span> </a>
@@ -63,10 +63,64 @@ include "connection.php";
       <button type="submit" class="btn btn-link">
         <i class="glyphicon glyphicon-search"></i>
       </button>
-      <a class="nav-link" style="color:grey;" href="user.php"> Dados da sua conta</a>
-      <a class="nav-link" style="color:red;" href="logout.php">Logout</a>
     </div>
   </div>
+
+  <div>
+      <a class="nav-link" style="color:grey;" href="user.php"> Conta</a>
+  </div>
+
+  <div>
+      <a class="nav-link" style="color:red;" href="logout.php">Logout</a>
+  </div>
 </nav>
+
+<!-- Mobile Menu end -->
+<div class="breadcome-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcome-list">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 text-right">
+                            <ul class="breadcome-menu">
+                                <li><div id="countdowntimer" style="display: block;"></div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+  setInterval(function(){
+  timer();
+  },1000);
+  function timer()
+  {
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+          if(xmlhttp.responseText=="00:00:01")
+          {
+              window.location="result.php";
+          }
+
+          document.getElementById("countdowntimer").innerHTML=xmlhttp.responseText;
+
+      }
+  };
+  xmlhttp.open("GET","forajax/load_timer.php",true);
+  xmlhttp.send(null);
+}
+
+</script>
 
 
