@@ -20,6 +20,7 @@
   }
 
 
+
 //--CONTAGEM DE CLICKS
     //Se for um clique ou o inicio
     if (isset($_POST['click']) || isset($_GET['start'])) { ?>

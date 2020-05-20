@@ -1,5 +1,6 @@
 <?php
 include "connection.php";
+include "load_timer.php";
 
   // Botao de Pesquisa na nav  
   if(!empty($_GET['search'])) {
@@ -36,7 +37,7 @@ include "connection.php";
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body> 
+<body onload="f1()" >
 <!--Barra de navegação-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="initialPage.php">
@@ -66,53 +67,8 @@ include "connection.php";
     </div>
   </div>
 </nav>
+            <div id="starttime"></div><br />
+            <div id="endtime"></div><br />
+            <div id="showtime"></div>
 
-
-<!-- Mobile Menu end -->
-<div class="breadcome-area">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcome-list">
-                    <div class="row">
-
-                        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 text-right">
-                            <ul class="breadcome-menu">
-                                <li><div id="countdowntimer" style="display: block;"></div>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-<script type="text/javascript">
-  setInterval(function(){
-  timer();
-  },1000);
-  function timer()
-  {
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
-          if(xmlhttp.responseText=="00:00:01")
-          {
-              window.location="result.php";
-          }
-
-          document.getElementById("countdowntimer").innerHTML=xmlhttp.responseText;
-
-      }
-  };
-  xmlhttp.open("GET","forajax/load_timer.php",true);
-  xmlhttp.send(null);
-}
-
-</script>
 
