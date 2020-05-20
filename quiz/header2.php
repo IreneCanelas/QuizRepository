@@ -65,8 +65,14 @@ include "connection.php";
       </button>
     </div>
   </div>
-
 </nav>
+
+
+<<<<<<< HEAD
+
+=======
+</nav>
+>>>>>>> 5a97ce04eaa9728c00d13af609d4095046f800de
 
 <!-- Mobile Menu end -->
 <div class="breadcome-area">
@@ -115,5 +121,4 @@ include "connection.php";
 }
 
 </script>
-
 
