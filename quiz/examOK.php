@@ -2,6 +2,7 @@
   include "connection.php";
   include "header2.php";
   session_start();
+
 ?>
 
 <!---->
@@ -17,6 +18,12 @@
   } else {
       echo "Sem resultados";
   }
+
+date_default_timezone_set('Europe/Lisbon');
+$date = date("Y-m-d H:i:s");
+$_SESSION["end_time"]=date("Y-m-d H:i:s", strtotime($date . "+3 minutes"));
+$_SESSION["exam_start"]="yes";
+
 
 //--CONTAGEM DE CLICKS
     //Se for um clique ou o inicio

@@ -39,7 +39,7 @@ session_start();
       unset($_SESSION["score"]); ?></span><br>
       <!--Se categoria Biologia, como tem menos perguntas, para obter pontuação faz-se x4 -->
       <?php if ($_SESSION['category'] == 'Biologia') {?>
-        <span>Pontuação final:&nbsp<?php echo $no*4 . "em 20"; ?></span> <br>
+        <span>Pontuação final:&nbsp<?php echo $no*4 . " em 20"; ?></span> <br>
       <?php } else { ?>
         <span>Pontuação final:&nbsp<?php echo $no*2 . " em 20"; $_SESSION["scorefinal"] = $no*2; ?></span> <br>
         
@@ -60,6 +60,7 @@ session_start();
       $quiz_category = $_SESSION['category'];
       $score = $_SESSION['scorefinal'];
       $qryfim = "INSERT into `result`(`user_id`, `cateogry_id`, `score`) VALUES ('$accountId','$quiz_category','$score')";
+      // está mal escrito category
     ?>
 -->
 

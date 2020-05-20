@@ -1,6 +1,6 @@
 <?php
 session_start();
-date_default_timezone_set('Asia/Kolkata');
+date_default_timezone_set('Europe/lisbon');
 
 if(!isset($_SESSION["end_time"])){
     echo "00:00:00";
@@ -15,4 +15,5 @@ else{
         echo $time1;
     }
 }
+
 ?>
