@@ -65,10 +65,8 @@ include "connection.php";
       </button>
     </div>
   </div>
+
 </nav>
-
-
-
 
 <!-- Mobile Menu end -->
 <div class="breadcome-area">
