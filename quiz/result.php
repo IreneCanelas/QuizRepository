@@ -33,11 +33,24 @@ session_start();
     <form action="examOK.php">
       
     <!--Resultado-->
-      <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no = @$_SESSION['score'];
-        unset($_SESSION["score"]); ?></span><br>
-           <span>Pontuação final:&nbsp<?php echo $no*2; ?></span> <!--Se categoria Biologia, x4 -->
+      <!--Número de respostas corretas-->
+      <?php $no = @$_SESSION['score'] ?>
+      <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no . " em ". $_SESSION['numberOfQuestions'] ;
+      unset($_SESSION["score"]); ?></span><br>
+      <!--Se categoria Biologia, como tem menos perguntas, para obter pontuação faz-se x4 -->
+      <?php if ($_SESSION['category'] == 'Biologia') {?>
+        <span>Pontuação final:&nbsp<?php echo $no*4 . "em 20"; ?></span> <br>
+      <?php } else { ?>
+        <span>Pontuação final:&nbsp<?php echo $no*2 . " em 20"; ?></span> <br>
+      <?php } ?>
+      <!-- Se foi aprovado ou reprovado -->
+      <?php if ($no > $_SESSION['numberOfQuestions']/2 ) {?>
+        <span style="color:green"> Foi aprovado! </span>
+      <?php } else { ?>
+        <span style="color:red">Foi reprovado! </span> 
+      <?php } ?>
     </form>
-
+<!-- VER: se é preciso dar unset a estes sessions -->
       <script type="text/javascript">
           function radioValidation(){
               /* var useransj = document.getElementById('rd').value;
