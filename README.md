@@ -59,7 +59,7 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Criar _quizzes_ diversos;
 - [X] Configurar registo;
 - [X] Configurar login;
-- [ ] Configurar _quizzes_
+- [X] Configurar _quizzes_
 
 ## Histórico de Releases:
 
