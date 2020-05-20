@@ -60,7 +60,7 @@
   <div class="card-body">
       <div>
       <div class="text-center">
-        <h4 class="card-tile">Quiz de <?php echo $category_selected ?></h4> <hr>
+        <h3 class="card-tile"> Quiz de <?php echo $category_selected ?></h3> <hr>
         <!--<img src="images/vamoscomecar.png" class="center" alt="imagem final"><a>-->
       </div>
 
@@ -99,7 +99,7 @@
     ?> 
       <tr>
         <td>
-          <h3><br><?php echo @$row['question'];?></h3>
+          <h4><br><?php echo @$row['question'];?></h4>
         </td>
       </tr>      
       <!--Se o click estiver entre 1 e nº total de perguntas por categoria continuar a mostrar as perguntas-->
