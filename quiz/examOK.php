@@ -8,7 +8,6 @@
 <?php 
 // -- SELECIONAR CATEGORIA
     $category_selected = $_GET['category'];
-    //echo $category_selected;
     $db = "SELECT id, question_num, question, opt1, opt2, opt3, opt4, answer, userans, category FROM questions where category='" . $category_selected ."'";
     $result = $conn->query($db);
     if($result->num_rows > 0) {
@@ -18,8 +17,6 @@
   } else {
       echo "Sem resultados";
   }
-  //var_dump($questions);
-
 
 //--CONTAGEM DE CLICKS
     //Se for um clique ou o inicio
@@ -45,7 +42,6 @@
     else 
     {
       $_SESSION['clicks'] = 0;
-      //echo "SESSAO NÃO INICIADA";
     }
 
     $_SESSION['category'] = $category_selected;
@@ -54,21 +50,16 @@
 ?>
 
 
-<!--TITULO DA CATEGORIA   OK  -->
-
+<!--TITULO DA CATEGORIA-->
 <div class="card centerdash col-md-4" style=" margin:0 auto;">
   <div class="card-body">
       <div>
       <div class="text-center">
         <h3 class="card-tile"> Quiz de <?php echo $category_selected ?></h3> <hr>
-        <!--<img src="images/vamoscomecar.png" class="center" alt="imagem final"><a>-->
       </div>
-
-
 
 <!--Se clicks = 0, Botão de Start visível-->
 <!-- Se clicks == 0 -> Botao hide -->
-
       <?php if($_SESSION['clicks'] == 0) { ?> 
         <div class="container">
           <div class="row">
@@ -153,7 +144,6 @@
     </div>
   
     <?php 
-    //echo "entrei no if ==11";
     $qry3 = "SELECT `answer`, `userans` FROM `questions` where category='".$category_selected."'"; //WHERE `id`<=10"
     $result3 = mysqli_query($conn,$qry3);
     $storeArray = Array();
@@ -161,10 +151,6 @@
     while ($row3 = mysqli_fetch_array($result3, MYSQLI_ASSOC)) {
       if($row3['answer']==$row3['userans']){
       $_SESSION['score'] += 1 ;
-      /*echo "<br>";
-      echo "SCORE = ".@$_SESSION['score'];
-      echo "<br>";
-      echo "USERANS = ".$row3['userans'];*/
     }
     }
     ?>

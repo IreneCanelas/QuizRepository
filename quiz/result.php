@@ -41,7 +41,8 @@ session_start();
       <?php if ($_SESSION['category'] == 'Biologia') {?>
         <span>Pontuação final:&nbsp<?php echo $no*4 . "em 20"; ?></span> <br>
       <?php } else { ?>
-        <span>Pontuação final:&nbsp<?php echo $no*2 . " em 20"; ?></span> <br>
+        <span>Pontuação final:&nbsp<?php echo $no*2 . " em 20"; $_SESSION["scorefinal"] = $no*2; ?></span> <br>
+        
       <?php } ?>
       <!-- Se foi aprovado ou reprovado -->
       <?php if ($no > $_SESSION['numberOfQuestions']/2 ) {?>
@@ -50,6 +51,18 @@ session_start();
         <span style="color:red">Foi reprovado! </span> 
       <?php } ?>
     </form>
+
+
+    <!--Inserir resultados na base de dados (Tabela result)-->
+    <?php
+    //Inserir os campos na tabela result
+      $accountId = $_SESSION['user_id'];
+      $quiz_category = $_SESSION['category'];
+      $score = $_SESSION['scorefinal'];
+      $qryfim = "INSERT into `result`(`user_id`, `cateogry_id`, `score`) VALUES ('$accountId','$quiz_category','$score')";
+    ?>
+
+
 <!-- VER: se é preciso dar unset a estes sessions -->
       <script type="text/javascript">
           function radioValidation(){

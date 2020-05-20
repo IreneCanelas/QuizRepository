@@ -5,3 +5,8 @@
   include "footer.html";
 ?>
 
+<!--Configurar Logout-->
+
+<!--Gravar id durante a sessão-->
+
+<!--Mostrar resultados de acordo com a tabela na base dados-->
