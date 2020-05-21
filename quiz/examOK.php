@@ -2,6 +2,7 @@
   include "connection.php";
   include "header2.php";
   session_start();
+
 ?>
 
 <!---->
@@ -17,6 +18,8 @@
   } else {
       echo "Sem resultados";
   }
+
+
 
 //--CONTAGEM DE CLICKS
     //Se for um clique ou o inicio

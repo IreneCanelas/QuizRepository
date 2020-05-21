@@ -122,7 +122,7 @@ Apagar depois. Apenas para confirmar que o user id está na sessão-->
 
       }
   };
-  xmlhttp.open("GET","forajax/load_timer.php",true);
+  xmlhttp.open("GET","load_timer.php",true);
   xmlhttp.send(null);
 }
 

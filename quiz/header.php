@@ -3,6 +3,7 @@ include "connection.php";
 include "registo.php";
 include "login.php";
 
+
   // Botao de Pesquisa na nav  
   if(!empty($_GET['search'])) {
     $search = $_GET['search'];
@@ -150,6 +151,9 @@ include "login.php";
       </div>
     </div>
 </nav>
+
+
+
 
 
 
