@@ -99,10 +99,14 @@
 </div>
 <!-----------------------------------------------
 Apagar depois. Apenas para confirmar que o user id está na sessão-->
-<?php echo $userid; var_dump($_SESSION['userid']);?>
+<!-- <?php echo $userid; var_dump($_SESSION['userid']);?> -->
 <!--//----------------------------------------------->
 </div>
 
+<p>Email: <?php  echo @$_SESSION['user_email'] ?> </p>
+<p>ID: <?php  echo @$_SESSION['user_id'] ?> </p>
+
+<!-- COUNTDOWN -->
 <script type="text/javascript">
   setInterval(function(){
   timer();
