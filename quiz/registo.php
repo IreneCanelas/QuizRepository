@@ -79,11 +79,17 @@ include "connection.php";
      if(mysqli_query($conn, $sql)){
        // sucesso
        $var = $_SERVER['PHP_SELF'];
-       header('Location: initialPage.php' );
-     } else {
+       header('Location: initialPage.php?action=success' );
+       //Não funciona ainda
+       if( $_GET['action'] == "success" ) {
+        echo "<script language='javascript' type='text/javascript' align='center'>
+        alert('Login efetuado com sucesso!.');
+        window.location.replace('http://localhost/initialPage.php'); </script>";
+        }
+     } 
+     else {
        echo 'query error: '. mysqli_error($conn);
      }
    }
  }
-
 ?>
