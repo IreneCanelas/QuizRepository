@@ -6,7 +6,8 @@
 
 
 <!-- Categoria dos Quizzes -->
-
+<?php
+if (!empty($quizzes) ) { ?>
 <div class="center">
   <div class="offset"> 
     <div class="row text-center">
@@ -24,4 +25,13 @@
       }?>
     </div>
   </div>
+</div>
+<?php } else {
+     echo('Sem resultados.');
+} ?>
+<!-- Quando introduzem alguma pesquisa, volta a mostrar todos os quizzes -->
+<div class="text-center mb-3"> 
+  <form action="#pesquisa" name="search" method="GET">
+    <button class="btn btn-outline-dark" type="submit">Voltar ao início.</button>
+  </form>
 </div>
