@@ -56,7 +56,7 @@ session_start();
 
       //-------------------------------------------------------------------
       //Inserir os campos na tabela result
-      $useridfinal = $_SESSION['userid'];
+      $useridfinal = $_SESSION['user_id'];
       var_dump($useridfinal);
       $quiz_category = $_SESSION['category'];
       var_dump($quiz_category);
