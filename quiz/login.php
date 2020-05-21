@@ -9,7 +9,7 @@ if(!empty($_POST)) {
   $user = $result->fetch_assoc();
   //$users = [];
   if($count==0) {
-      header('Location: initialPage.php?error=1');
+      header('Location: index.php?error=1');
   } else {
      header("Location: initialAfterLogin.php?id=" . $user['id']);
       $_SESSION['user_id'] = $user['id'];

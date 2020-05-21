@@ -51,7 +51,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="initialPage.php">Ínicio</a>
+        <a class="nav-link" href="initialAfterLogin.php">Ínicio</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Os nossos quizzes <span class="sr-only">(current)</span> </a>
