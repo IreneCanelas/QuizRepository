@@ -67,8 +67,10 @@ include "load_timer.php";
     </div>
   </div>
 </nav>
-            <div id="starttime"></div><br />
-            <div id="endtime"></div><br />
-            <div id="showtime"></div>
+
+<!-- Documentar o que é --> 
+    <div id="starttime"></div><br />
+    <div id="endtime"></div><br />
+    <div id="showtime"></div>
 
 

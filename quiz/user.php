@@ -1,3 +1,7 @@
+<?php
+    include "headerAfterLogin.php";
+?>
+
 <!DOCTYPE html>
 <html lang="">
 <head>

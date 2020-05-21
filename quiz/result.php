@@ -39,8 +39,8 @@ session_start();
       unset($_SESSION["score"]); ?></span><br>
       <!--Se categoria Biologia, como tem menos perguntas, para obter pontuação faz-se x4 -->
       <?php if ($_SESSION['category'] == 'Biologia') {
-        $_SESSION["scorefinal"] = $no*4;?>;
-        <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"] . "em 20"; ?></span> <br>
+        $_SESSION["scorefinal"] = $no*4;?>
+        <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"] . " em 20"; ?></span> <br>
       <?php } else { 
         $_SESSION["scorefinal"] = $no*2;?>;
         <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"]. " em 20";?></span> <br>
@@ -52,9 +52,12 @@ session_start();
         <span style="color:green"> Foi aprovado! </span>
       <?php } else { ?>
         <span style="color:red">Foi reprovado! </span> 
-      <?php } 
+      <?php } ?>
 
-      //-------------------------------------------------------------------
+    <p> Valores para tabela Result</p>
+     
+      <?php
+       //-------------------------------------------------------------------
       //Inserir os campos na tabela result
       $useridfinal = $_SESSION['user_id'];
       var_dump($useridfinal);
