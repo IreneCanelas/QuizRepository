@@ -51,7 +51,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="initialPage.php">Ínicio</a>
+        <a class="nav-link" href="initialAfterLogin.php">Ínicio</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Os nossos quizzes <span class="sr-only">(current)</span> </a>
@@ -105,6 +105,8 @@ Apagar depois. Apenas para confirmar que o user id está na sessão-->
 
 <p>Email: <?php  echo @$_SESSION['user_email'] ?> </p>
 <p>ID: <?php  echo @$_SESSION['user_id'] ?> </p>
+<p>LALAL: <?php  echo @$_SESSION['kk'] ?> </p>
+
 
 <!-- COUNTDOWN -->
 <script type="text/javascript">
