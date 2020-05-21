@@ -19,9 +19,9 @@ include "login.php";
       while($row = $result->fetch_assoc()) {
           $quizzes[] = $row;
       }
-  } else {
-      echo "0 results";   
-  }
+  } //else {
+    //  echo "0 results";   
+  //}
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +59,11 @@ include "login.php";
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Procure aqui" aria-label="Search" id="pesquisa" value="<?php if(!empty($search)) { echo $search; }?>">
+    <form class="form-inline" action="" method="GET">
+      <input class="form-control mr-sm-2" type="text" name="search" placeholder="Procure aqui..." value="<?php if(!empty($search)) { echo $search; }?>">
+      <!-- <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Submeter</button> -->
+    </form>
+
     <!-- Login -->
     <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
