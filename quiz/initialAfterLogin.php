@@ -97,6 +97,10 @@
         </div>
     </div>
 </div>
+<!-----------------------------------------------
+Apagar depois. Apenas para confirmar que o user id está na sessão-->
+<?php echo $userid; var_dump($_SESSION['userid']);?>
+<!--//----------------------------------------------->
 </div>
 
 <script type="text/javascript">
@@ -125,10 +129,7 @@
 </script>
 
 <?php
+  include "select_exam.php";
   include "footer.html";
 ?>
-<!--Configurar Logout-->
 
-<!--Gravar id durante a sessão-->
-
-<!--Mostrar resultados de acordo com a tabela na base dados-->

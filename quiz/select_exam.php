@@ -4,7 +4,9 @@
   //include "set_category_type_session.php";
 ?>
 
+
 <!-- Categoria dos Quizzes -->
+
 <div class="center">
   <div class="offset"> 
     <div class="row text-center">

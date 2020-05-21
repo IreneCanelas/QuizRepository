@@ -38,30 +38,38 @@ session_start();
       <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no . " em ". $_SESSION['numberOfQuestions'] ;
       unset($_SESSION["score"]); ?></span><br>
       <!--Se categoria Biologia, como tem menos perguntas, para obter pontuação faz-se x4 -->
-      <?php if ($_SESSION['category'] == 'Biologia') {?>
-        <span>Pontuação final:&nbsp<?php echo $no*4 . "em 20"; ?></span> <br>
-      <?php } else { ?>
-        <span>Pontuação final:&nbsp<?php echo $no*2 . " em 20"; $_SESSION["scorefinal"] = $no*2; ?></span> <br>
+      <?php if ($_SESSION['category'] == 'Biologia') {
+        $_SESSION["scorefinal"] = $no*4;?>;
+        <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"] . "em 20"; ?></span> <br>
+      <?php } else { 
+        $_SESSION["scorefinal"] = $no*2;?>;
+        <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"]. " em 20";?></span> <br>
         
       <?php } ?>
       <!-- Se foi aprovado ou reprovado -->
-      <?php if ($no > $_SESSION['numberOfQuestions']/2 ) {?>
+      <?php 
+        if ($no > $_SESSION['numberOfQuestions']/2 ) {?>
         <span style="color:green"> Foi aprovado! </span>
       <?php } else { ?>
         <span style="color:red">Foi reprovado! </span> 
-      <?php } ?>
+      <?php } 
+
+      //-------------------------------------------------------------------
+      //Inserir os campos na tabela result
+      $useridfinal = $_SESSION['userid'];
+      var_dump($useridfinal);
+      $quiz_category = $_SESSION['category'];
+      var_dump($quiz_category);
+      $correctnum = $_SESSION['numberOfQuestions'];
+      $score = $_SESSION['scorefinal'];
+      var_dump($score);
+      //Se quisermos adicionar a data e hora do quiz
+      //$scoreDate = date('Y-m-d H:i:s');
+      $qryfim = "INSERT into `result`(`user_id`, `cateogry_id`, `correct_num` `score`) VALUES ('$useridfinal','$quiz_category', '$correctnum', '$score')";?>
+      <!------------------------------------------------------------------->
     </form>
 
 
-    <!--Inserir resultados na base de dados (Tabela result)
-    <?php
-    //Inserir os campos na tabela result
-      $accountId = $_SESSION['user_id'];
-      $quiz_category = $_SESSION['category'];
-      $score = $_SESSION['scorefinal'];
-      $qryfim = "INSERT into `result`(`user_id`, `cateogry_id`, `score`) VALUES ('$accountId','$quiz_category','$score')";
-    ?>
--->
 
 <!-- VER: se é preciso dar unset a estes sessions -->
       <script type="text/javascript">
