@@ -54,21 +54,22 @@ session_start();
         <span style="color:red">Foi reprovado! </span> 
       <?php } ?>
 
-    <p> Valores para tabela Result</p>
      
       <?php
        //-------------------------------------------------------------------
       //Inserir os campos na tabela result
       $useridfinal = $_SESSION['user_id'];
-      var_dump($useridfinal);
+      //var_dump($useridfinal);
       $quiz_category = $_SESSION['category'];
-      var_dump($quiz_category);
-      $correctnum = $_SESSION['numberOfQuestions'];
+      //var_dump($quiz_category);
+      $num_questions = $_SESSION['numberOfQuestions'];
       $score = $_SESSION['scorefinal'];
-      var_dump($score);
+      //var_dump($score);
       //Se quisermos adicionar a data e hora do quiz
-      //$scoreDate = date('Y-m-d H:i:s');
-      $qryfim = "INSERT into `result`(`user_id`, `cateogry_id`, `correct_num` `score`) VALUES ('$useridfinal','$quiz_category', '$correctnum', '$score')";?>
+      $scoreDate = date('Y-m-d H:i:s');
+      var_dump($scoreDate);
+      $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `correct_num`, `score_date`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate')";
+      $result = $conn->query($qryfim); ?>
       <!------------------------------------------------------------------->
     </form>
 
