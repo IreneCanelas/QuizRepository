@@ -1,5 +1,20 @@
 <?php
     include "headerAfterLogin.php";
+    include "connection.php";
+
+
+    $sq = "SELECT id, user_id, category_id, score, num_questions FROM result";
+    $result = $conn->query($sq);
+    $user = [];
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $user[] = $row;
+        }
+    } //else {
+      //  echo "0 results";   
+    //}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +32,8 @@
 </head>
 
 <body>
-    <div><img class="w-100" src="images/underconstruction.jpg"></div>
+    <div><img class="w-100" src="images/underconstruction.jpg"></div> 
+    
 </body>
 
 </html>
