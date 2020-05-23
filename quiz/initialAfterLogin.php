@@ -1,6 +1,9 @@
 
 <?php
+
+session_start();
   include "connection.php";
+
 
   // Botao de Pesquisa na nav  
   if(!empty($_GET['search'])) {
@@ -26,8 +29,8 @@ include "headerAfterLogin.php"
 
 
 <!-- Ler user_id -->
-<p>Email: <?php  var_dump(@$_SESSION['user_email']) ?> </p>
-<p>ID: <?php  var_dump(@$_SESSION['user_id']) ?> </p>
+<!-- <p>Email: <?php  var_dump(@$_SESSION['user_email']) ?> </p> -->
+<!-- <p>ID: <?php  var_dump(@$_SESSION['user_id']) ?> </p> -->
 
 
 <!-- Mobile Menu end -->
