@@ -23,6 +23,10 @@ Descrição dos ficheiros:
 3.
 	Nome: questions.sql
 	Função: Tabela com as questões dos quizzes, opções de respostas, resposta correta e as suas respetivas categorias. 
+
+4.
+	Nome: result.sql
+	Função: Tabela com a informação dos quizzes respondidos pelo utilizador, bem como a sua categoria e qual foi a sua pontuação final. 
  
 
 
