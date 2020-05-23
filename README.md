@@ -5,7 +5,8 @@
 - Nome BD: quizwebsite <p>
 - Nome tabela: quizzes <p>
 - Nome tabela: registos <p>
-- Nome tabela: questions 
+- Nome tabela: questions <p>
+- Nome tabela: results 
 
 ## Pré-requisitos:
 
