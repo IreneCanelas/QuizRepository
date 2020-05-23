@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include "connection.php";
 
 if(!empty($_POST)) {
@@ -11,9 +12,9 @@ if(!empty($_POST)) {
   if($count==0) {
       header('Location: index.php?error=1');
   } else {
-     header("Location: initialAfterLogin.php?id=" . $user['id']);
-      $_SESSION['user_id'] = $user['id'];
+     $_SESSION['user_id'] = $user['id'];
       $_SESSION['user_email'] = $user['email'];
+    header("Location: initialAfterLogin.php");
   }
 }
 
