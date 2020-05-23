@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Maio-2020 às 23:20
+-- Tempo de geração: 23-Maio-2020 às 23:28
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.1
 
@@ -44,7 +44,8 @@ CREATE TABLE `result` (
 INSERT INTO `result` (`id`, `user_id`, `category_id`, `score`, `correct_num`, `score_date`) VALUES
 (1, 3, 'Biologia', 4, 5, NULL),
 (2, 3, 'Biologia', 12, 5, NULL),
-(3, 3, 'Biologia', 12, 5, '2020-05-23 23:15:03');
+(3, 3, 'Biologia', 12, 5, '2020-05-23 23:15:03'),
+(4, 3, 'Matemática', 8, 10, '2020-05-23 23:28:05');
 
 --
 -- Índices para tabelas despejadas
@@ -64,7 +65,7 @@ ALTER TABLE `result`
 -- AUTO_INCREMENT de tabela `result`
 --
 ALTER TABLE `result`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
