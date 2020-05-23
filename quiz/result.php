@@ -68,7 +68,7 @@ session_start();
       //Se quisermos adicionar a data e hora do quiz
       $scoreDate = date('Y-m-d H:i:s');
       //var_dump($scoreDate);
-      $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `correct_num`, `score_date`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate')";
+      $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `num_questions`, `score_date`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate')";
       $result = $conn->query($qryfim); ?>
       <!------------------------------------------------------------------->
     </form>

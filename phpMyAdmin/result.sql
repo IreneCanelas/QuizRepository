@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Maio-2020 às 23:28
+-- Tempo de geração: 23-Maio-2020 às 23:35
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.1
 
@@ -33,7 +33,7 @@ CREATE TABLE `result` (
   `user_id` int(11) NOT NULL,
   `category_id` varchar(100) NOT NULL,
   `score` int(11) NOT NULL,
-  `correct_num` int(11) NOT NULL,
+  `num_questions` int(11) NOT NULL,
   `score_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,7 +41,7 @@ CREATE TABLE `result` (
 -- Extraindo dados da tabela `result`
 --
 
-INSERT INTO `result` (`id`, `user_id`, `category_id`, `score`, `correct_num`, `score_date`) VALUES
+INSERT INTO `result` (`id`, `user_id`, `category_id`, `score`, `num_questions`, `score_date`) VALUES
 (1, 3, 'Biologia', 4, 5, NULL),
 (2, 3, 'Biologia', 12, 5, NULL),
 (3, 3, 'Biologia', 12, 5, '2020-05-23 23:15:03'),
