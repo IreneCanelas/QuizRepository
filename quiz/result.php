@@ -35,14 +35,14 @@ session_start();
     <!--Resultado-->
       <!--Número de respostas corretas-->
       <?php $no = @$_SESSION['score'] ?>
-      <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no . " em ". $_SESSION['numberOfQuestions'] ;
+      <p class="card-text "><span>Respostas corretas:&nbsp;<?php echo $no . " em ". $_SESSION['numberOfQuestions'];
       unset($_SESSION["score"]); ?></span><br>
       <!--Se categoria Biologia, como tem menos perguntas, para obter pontuação faz-se x4 -->
       <?php if ($_SESSION['category'] == 'Biologia') {
         $_SESSION["scorefinal"] = $no*4;?>
         <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"] . " em 20"; ?></span> <br>
       <?php } else { 
-        $_SESSION["scorefinal"] = $no*2;?>;
+        $_SESSION["scorefinal"] = $no*2;?>
         <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"]. " em 20";?></span> <br>
         
       <?php } ?>
