@@ -52,7 +52,6 @@
 
 ?>
 
-
 <!--TITULO DA CATEGORIA-->
 <div class="card centerdash col-md-4" style=" margin:0 auto;">
   <div class="card-body">
@@ -60,6 +59,8 @@
       <div class="text-center">
         <h3 class="card-tile"> Quiz de <?php echo $category_selected ?></h3> <hr>
       </div>
+      <br>
+      <text> Tempo: <text id='time001'>10</text></text>
 
 <!--Se clicks = 0, Botão de Start visível-->
 <!-- Se clicks == 0 -> Botao hide -->
@@ -69,7 +70,6 @@
             <div class="col text-center">
               <div>
               <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary"float="left" ><span>Começar!</span></button></div> </a> 
-
             </div>
           </div>
         </div>
@@ -95,7 +95,6 @@
       <!--Se o click estiver entre 1 e nº total de perguntas por categoria continuar a mostrar as perguntas-->
       <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < $result->num_rows+1){ ?>
         <div class="" style="max-width:15%"> <?php echo $row['question_num']. "/". $result->num_rows?> </div>
-      
       <tr>
         <td>
           <input required type="radio" name="userans" value="<?php echo $row['opt1'];?>">&nbsp;<?php echo $row['opt1']; ?>
@@ -120,6 +119,9 @@
         <br>
         </td>
       </tr>
+              <script>
+          var c = 10;
+        </script>
 
       <tr>
         <td>
@@ -164,36 +166,24 @@
 <br>
 <br>
 
-<!--
 <script>
-  // countdown
-function countdown() {
-    var seconds = 60;
-    var mins = 4;
-    function tick() {
-        var counter = document.getElementById("lugar");
-        var current_minutes = mins-1
-        seconds--;
-        counter.innerHTML = current_minutes.toString() + ' : ' + (seconds < 10 ? "0" : "") + String(seconds);
-        if( seconds > 0 ) {
-            setTimeout(tick, 1000);
-        } else if( seconds == 0)
-        {
-          document.getElementById('tenta').style.color = "red";
-          document.getElementById('tenta').innerHTML = 'Acabou o tempo!';
-        }
+  function timer001()
+  {
+    c = c - 1;
+    if(c < 10)
+    {
+      time001.innerHTML = c;
     }
-    tick();
-}
-countdown();
-/*else {
-            if(mins > 1){
-                countdown(mins-1);           
-            }
-        }*/
-</script>-->
 
+    if(c < 1)
+    {
+      window.clearInterval(update);
+    }
+  } 
 
+  update = setInterval("timer001()", 1000);
+
+</script>
 
 <!--ACRESCENTAR FOOTER-->
 <?php
