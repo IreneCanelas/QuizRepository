@@ -97,13 +97,13 @@ session_start();
       <div class="text-center">
         <p>Compartilhe o resultado com os seus amigos!</p>
         <!--Facebook-->
-        <a class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
+        <a href= "https://pt-pt.facebook.com/" class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
         <!--Twitter-->
-        <a class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
+        <a href = "https://twitter.com/login?lang=pt" class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
         <!--Instagram-->
-        <a class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>
+        <a href = "https://www.instagram.com/?hl=pt" class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>
         <!--WhatsApp-->
-        <a class="whatsapp-ic" role="button"><i class="fab fa-lg fa-whatsapp"></i></a>
+        <a href = "https://www.whatsapp.com/" class="whatsapp-ic" role="button"><i class="fab fa-lg fa-whatsapp"></i></a>
       </div>
 
   </div>
