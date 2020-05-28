@@ -60,12 +60,13 @@ include "login.php";
         <a class="nav-link" href="#">Os nossos quizzes</a>
       </li>
     </ul>
-    <div class="form-inline my-2 my-lg-0">
+    <div class="form-inline my-2 my-lg-0"></div>
+
     <form class="form-inline" action="" method="GET">
       <input class="form-control mr-sm-2" type="text" name="search" placeholder="Procure aqui..." value="<?php if(!empty($search)) { echo $search; }?>">
       <!-- <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Submeter</button> -->
     </form>
-
+    
     <!-- Login -->
     <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
