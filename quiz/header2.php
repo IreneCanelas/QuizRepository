@@ -1,6 +1,5 @@
 <?php
 include "connection.php";
-include "load_timer.php";
 
   // Botao de Pesquisa na nav  
   if(!empty($_GET['search'])) {
