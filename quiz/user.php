@@ -20,7 +20,19 @@
         <div class="col-lg-12">
             <aside class="user-info-wrapper">
                 <div class="user-cover">
-                    <div class="info-label" title=""><i class="icon-medal"></i>290 pontos</div>
+                    <div class="info-label" title=""><i class="icon-medal"></i>
+                        <?php 
+                            $scoreTotal=0;
+                            if (mysqli_num_rows($result2) > 0) {
+                                while ($row2 = mysqli_fetch_assoc($result2)) {
+                                    $scoreTotal += $row2['score']; 
+                                }
+                                echo $scoreTotal." pontos";  }
+                            else {
+                                echo "0";                       
+                            }
+                        ?>
+                </div>
                 </div>
                 <div class="user-info">
                     <div class="user-avatar">
