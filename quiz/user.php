@@ -5,8 +5,12 @@
 
     //Base de Dados e Tabela client
     $useridfinal = $_SESSION['user_id'];
-    $qry = "SELECT name FROM registos where id='$useridfinal'";
+    $qry = "SELECT name, email FROM registos where id='$useridfinal'";
     $result = mysqli_query($conn, $qry);
+
+    //Base de Dados e Tabela result
+    $qry2 = "SELECT id, user_id, quiz_category, correct_num, score FROM result where user_id='$useridfinal'";
+    $result2 = mysqli_query($conn, $qry2);
     
 
 ?>
@@ -38,7 +42,12 @@
                 
                 <!--Abrir perfil-->
                 <a class="list-group-item" onclick="showAndHideProf()"><i class="fa fa-user"></i> Perfil</a>
-                <div id="profileDiv"  style="display:none;" class="border" >Teste</div>
+                    <div id="profileDiv"  style="display:none;" class="border" >
+                        <ul><br> 
+                            <li>Jogador: <?php echo $row['name']; ?></li>
+                            <li>Email: <?php echo $row['email']; ?></li>
+                        </ul>
+                    </div>
                 
                 <script type="text/javascript">
                     function showAndHideProf() {
@@ -55,8 +64,16 @@
                 <!--Abrir resultados do quiz-->
                 <a class="list-group-item with-badge bg-light " onclick="showAndHideResult()">
                 <i class="fas fa-trophy"></i> Meus quizzes<span class="badge badge-warning badge-pill">4</span></a>
-                <div id="resultsDiv"  style="display:none;" class="border" >Teste
-                    
+                <div id="resultsDiv"  style="display:none;" class="border" >
+                    <?php 
+                        if (mysqli_num_rows($result2) > 0) {
+                            $row2 = mysqli_fetch_assoc($result2);?>
+                            <ul><br> 
+                                <li><?php  echo $row2['quiz_category'];echo $row2['correct_num'];echo $row2['score']; ?></li>
+                            </ul>
+                           <?php } 
+                        
+                        else ?><br><?php echo "Ainda não realizou nenhum quiz." ?><br>                    
                 </div>
 
                 <script type="text/javascript">
