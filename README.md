@@ -60,8 +60,8 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Criar _quizzes_ diversos;
 - [X] Configurar registo;
 - [X] Configurar login;
-- [X] Configurar _quizzes_
-- [X] Criar interface geral da conta do utilizador;
+- [X] Configurar _quizzes_;
+- [X] Criar interface geral da conta do utilizador.
 
 
 ## Histórico de Releases:
