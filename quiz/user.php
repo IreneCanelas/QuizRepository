@@ -38,7 +38,7 @@
                 
                 <!--Abrir perfil-->
                 <a class="list-group-item" onclick="showAndHideProf()"><i class="fa fa-user"></i> Perfil</a>
-                <div id="profileDiv"  style="display:none;" class="answer_list" >Teste</div>
+                <div id="profileDiv"  style="display:none;" class="border" >Teste</div>
                 
                 <script type="text/javascript">
                     function showAndHideProf() {
@@ -55,7 +55,9 @@
                 <!--Abrir resultados do quiz-->
                 <a class="list-group-item with-badge bg-light " onclick="showAndHideResult()">
                 <i class="fas fa-trophy"></i> Meus quizzes<span class="badge badge-warning badge-pill">4</span></a>
-                <div id="resultsDiv"  style="display:none;" class="answer_list" >Teste</div>
+                <div id="resultsDiv"  style="display:none;" class="border" >Teste
+                    
+                </div>
 
                 <script type="text/javascript">
                     function showAndHideResult() {
