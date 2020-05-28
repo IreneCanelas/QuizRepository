@@ -64,7 +64,14 @@
                 <!--Abrir resultados do quiz-->
                 <a class="list-group-item with-badge bg-light " onclick="showAndHideResult()">
                 <!--Antecipa quantos quiz ja realizou-->
-                <i class="fas fa-trophy"></i> Meus quizzes<span class="badge badge-warning badge-pill"><?php echo mysqli_num_rows($result2)  ?></span></a>
+                <i class="fas fa-trophy"></i> Meus quizzes<span class="badge badge-warning badge-pill">
+                    <?php  if (mysqli_num_rows($result2) > 0) {
+                                echo mysqli_num_rows($result2); 
+                            }
+                            else {
+                                echo 0; } ?>
+                
+                </span></a>
                 <div id="resultsDiv"  style="display:none;" class="border" >
 
                     <!--Tabela detalhada de resultados-->
