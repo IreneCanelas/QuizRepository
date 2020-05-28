@@ -60,7 +60,7 @@
         <h3 class="card-tile"> Quiz de <?php echo $category_selected ?></h3> <hr>
       </div>
       <br>
-      <text> Tempo: <text id='time001'>10</text></text>
+      <!--<text> Tempo: <text id='time001'>10</text></text>-->
 
 <!--Se clicks = 0, Botão de Start visível-->
 <!-- Se clicks == 0 -> Botao hide -->
@@ -114,14 +114,13 @@
       <tr>
         <td>
         <input required type="radio" name="userans" value="<?php echo $row['opt4'];?>">&nbsp;<?php echo $row['opt4']; ?>
-        <br>
-        <br>
-        <br>
+        <br><br><br>
         </td>
       </tr>
-              <script>
+      <input type="text" readonly id="timespent" value="0:00">
+        <!--<script>
           var c = 10;
-        </script>
+        </script>-->
 
       <tr>
         <td>
@@ -166,7 +165,32 @@
 <br>
 <br>
 
+<!--Configuração do timer-->
 <script>
+ function startTimer() {
+      var tobj = document.getElementById("timespent")
+      var t = "0:00";
+      var s = 00;
+      var d = new Date();
+      var timeint = setInterval(function () {
+        s += 1;
+        d.setMinutes("0");
+        d.setSeconds(s);
+        min = d.getMinutes();
+        sec = d.getSeconds();
+        if (sec < 10) sec = "0" + sec;
+        val= document.getElementById("timespent").value = min + ":" + sec;
+      }, 1000);
+      tobj.value = t;
+    }
+    if (window.addEventListener) {              
+      window.addEventListener("load", startTimer);
+    } else if (window.attachEvent) {                 
+      window.attachEvent("onload", startTimer);
+    }
+</script>
+
+<!--<script>
   function timer001()
   {
     c = c - 1;
@@ -183,7 +207,7 @@
 
   update = setInterval("timer001()", 1000);
 
-</script>
+</script>-->
 
 <!--ACRESCENTAR FOOTER-->
 <?php
