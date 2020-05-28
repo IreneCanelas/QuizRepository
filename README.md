@@ -61,7 +61,7 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Configurar registo;
 - [X] Configurar login;
 - [X] Configurar _quizzes_
-- [X] Criar interface geral da página do utilizador;
+- [X] Criar interface geral da conta do utilizador;
 
 
 ## Histórico de Releases:
