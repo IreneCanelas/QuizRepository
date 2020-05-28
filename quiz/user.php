@@ -11,6 +11,7 @@
     //Base de Dados e Tabela result
     $qry2 = "SELECT id, user_id, category_id, score, num_questions, score_date FROM result where user_id='$useridfinal'";
     $result2 = mysqli_query($conn, $qry2);
+    $result3 = mysqli_query($conn, $qry2);
     
 
 ?>
@@ -85,31 +86,32 @@
                 
                 </span></a>
                 <div id="resultsDiv"  style="display:none;" class="border" >
+                
+                   <!--Tabela detalhada de resultados-->
+                        <?php
 
-                    <!--Tabela detalhada de resultados-->                  
-                    <?php
-
-                    if (mysqli_num_rows($result2) > 0) { ?>
-                        <table class="table table-bordered">
-                        <tr class="table-warning">
-                            <th>Categoria</th>
-                            <th>Pontuação</th>
-                            <th>Questões certas</th>
-                            <th>Total de questões</th>
-                            <th>Data e Hora</th>
-                        </tr>
-                        <?php while ($row2 = mysqli_fetch_assoc($result2)) {
-                            echo "<tr>";
-                            echo "<td>" . $row2['category_id'] . "</td><td>" . $row2['score'] . "</td><td>" . $row2['score']/2 . "</td><td>" . $row2['num_questions'] . "</td><td>" . $row2['score_date'] . "</td>";
-                            echo "</tr>";
+                        if (mysqli_num_rows($result3) > 0) { ?>
+                            <table class="table table-bordered">
+                            <tr class="table-warning">
+                                <th>Categoria</th>
+                                <th>Pontuação</th>
+                                <th>Questões certas</th>
+                                <th>Total de questões</th>
+                                <th>Data e Hora</th>
+                            </tr>
+                            <?php 
+                            while ($row3 = mysqli_fetch_assoc($result3)) {
+                                echo "<tr>";
+                                echo "<td>" . $row3['category_id'] . "</td><td>" . $row3['score'] . "</td><td>" . $row3['score']/2 . "</td><td>" . $row3['num_questions'] . "</td><td>" . $row3['score_date'] . "</td>";
+                                echo "</tr>";
+                            }
                         }
-                    }
-                    
-                    else {
-                        echo "<div class='alert alert-warning'>Ainda não realizou nenhum quiz.</div>";
-                    }
-                    mysqli_close($conn); ?>   
-                    </table>            
+
+                        else {
+                            echo "<div class='alert alert-warning'>Ainda não realizou nenhum quiz.</div>";
+                        }
+                        mysqli_close($conn); ?>   
+                        </table>            
                 </div>
 
                 <script type="text/javascript">
