@@ -68,7 +68,7 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - 1.1: Fim do Módulo II
 
 ## Autoria:
-- Irene Canelas : [@IreneCanelas](https://www.github.com/ccxirene)
+- Irene Canelas : [@IreneCanelas](https://www.github.com/IreneCanelas)
 - Layla Reis : [@reislayla](https://www.github.com/reislayla)
 - Márcia Ferreira : [@marciandreia11](https://www.github.com/marciandreia11)
 - Sara Rocha : [@sararocha25](https://www.github.com/sararocha25)
