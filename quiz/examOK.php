@@ -1,7 +1,12 @@
 <?php
-  include "connection.php";
-  include "header2.php";
   session_start();
+  include "connection.php";
+  if (isset($_SESSION['user_id'])) {
+    include "headerAfterLogin.php";
+  }
+  else { include "header2.php"; }
+  
+
 
 ?>
 
@@ -49,7 +54,7 @@
 
     $_SESSION['category'] = $category_selected;
     $_SESSION['numberOfQuestions'] = $result->num_rows;
-
+    //echo $_SESSION['user_id'];
 ?>
 
 <!--TITULO DA CATEGORIA-->
