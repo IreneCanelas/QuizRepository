@@ -18,19 +18,4 @@ if(!empty($_POST)) {
     header("Location: initialAfterLogin.php");
   }
 }
-
 ?>
-
-
-
-
-
-
-
-<?php /* if(!empty($_GET['error']) && $_GET['error'] == 1) { ?>
-  <script>
-      $('#loginModal').modal('show');
-  </script>
-<?php } */?>
-
-
