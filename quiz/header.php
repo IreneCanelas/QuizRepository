@@ -159,6 +159,20 @@ include "login.php";
     </div>
 </nav>
 
+<!-- permite fechar o modal login ou de registo carregando em qualquer lugar da tela -->
+<script>
+var modal = document.getElementById('login');
+var modal2 = document.getElementById('registo');
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  } else if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+}
+</script>
+
 
 
 
