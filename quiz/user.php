@@ -79,7 +79,7 @@
                     <tr class="table-warning">
                         <th>Categoria</th>
                         <th>Pontuação</th>
-                        <<th>Questões certas</th>
+                        <th>Questões certas</th>
                         <th>Total de questões</th>
                         <th>Data e Hora</th>
                     </tr>
