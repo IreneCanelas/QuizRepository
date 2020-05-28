@@ -9,7 +9,7 @@
     $result = mysqli_query($conn, $qry);
 
     //Base de Dados e Tabela result
-    $qry2 = "SELECT id, user_id, quiz_category, correct_num, score FROM result where user_id='$useridfinal'";
+    $qry2 = "SELECT id, user_id, category_id, score, num_questions, score_date FROM result where user_id='$useridfinal'";
     $result2 = mysqli_query($conn, $qry2);
     
 
@@ -44,8 +44,8 @@
                 <a class="list-group-item" onclick="showAndHideProf()"><i class="fa fa-user"></i> Perfil</a>
                     <div id="profileDiv"  style="display:none;" class="border" >
                         <ul><br> 
-                            <li>Jogador: <?php echo $row['name']; ?></li>
-                            <li>Email: <?php echo $row['email']; ?></li>
+                            <li class="list-group-item list-group-item-warning mr-5">Jogador: <?php echo $row['name']; ?></li>
+                            <li class="list-group-item list-group-item-light mr-5">Email: <?php echo $row['email']; ?></li>
                         </ul>
                     </div>
                 
@@ -63,17 +63,34 @@
 
                 <!--Abrir resultados do quiz-->
                 <a class="list-group-item with-badge bg-light " onclick="showAndHideResult()">
-                <i class="fas fa-trophy"></i> Meus quizzes<span class="badge badge-warning badge-pill">4</span></a>
+                <!--Antecipa quantos quiz ja realizou-->
+                <i class="fas fa-trophy"></i> Meus quizzes<span class="badge badge-warning badge-pill"><?php echo mysqli_num_rows($result2)  ?></span></a>
                 <div id="resultsDiv"  style="display:none;" class="border" >
-                    <?php 
-                        if (mysqli_num_rows($result2) > 0) {
-                            $row2 = mysqli_fetch_assoc($result2);?>
-                            <ul><br> 
-                                <li><?php  echo $row2['quiz_category'];echo $row2['correct_num'];echo $row2['score']; ?></li>
-                            </ul>
-                           <?php } 
-                        
-                        else ?><br><?php echo "Ainda não realizou nenhum quiz." ?><br>                    
+
+                    <!--Tabela detalhada de resultados-->
+                    <table class="table table-bordered">
+                    <tr class="table-warning">
+                        <th>Categoria</th>
+                        <th>Pontuação</th>
+                        <th>Questões certas</th>
+                        <th>Data e Hora</th>
+                    </tr>
+                    
+                    <?php
+
+                    if (mysqli_num_rows($result2) > 0) {
+                        while ($row2 = mysqli_fetch_assoc($result2)) {
+                            echo "<tr>";
+                            echo "<td>" . $row2['category_id'] . "</td><td>" . $row2['score'] . "</td><td>" . $row2['num_questions'] . "</td><td>" . $row2['score_date'] . "</td>";
+                            echo "</tr>";
+                        }
+                    }
+                    
+                    else {
+                        echo "<div class='alert alert-warning'>Ainda não realizou nenhum quiz.</div>";
+                    }
+                    mysqli_close($conn); ?>   
+                    </table>            
                 </div>
 
                 <script type="text/javascript">
