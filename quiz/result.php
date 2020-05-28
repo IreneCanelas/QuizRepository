@@ -1,7 +1,13 @@
 <?php
-include "connection.php";
-include "header2.php";
 session_start();
+include "connection.php";
+if (isset($_SESSION['user_id'])) {
+  include "headerAfterLogin.php";
+}
+else { include "header2.php"; }
+
+
+
 ?>
 
 
@@ -58,18 +64,20 @@ session_start();
       <?php
        //-------------------------------------------------------------------
       //Inserir os campos na tabela result
-      $useridfinal = $_SESSION['user_id'];
-      //var_dump($useridfinal);
-      $quiz_category = $_SESSION['category'];
-      //var_dump($quiz_category);
-      $num_questions = $_SESSION['numberOfQuestions'];
-      $score = $_SESSION['scorefinal'];
-      //var_dump($score);
-      //Se quisermos adicionar a data e hora do quiz
-      $scoreDate = date('Y-m-d H:i:s');
-      //var_dump($scoreDate);
-      $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `num_questions`, `score_date`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate')";
-      $result = $conn->query($qryfim); ?>
+      if (isset($_SESSION['user_id'])) {
+        $useridfinal = $_SESSION['user_id'];
+        //var_dump($useridfinal);
+        $quiz_category = $_SESSION['category'];
+        //var_dump($quiz_category);
+        $num_questions = $_SESSION['numberOfQuestions'];
+        $score = $_SESSION['scorefinal'];
+        //var_dump($score);
+        //Se quisermos adicionar a data e hora do quiz
+        $scoreDate = date('Y-m-d H:i:s');
+        //var_dump($scoreDate);
+        $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `num_questions`, `score_date`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate')";
+        $result = $conn->query($qryfim); 
+      }?>
       <!------------------------------------------------------------------->
     </form>
 
