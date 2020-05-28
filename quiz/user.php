@@ -69,7 +69,7 @@
                                 echo mysqli_num_rows($result2); 
                             }
                             else {
-                                echo 0; } ?>
+                                echo "0"; } ?>
                 
                 </span></a>
                 <div id="resultsDiv"  style="display:none;" class="border" >
@@ -79,7 +79,8 @@
                     <tr class="table-warning">
                         <th>Categoria</th>
                         <th>Pontuação</th>
-                        <th>Questões certas</th>
+                        <<th>Questões certas</th>
+                        <th>Total de questões</th>
                         <th>Data e Hora</th>
                     </tr>
                     
@@ -88,7 +89,7 @@
                     if (mysqli_num_rows($result2) > 0) {
                         while ($row2 = mysqli_fetch_assoc($result2)) {
                             echo "<tr>";
-                            echo "<td>" . $row2['category_id'] . "</td><td>" . $row2['score'] . "</td><td>" . $row2['num_questions'] . "</td><td>" . $row2['score_date'] . "</td>";
+                            echo "<td>" . $row2['category_id'] . "</td><td>" . $row2['score'] . "</td><td>" . $row2['score']/2 . "</td><td>" . $row2['num_questions'] . "</td><td>" . $row2['score_date'] . "</td>";
                             echo "</tr>";
                         }
                     }
