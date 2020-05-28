@@ -37,43 +37,42 @@
                 <a class="list-group-item with-badge" href="#"><i class="fa fa-heart"></i>Wishlist<span class="badge badge-primary badge-pill">3</span></a>-->
                 
                 <!--Abrir perfil-->
-                <a class="list-group-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+                <a class="list-group-item" onclick="showAndHideProf()"><i class="fa fa-user"></i> Perfil</a>
+                <div id="profileDiv"  style="display:none;" class="answer_list" >Teste</div>
+                
+                <script type="text/javascript">
+                    function showAndHideProf() {
+                    var x = document.getElementById("profileDiv");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+                    }             
+                </script>
 
 
                 <!--Abrir resultados do quiz-->
-                <a class="list-group-item with-badge bg-light " data-target="#myModal" data-toggle="modal" class="meusResultados" id="meusResultados" href="#myModal">
-                    <i class="fas fa-trophy"></i> Meus quizzes<span class="badge badge-warning badge-pill">4</span></a>
+                <a class="list-group-item with-badge bg-light " onclick="showAndHideResult()">
+                <i class="fas fa-trophy"></i> Meus quizzes<span class="badge badge-warning badge-pill">4</span></a>
+                <div id="resultsDiv"  style="display:none;" class="answer_list" >Teste</div>
+
+                <script type="text/javascript">
+                    function showAndHideResult() {
+                    var x = document.getElementById("resultsDiv");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+                    }             
+                </script>
+
             </nav>
         </div>
     </div>   
 </div>
 
-    <div id="myModal" class="modal fade">
-          <form class="modal-content" action="" method="">
-            <div class="modal-header"></div>
-            <div class="container">
-              <h1>Meus resultados</h1>
-              <hr>
-              <?php
-                $sq = "SELECT id, user_id, category_id, score, num_questions FROM result";
-                    $result = $conn->query($sq);
-                    $user = [];
-
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $user[] = $row;
-                        }
-                    } //else {
-                    //  echo "0 results";   
-                    //}
-                ?>
-
-            <!--Botão Cancelar -->
-            <button value="Hover" type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Minha Conta</button>
-            </div>
-        </div>
-        </form>
-    </div>
 
 <?php
     include "footer.html";
