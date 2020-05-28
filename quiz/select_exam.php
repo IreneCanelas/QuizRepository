@@ -27,11 +27,6 @@ if (!empty($quizzes) ) { ?>
   </div>
 </div>
 <?php } else {
-     echo('Sem resultados.');
+      echo "<div class='alert alert-warning'>Sem resultados.</div>";
 } ?>
 <!-- Quando introduzem alguma pesquisa, volta a mostrar todos os quizzes -->
-<div class="text-center mb-3"> 
-  <form action="#pesquisa" name="search" method="GET">
-    <button class="btn btn-outline-dark" type="submit">Voltar ao início.</button>
-  </form>
-</div>

@@ -4,7 +4,8 @@ include "registo.php";
 include "login.php";
 
 
-  // Botao de Pesquisa na nav  
+  // Botao de Pesquisa na nav 
+  //$_SESSION['search'] = $_GET['search']; 
   if(!empty($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT id, name, photo_url FROM quizzes WHERE name='" . $search . "'";
