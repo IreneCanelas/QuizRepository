@@ -105,7 +105,7 @@ else { include "header2.php"; }
       <div class="text-center">
         <p>Compartilhe o resultado com os seus amigos!</p>
         <!--Facebook-->
-        <a href= "https://pt-pt.facebook.com/" class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
+        <a href= "https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F" class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
         <!--Twitter-->
         <a href = "https://twitter.com/login?lang=pt" class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
         <!--Instagram-->
