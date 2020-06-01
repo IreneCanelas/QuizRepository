@@ -80,7 +80,7 @@
 ?>
 
 <!--TITULO DA CATEGORIA-->
-<div class="card centerdash col-md-4" style=" margin:0 auto;">
+<div class="card centerdash col-md-4 mt-5" style=" margin:0 auto;">
   <div class="card-body">
       <div>
       <div class="text-center">
@@ -96,7 +96,7 @@
           <div class="row">
             <div class="col text-center">
               <div>
-              <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary"float="left" ><span>Começar!</span></button></div> </a> 
+              <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary" float="left"><span>Começar!</span></button></div> </a> 
             </div>
           </div>
         </div>
@@ -146,8 +146,12 @@
         <br><br><br>
         </td>
       </tr>
+<<<<<<< HEAD
       <!-- <p><?php // echo "Faltam $remainingSeconds"; ?></p>-->
         <input type="text" readonly id="timespent" value="0:00"> 
+=======
+      
+>>>>>>> d7ae3a29dff78ce89dd92042e4d504e6e6add6e6
         <!--<script>
           var c = 10;
         </script>-->
@@ -156,6 +160,7 @@
         <td>
         <!--Botão Próxima pergunta-->
         <button class="btn btn-dark" name="click">Próxima</button>
+        <input type="text" readonly id="timespent" value="0:00">
         <br>
         <br>
         <br>        
@@ -210,14 +215,24 @@
         min = d.getMinutes();
         sec = d.getSeconds();
         if (sec < 10) sec = "0" + sec;
+<<<<<<< HEAD
         val = document.getElementById("timespent").value = min + ":" + sec;
       }, 1000);
       tobj.value = t;
     }
 
+=======
+        document.getElementById("timespent").value = min + ":" + sec;
+      }, 1000);
+      tobj.value = t;
+    }
+    
+>>>>>>> d7ae3a29dff78ce89dd92042e4d504e6e6add6e6
     if (window.addEventListener) {              
       window.addEventListener("load", startTimer);
-    } else if (window.attachEvent) {                 
+    } 
+
+    else if (window.attachEvent) {                 
       window.attachEvent("onload", startTimer);
     }
 
