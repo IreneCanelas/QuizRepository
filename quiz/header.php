@@ -60,12 +60,13 @@ include "login.php";
         <a class="nav-link" href="#">Os nossos quizzes</a>
       </li>
     </ul>
-    <div class="form-inline my-2 my-lg-0">
+    <div class="form-inline my-2 my-lg-0"></div>
+
     <form class="form-inline" action="" method="GET">
       <input class="form-control mr-sm-2" type="text" name="search" placeholder="Procure aqui..." value="<?php if(!empty($search)) { echo $search; }?>">
       <!-- <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Submeter</button> -->
     </form>
-
+    
     <!-- Login -->
     <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
@@ -157,6 +158,20 @@ include "login.php";
       </div>
     </div>
 </nav>
+
+<!-- permite fechar o modal login ou de registo carregando em qualquer lugar da tela -->
+<script>
+var modal = document.getElementById('login');
+var modal2 = document.getElementById('registo');
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  } else if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+}
+</script>
 
 
 

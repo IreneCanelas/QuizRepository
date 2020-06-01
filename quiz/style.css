@@ -78,7 +78,8 @@ body{
 .modal {
     display: none; 
     position: fixed; 
-    z-index: 1; 
+    z-index: 1;
+    overflow: auto; /* permite dar scroll caso esteja muito grande */
 }
   
 /* Caixa Modal */
