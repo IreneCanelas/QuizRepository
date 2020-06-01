@@ -6,9 +6,31 @@
   }
   else { include "header2.php"; }
   
+  /*
+  if(!isset($_SESSION['countdown'])) 
+  {
+    $_SESSION['countdown'] = 120;
+    $_SESSION['time_started'] = time();
+  }
+
+  $now = time();
+
+  $timeSince = $now - $_SESSION['time_started'];
+
+  $remainingSeconds = abs($_SESSION['countdown'] - $timeSince);
+
+  if($remainingSeconds < 1)
+  {
+    $remainingSeconds = 0;
+    $_SESSION['countdown'] = 0;
+    $_SESSION['time_started'] = 0;
+    $timeSince = 0;
+  }
+  */
 
 
 ?>
+
 
 <!---->
 <?php 
@@ -81,10 +103,12 @@
       <?php }?>
     </div>  
   </div>
+
 <form action="" method="POST">
 <table>
     <?php if(isset($c)) 
-      {   
+      { 
+
         $fetchqry = "SELECT * FROM `questions` where `question_num`=".$c." and  `category`='$category_selected'";
         $resultt=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($resultt);
@@ -96,7 +120,7 @@
         <td>
           <h4><br><?php echo @$row['question'];?></h4>
         </td>
-      </tr>  
+      </tr>
       <!--Se o click estiver entre 1 e nº total de perguntas por categoria continuar a mostrar as perguntas-->
       <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < $result->num_rows+1){ ?>
         <div class="" style="max-width:15%"> <?php echo $row['question_num']. "/". $result->num_rows?> </div>
@@ -122,7 +146,8 @@
         <br><br><br>
         </td>
       </tr>
-      <input type="text" readonly id="timespent" value="0:00">
+      <!-- <p><?php // echo "Faltam $remainingSeconds"; ?></p>-->
+        <input type="text" readonly id="timespent" value="0:00"> 
         <!--<script>
           var c = 10;
         </script>-->
@@ -170,7 +195,8 @@
 <br>
 <br>
 
-<!--Configuração do timer-->
+
+<!-- Configuração do timer -->
 <script>
  function startTimer() {
       var tobj = document.getElementById("timespent")
@@ -184,15 +210,17 @@
         min = d.getMinutes();
         sec = d.getSeconds();
         if (sec < 10) sec = "0" + sec;
-        val= document.getElementById("timespent").value = min + ":" + sec;
+        val = document.getElementById("timespent").value = min + ":" + sec;
       }, 1000);
       tobj.value = t;
     }
+
     if (window.addEventListener) {              
       window.addEventListener("load", startTimer);
     } else if (window.attachEvent) {                 
       window.attachEvent("onload", startTimer);
     }
+
 </script>
 
 <!--<script>
