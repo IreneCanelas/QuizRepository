@@ -74,7 +74,7 @@
           <div class="row">
             <div class="col text-center">
               <div>
-              <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary"float="left" ><span>Começar!</span></button></div> </a> 
+              <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary" float="left"><span>Começar!</span></button></div> </a> 
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
         <br><br><br>
         </td>
       </tr>
-      <input type="text" readonly id="timespent" value="0:00">
+      
         <!--<script>
           var c = 10;
         </script>-->
@@ -131,6 +131,7 @@
         <td>
         <!--Botão Próxima pergunta-->
         <button class="btn btn-dark" name="click">Próxima</button>
+        <input type="text" readonly id="timespent" value="0:00">
         <br>
         <br>
         <br>        
@@ -184,13 +185,16 @@
         min = d.getMinutes();
         sec = d.getSeconds();
         if (sec < 10) sec = "0" + sec;
-        val= document.getElementById("timespent").value = min + ":" + sec;
+        document.getElementById("timespent").value = min + ":" + sec;
       }, 1000);
       tobj.value = t;
     }
+    
     if (window.addEventListener) {              
       window.addEventListener("load", startTimer);
-    } else if (window.attachEvent) {                 
+    } 
+
+    else if (window.attachEvent) {                 
       window.attachEvent("onload", startTimer);
     }
 </script>
