@@ -37,6 +37,8 @@ include "login.php";
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src='style/TimeCircles.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -47,10 +49,13 @@ include "login.php";
     <img src="images/Logo.png" width="60" height="60" alt="">
   </a>
   <a class="navbar-brand" href="#">QuizQuiz</a>
+
+  <!--Hamburguer Menu-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <!--Hamburguer Menu-->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -156,7 +161,6 @@ include "login.php";
           </form>
         </div>
       </div>
-    </div>
 </nav>
 
 <!-- permite fechar o modal login ou de registo carregando em qualquer lugar da tela -->
