@@ -58,7 +58,7 @@
 ?>
 
 <!--TITULO DA CATEGORIA-->
-<div class="card centerdash col-md-4" style=" margin:0 auto;">
+<div class="card centerdash col-md-4 mt-5" style=" margin:0 auto;">
   <div class="card-body">
       <div>
       <div class="text-center">
