@@ -73,7 +73,7 @@ include "login.php";
     </form>
     
     <!-- Login -->
-    <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
+    <button class="btn btn-info my-2 my-sm-0 mr-1" type="submit" onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
       <div id="login" class="modal">
           <form class="modal-content" action="" method="POST">
             <div class="modal-header">
@@ -131,7 +131,7 @@ include "login.php";
                   <!--Nome-->
                   <div class="form-group">
                     <label for="exampleInputEmail1"><b>Nome</b></label>
-                    <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Inserir Nome" required value="<?php echo $name; ?>">
+                    <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Inserir Nome..." required value="<?php echo $name; ?>">
                       <div class="invalid-feedback">
                       É obrigatório inserir um nome. 
                       </div>
@@ -139,20 +139,20 @@ include "login.php";
 
                   <!--Email-->
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email" required value="<?php echo $email; ?>">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Inserir email..." required value="<?php echo $email; ?>">
                       <div class="invalid-feedback">
-                        Please enter a valid email address
+                      É obrigatório inserir um email. 
                       </div>
                     <small id="emailHelp" class="form-text text-muted">Nunca iremos compartilhar suas informações.</small>
                   </div>
 
                   <!--Password-->
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" name="psw" placeholder="Password" required>
+                    <label for="exampleInputPassword1">Palavra-chave</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" name="psw" placeholder="Inserir Palavra-chave..." required>
                       <div class="invalid-feedback">
-                        Please enter a password
+                      É obrigatório inserir uma palavra-chave. 
                       </div>
                   </div>
 
@@ -160,22 +160,22 @@ include "login.php";
                   <label for="exampleInputPassword2">Confirmar Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword2" name="psw_repeat" placeholder="Password" required>
                     <div class="invalid-feedback">
-                      Please enter a password
+                    É obrigatório confirmar a palavra-chave. 
                     </div>-->
                   
                     <div class="form-check mb-1">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Recordar as minhas informações</label>
+                      <label class="form-check-label text-dark" for="exampleCheck1">Recordar as minhas informações</label>
                     </div>
 
-                  <p>Ao criar a conta você concorda com a nossa <a href="#" style="color:dodgerblue">Política de privacidade</a>.</p>
+                    <p>Ao criar a conta você concorda com a nossa <a href="#" style="color:dodgerblue">Política de privacidade</a>.</p>
 
                     <div class="clearfix">
                     <!--Botão Cancelar Registo -->
                     <button value="Hover" type="button" onclick="document.getElementById('registo').style.display='none'" class="cancelbtn">Cancelar</button>
 
                     <!--Botão Confirmar Registo -->
-                    <button type="submit" name="reg_user" class="btn-info" id="Menubuttons">Registar</button>
+                    <button type="submit" name="reg_user" class="btn-info" id="Menubuttons" onclick="a();someFunc();">Registar</button>
                     </div>
                 </form>
               </div> 
@@ -185,24 +185,72 @@ include "login.php";
 </nav>
 
 <script>
-  //Vai desabilitar o submit caso tenha algum campo inválido
-  (function() {
-    'use strict';
-    window.addEventListener('load', function() {
-      //Busca todos os formulários que precisam de validação e aplica de forma personalizada a cada um.  
-      var forms = document.getElementsByClassName('needs-validation');
-      //Impede o envio 
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
+
+//Vai desabilitar o submit caso tenha algum campo inválido
+  (function a() {
+  'use strict';
+  window.addEventListener('load', function() {
+    //Busca todos os formulários que precisam de validação e aplica de forma personalizada a cada um.  
+    var forms = document.getElementsByClassName('needs-validation');
+    //Impede o envio 
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+
+/*Pode chamar várias funções ao mesmo tempo
+function someFunc() {
+    Validate();
+    //RestrictName();
+    //RestrictPass();
+}
+
+//Vai comparar se as duas palavras-chave estão iguais
+function Validate() {
+        var password = document.getElementById("exampleInputPassword1").value;
+        var confirmPassword = document.getElementById("exampleInputPassword2").value;
+        if (password != confirmPassword) {
+            alert("Deve inserir palavras-chave iguais.");
+            return false;
+        }
+        return true;
+    }
+
+/*Vai verificar se o nome contem apenas letras e espaços
+function RestrictName(){
+  var str = document.getElementById("exampleInputName1").value;
+  var str2 = /^[a-zA-Z\s]+$/;
+  var result = str2.test(str);
+  if(result==false)
+    {
+      alert("Deve inserir palavras-chave iguais.");
+      return false;
+    }
+  return true;
+}
+
+//Vai verificar se a password 
+function RestrictPass(){
+
+  //validar se contém o caracteres exigidos
+  var pass = document.getElementById("exampleInputPassword1").value;
+  var passRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+  var result = passRegex.test(pass);
+  if(result==false || form.pass.value.length < 6)
+    {
+      alert("A palavra chave deve conter no mínimo 6 caracteres sendo eles número, letra maiúscula e letra minúscula.");
+      return false;
+    }    
+  return true;
+}*/
 
 </script>
 
