@@ -93,10 +93,6 @@ include "login.php";
                 <input type="checkbox" checked="checked" name="remember">Recordar as minhas informações
               </label>
 
-              <?php 
-                if(!empty($_GET['error']) && $_GET['error'] == 1) { 
-                    echo '<p style="color:red"> Nome de Utilizador ou Palavra-passe errada! </p>'; 
-              } ?>
 
               <div class="clearfix">
                 <!--Botão Cancelar -->
@@ -110,76 +106,103 @@ include "login.php";
 
 
       <!-- Registo -->
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="document.getElementById('registo').style.display='block'" style="width:auto;">Registo</button> 
-      <div id="registo" class="modal">
+      <button class="btn btn-outline-info my-2 my-sm-0" onclick="document.getElementById('registo').style.display='block'" style="width:auto;">Registo</button> 
 
-          <!--Início do Formulário-->
-          <form class="modal-content" action="<?php echo $_SERVER['PHP_SELF']?>" method='POST' onSubmit="return checkform()">
+      <!--Início do Formulário-->
+      <div id="registo" class="modal">
+        <div role="document">
+          <div class="modal-content">
+
+
+        <!--MODAL HEADER-->
             <div class="modal-header">
+              <!--Titulo-->
+              <h2 class="modal-title text-center" id="exampleModalLabel">Registo</h2><br>
+              <hr>
+              <!--Botão "x"-->
               <button type="button" onclick="document.getElementById('registo').style.display='none'" class="close">&times;</button>
             </div>
-            
-            <div class="container">
-              <h1>Registo</h1>
-              <p>Por favor, preencha este formulário para criar uma conta.</p>
-              <hr>
+        <!--FIM DO MODAL HEADER-->
 
-              <!--Nome-->
-              <label for="name"><b>Nome</b></label>
-              <input type="text" placeholder="Inserir Nome" value="<?php echo htmlspecialchars($name) ?>" name="name" required>
-              <div class="erro"><?php echo $errors['name']; ?></div>
+        <!--MODAL BODY-->
+              <div class="modal-body">
+                <form class="needs-validation" novalidate method='POST'>
 
-              <!--Email-->
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Inserir Email" value="<?php echo htmlspecialchars($email) ?>" name="email" required>
-              <div class="erro"><?php echo $errors['email']; ?></div>
+                  <!--Nome-->
+                  <div class="form-group">
+                    <label for="exampleInputEmail1"><b>Nome</b></label>
+                    <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Inserir Nome" required value="<?php echo $name; ?>">
+                      <div class="invalid-feedback">
+                      É obrigatório inserir um nome. 
+                      </div>
+                  </div>
 
-              <!--Password-->
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Inserir Password" value="<?php echo htmlspecialchars($psw) ?>" name="psw" required>
-              <div class="erro"><?php echo $errors['psw']; ?></div>
+                  <!--Email-->
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email" required value="<?php echo $email; ?>">
+                      <div class="invalid-feedback">
+                        Please enter a valid email address
+                      </div>
+                    <small id="emailHelp" class="form-text text-muted">Nunca iremos compartilhar suas informações.</small>
+                  </div>
 
-              <!--Confirmação Password-->
-              <label for="psw_repeat"><b>Repetir Password</b></label>
-              <input type="password" placeholder="Repetir Password" value="<?php echo htmlspecialchars($psw_repeat) ?>" name="psw_repeat" required>
-              <div class="erro"><?php echo $errors['psw_repeat']; ?></div>
-              
-              <label>
-                <input type="checkbox" checked="checked" name="remember">Recordar as minhas informações
-              </label>
+                  <!--Password-->
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" name="psw" placeholder="Password" required>
+                      <div class="invalid-feedback">
+                        Please enter a password
+                      </div>
+                  </div>
 
-              <p>Ao criar a conta você concorda com a nossa <a href="#" style="color:dodgerblue">Política de privacidade</a>.</p>
+                  <!--Confirmação Password
+                  <label for="exampleInputPassword2">Confirmar Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" name="psw_repeat" placeholder="Password" required>
+                    <div class="invalid-feedback">
+                      Please enter a password
+                    </div>-->
+                  
+                    <div class="form-check mb-1">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Recordar as minhas informações</label>
+                    </div>
 
-              <div class="clearfix">
-                <!--Botão Cancelar Registo -->
-                <button value="Hover" type="button" onclick="document.getElementById('registo').style.display='none'" class="cancelbtn">Cancelar</button>
+                  <p>Ao criar a conta você concorda com a nossa <a href="#" style="color:dodgerblue">Política de privacidade</a>.</p>
 
-                <!--Botão Confirmar Registo -->
-                <button type="submit" name="submit" class="btn-info" id="Menubuttons">Registar</button>
-              </div>
-            </div>
-          </form>
+                    <div class="clearfix">
+                    <!--Botão Cancelar Registo -->
+                    <button value="Hover" type="button" onclick="document.getElementById('registo').style.display='none'" class="cancelbtn">Cancelar</button>
+
+                    <!--Botão Confirmar Registo -->
+                    <button type="submit" name="reg_user" class="btn-info" id="Menubuttons">Registar</button>
+                    </div>
+                </form>
+              </div> 
+          </div>
         </div>
       </div>
 </nav>
 
-<!-- permite fechar o modal login ou de registo carregando em qualquer lugar da tela -->
 <script>
-var modal = document.getElementById('login');
-var modal2 = document.getElementById('registo');
+  //Vai desabilitar o submit caso tenha algum campo inválido
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      //Busca todos os formulários que precisam de validação e aplica de forma personalizada a cada um.  
+      var forms = document.getElementsByClassName('needs-validation');
+      //Impede o envio 
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  } else if (event.target == modal2) {
-    modal2.style.display = "none";
-  }
-}
 </script>
-
-
-
-
-
-
 
