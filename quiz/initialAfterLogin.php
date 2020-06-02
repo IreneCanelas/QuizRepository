@@ -4,7 +4,8 @@ session_start();
 
   include "connection.php";
 
-  // Botao de Pesquisa na nav  
+  // Botao de Pesquisa na nav 
+  echo "<script language=javascript>alert( 'O seu login foi bem sucedido, seja bem vindo!' );</script>"; 
   if(!empty($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT id, name, photo_url FROM quizzes WHERE name='" . $search . "'";
