@@ -157,7 +157,7 @@
         <!--Botão Próxima pergunta-->
         <button class="btn btn-dark" name="click">Próxima</button>
         </div>
-        <div style="float: right;">
+        <div class='absolute'>
         <input type="text" id="timespent" value="00:00">
         </div>
       </div> 
@@ -200,7 +200,7 @@
 
 <!-- Configuração do timer -->
 <script>
- function startTimer() {
+ window.onload = function startTimer() {
       var tobj = document.getElementById("timespent")
       var t = "0:00";
       var s = 00;

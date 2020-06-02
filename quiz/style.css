@@ -355,12 +355,20 @@ a.list-group-item, .list-group-item-action {
     font-size: 1.1em;
 }
 
+div.absolute
+{
+    position: absolute;
+    right: 4%;
+    width: 90px;
+    height: 100px;
+}
+
 #timespent
 {
     background-color: white;
-    min-width:100%;
-    max-width:800px;
-    float:left;
+    min-width: 100px;
+    position: static;
+
     
 }
 
