@@ -100,7 +100,6 @@ else { include "header2.php"; }
           }
       </script>
       <br>
-      <br>
       <!--BOTOES REDES SOCIAIS-->
       <div class="text-center">
         <p>Compartilhe o resultado com os seus amigos!</p>

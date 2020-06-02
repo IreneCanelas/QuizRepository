@@ -354,3 +354,23 @@ a.list-group-item, .list-group-item-action {
     margin-right: 8px;
     font-size: 1.1em;
 }
+
+#timespent
+{
+    background-color: white;
+    min-width:100%;
+    max-width:800px;
+    float:left;
+    
+}
+
+.flex1234 {
+    display: flex;
+    flex-direction: row;
+}
+
+#butao
+{
+    width:250px;
+    float:right;
+}
