@@ -26,8 +26,10 @@
     $_SESSION['time_started'] = 0;
     $timeSince = 0;
   }
+  $count = 0;
   */
 
+  
 
 ?>
 
@@ -123,7 +125,9 @@
       </tr>
       <!--Se o click estiver entre 1 e nº total de perguntas por categoria continuar a mostrar as perguntas-->
       <?php if($_SESSION['clicks'] > 0 && $_SESSION['clicks'] < $result->num_rows+1){ ?>
-        <div class="" style="max-width:15%"> <?php echo $row['question_num']. "/". $result->num_rows?> </div>
+
+        <div class="firstClass" style="max-width:15%"> <?php echo $row['question_num']. "/". $result->num_rows?> </div>
+        
       <tr>
         <td>
           <input required type="radio" name="userans" value="<?php echo $row['opt1'];?>">&nbsp;<?php echo $row['opt1']; ?>
@@ -146,27 +150,20 @@
         <br><br><br>
         </td>
       </tr>
-<<<<<<< HEAD
-      <!-- <p><?php // echo "Faltam $remainingSeconds"; ?></p>-->
-        <input type="text" readonly id="timespent" value="0:00"> 
-=======
-      
->>>>>>> d7ae3a29dff78ce89dd92042e4d504e6e6add6e6
-        <!--<script>
-          var c = 10;
-        </script>-->
-
       <tr>
         <td>
+      <div class="flex1234">
+        <div>
         <!--Botão Próxima pergunta-->
         <button class="btn btn-dark" name="click">Próxima</button>
-        <input type="text" readonly id="timespent" value="0:00">
-        <br>
-        <br>
-        <br>        
-        </td>
-      </tr> 
+        </div>
+        <div class='absolute'>
+        <input type="text" id="timespent" value="00:00">
+        </div>
+      </div> 
       <?php }?>
+        </td>
+      </tr>
  
   </table>
 </form>
@@ -203,7 +200,7 @@
 
 <!-- Configuração do timer -->
 <script>
- function startTimer() {
+ window.onload = function startTimer() {
       var tobj = document.getElementById("timespent")
       var t = "0:00";
       var s = 00;
@@ -215,19 +212,11 @@
         min = d.getMinutes();
         sec = d.getSeconds();
         if (sec < 10) sec = "0" + sec;
-<<<<<<< HEAD
         val = document.getElementById("timespent").value = min + ":" + sec;
       }, 1000);
       tobj.value = t;
     }
 
-=======
-        document.getElementById("timespent").value = min + ":" + sec;
-      }, 1000);
-      tobj.value = t;
-    }
-    
->>>>>>> d7ae3a29dff78ce89dd92042e4d504e6e6add6e6
     if (window.addEventListener) {              
       window.addEventListener("load", startTimer);
     } 
@@ -236,15 +225,16 @@
       window.attachEvent("onload", startTimer);
     }
 
-</script>
+</script> 
 
-<!--<script>
+<!--
+<script>
   function timer001()
   {
     c = c - 1;
     if(c < 10)
     {
-      time001.innerHTML = c;
+      tempo.innerHTML = c;
     }
 
     if(c < 1)
@@ -255,7 +245,18 @@
 
   update = setInterval("timer001()", 1000);
 
-</script>-->
+  timer001();
+</script>
+
+<script>
+      function continua()
+      {
+        $temp = $count;
+        
+        document.getElementById("tempo").innerHTML = ($tem = $temp +1)
+      }
+</script>
+-->
 
 <!--ACRESCENTAR FOOTER-->
 <?php

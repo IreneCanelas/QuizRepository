@@ -27,6 +27,7 @@ if (!empty($quizzes) ) { ?>
   </div>
 </div>
 <?php } else {
-      echo "<div class='alert alert-warning'>Sem resultados.</div>";
+    echo "<br>";
+    echo "<div class='alert alert-warning'>Sem resultados.</div>";
 } ?>
 <!-- Quando introduzem alguma pesquisa, volta a mostrar todos os quizzes -->

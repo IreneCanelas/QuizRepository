@@ -3,6 +3,8 @@
 session_start();
 
   include "connection.php";
+  include "headerAfterLogin.php";
+  include "select_exam.php";
 
   // Botao de Pesquisa na nav  
   if(!empty($_GET['search'])) {
@@ -31,9 +33,15 @@ include "headerAfterLogin.php"
 <!-- <p>Email: <?php  var_dump(@$_SESSION['user_email']) ?> </p> -->
 <!-- <p>ID: <?php  var_dump(@$_SESSION['user_id']) ?> </p> -->
 
+  if ( isset($_GET['search'])) {
+    echo "<div class='text-center mb-3'> ";
+      echo "<form action='#pesquisa' name='search' method='GET'>";
+        echo " <button class='btn btn-outline-dark' type='submit'>Voltar ao início.</button> " ;
+      echo" </form>";
+    echo "</div>";
+  }
 
-<?php
-  include "select_exam.php";
+ 
   include "footer.html";
-?>
 
+?>
