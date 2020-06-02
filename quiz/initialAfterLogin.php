@@ -6,8 +6,7 @@ session_start();
   include "headerAfterLogin.php";
   include "select_exam.php";
 
-  // Botao de Pesquisa na nav 
-  echo "<script>alert( 'O seu login foi bem sucedido, seja bem vindo!' );</script>"; 
+  // Botao de Pesquisa na nav  
   if(!empty($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT id, name, photo_url FROM quizzes WHERE name='" . $search . "'";
