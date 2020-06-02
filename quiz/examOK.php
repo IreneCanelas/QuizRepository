@@ -26,9 +26,10 @@
     $_SESSION['time_started'] = 0;
     $timeSince = 0;
   }
+  $count = 0;
   */
 
-  $count = 0;
+  
 
 ?>
 
