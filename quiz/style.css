@@ -40,6 +40,17 @@ body{
 
 
 /*----- Formulários de Registo e Login -----*/
+
+/* campo inválido = vermelho*/
+.invalid input:required:invalid {
+    background: #BE4C54;
+}
+  
+/* campo válido = verde*/
+.invalid input:required:valid {
+    background: #17D654;
+}
+
 /* Botões no menu */
 .btn-info {
     background-color: #f8dc8a; /*#17b68e*/
@@ -354,3 +365,5 @@ a.list-group-item, .list-group-item-action {
     margin-right: 8px;
     font-size: 1.1em;
 }
+
+
