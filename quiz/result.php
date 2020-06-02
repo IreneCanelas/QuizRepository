@@ -106,7 +106,7 @@ else { include "header2.php"; }
         <!--Facebook-->
         <a href= "https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F" class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
         <!--Twitter-->
-        <a href = "http://twitter.com/share?text=O%20meu%20resultado%20foi:&%20url=http://localhost/QuizRepository/quiz/result.php?click="
+        <a href = "http://twitter.com/share?text=O%20meu%20resultado%20no%20quiz%20foi:&%20url=http://localhost/QuizRepository/quiz/result.php?click="
 	target="_blank" class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
         <!--Instagram-->
         <!--<a href = "https://www.instagram.com/?hl=pt" class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>-->
