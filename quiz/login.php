@@ -14,9 +14,7 @@ if(!empty($_POST)) {
   } else {
      $_SESSION['user_id'] = $user['id'];
       $_SESSION['user_email'] = $user['email'];
-        $_SESSION['user_name'] = $user['name'];
-    echo "<script>alert( 'O seu login foi bem sucedido, seja bem vindo!' );</script>";
-    
+        $_SESSION['user_name'] = $user['name'];    
   }
 }
 ?>
