@@ -7,7 +7,6 @@ session_start();
   include "select_exam.php";
 
   // Botao de Pesquisa na nav 
-  echo "<script language=javascript>alert( 'O seu login foi bem sucedido, seja bem vindo!' );</script>";
   if(!empty($_GET['search'])) {
     $search = $_GET['search'];
     $sql = "SELECT id, name, photo_url FROM quizzes WHERE name='" . $search . "'";
@@ -25,14 +24,6 @@ session_start();
   } else {
       echo "0 results";
 }
-
-include "headerAfterLogin.php"
-?>
-
-
-<!-- Ler user_id -->
-<!-- <p>Email: <?php  var_dump(@$_SESSION['user_email']) ?> </p> -->
-<!-- <p>ID: <?php  var_dump(@$_SESSION['user_id']) ?> </p> -->
 
   if ( isset($_GET['search'])) {
     echo "<div class='text-center mb-3'> ";
