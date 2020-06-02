@@ -16,6 +16,7 @@ if(!empty($_POST)) {
       $_SESSION['user_email'] = $user['email'];
         $_SESSION['user_name'] = $user['name'];
     header("Location: initialAfterLogin.php");
+     
   }
 }
 ?>
