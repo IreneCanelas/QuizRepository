@@ -50,8 +50,27 @@ else { include "header2.php"; }
       <?php } else { 
         $_SESSION["scorefinal"] = $no*2;?>
         <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"]. " em 20";?></span> <br>
-        
+       
       <?php } ?>
+
+      <?php  
+       //Variável Data do final da realização do quiz
+        $finalTime = date('H:i:s');
+        //$dif = "SELECT DATEDIFF(seconds, 'initialDate', 'finalDate') AS DateDiff";
+        $datetime1 = $_SESSION['initialTime'];
+        $datetime2 = $finalTime;
+        $interval = $datetime1->diff($datetime2);
+        $dif = $interval->format('%H:%I:%S');
+  
+        //$date2 = $_SESSION['initialTime']->diff($finalTime);
+        //$diff = date_diff(strtotime($finalTime), strtotime($_SESSION['initialTime']));
+        //$diff =  dateDiff($finalTime, $_SESSION['initialTime']) . "\n";
+        
+        //$diff = (strtotime($finalTime) - strtotime($_SESSION['initialTime']));
+        //echo $date2->i; die;
+        
+      ?>
+      <p class="card-text "><span>Tempo: &nbsp;<?php echo $dif; ?>
       <!-- Se foi aprovado ou reprovado -->
       <?php 
         if ($no > $_SESSION['numberOfQuestions']/2 ) {?>
@@ -75,7 +94,7 @@ else { include "header2.php"; }
         //Se quisermos adicionar a data e hora do quiz
         $scoreDate = date('Y-m-d H:i:s');
         //var_dump($scoreDate);
-        $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `num_questions`, `score_date`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate')";
+        $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `num_questions`, `score_date`, `initialDate`, `finalDate`, `time`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate', '$_SESSION[initialTime]', '$finalTime', '$dif')";
         $result = $conn->query($qryfim); 
       }?>
       <!------------------------------------------------------------------->

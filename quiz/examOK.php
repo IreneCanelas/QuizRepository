@@ -110,7 +110,10 @@
 <table>
     <?php if(isset($c)) 
       { 
-
+        //Variável Data do início da realização do quiz
+        $date = date('H:i:s');
+        $_SESSION['initialTime'] = $date;
+      
         $fetchqry = "SELECT * FROM `questions` where `question_num`=".$c." and  `category`='$category_selected'";
         $resultt=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($resultt);
@@ -201,7 +204,7 @@
 <!-- Configuração do timer -->
 <script>
  window.onload = function startTimer() {
-      var tobj = document.getElementById("timespent")
+      var tobj = document.getElementById("timespent");
       var t = "0:00";
       var s = 00;
       var d = new Date();

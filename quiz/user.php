@@ -9,7 +9,7 @@
     $result = mysqli_query($conn, $qry);
 
     //Base de Dados e Tabela result
-    $qry2 = "SELECT id, user_id, category_id, score, num_questions, score_date FROM result where user_id='$useridfinal'";
+    $qry2 = "SELECT id, user_id, category_id, score, num_questions, score_date, time FROM result where user_id='$useridfinal'";
     $result2 = mysqli_query($conn, $qry2);
     $result3 = mysqli_query($conn, $qry2);
     
@@ -97,12 +97,13 @@
                                 <th>Pontuação</th>
                                 <th>Questões certas</th>
                                 <th>Total de questões</th>
+                                <th>Tempo de Resposta</th>
                                 <th>Data e Hora</th>
                             </tr>
                             <?php 
                             while ($row3 = mysqli_fetch_assoc($result3)) {
                                 echo "<tr>";
-                                echo "<td>" . $row3['category_id'] . "</td><td>" . $row3['score'] . "</td><td>" . $row3['score']/2 . "</td><td>" . $row3['num_questions'] . "</td><td>" . $row3['score_date'] . "</td>";
+                                echo "<td>" . $row3['category_id'] . "</td><td>" . $row3['score'] . "</td><td>" . $row3['score']/2 . "</td><td>" . $row3['num_questions'] . "</td><td>" .$row3['time'] . "</td><td>" . $row3['score_date'] . "</td>";
                                 echo "</tr>";
                             }
                         }
