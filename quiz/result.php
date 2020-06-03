@@ -123,14 +123,11 @@ else { include "header2.php"; }
       <div class="text-center">
         <p>Compartilhe o resultado com os seus amigos!</p>
         <!--Facebook-->
-        <a href= "https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F" class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
+        <a href= "https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F" target="_blank" class="fb-ic mr-3" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
         <!--Twitter-->
-        <a href = "http://twitter.com/share?text=O%20meu%20resultado%20no%20quiz%20foi:&%20url=http://localhost/QuizRepository/quiz/result.php?click="
-	target="_blank" class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
-        <!--Instagram-->
-        <!--<a href = "https://www.instagram.com/?hl=pt" class="ins-ic mr-3" role="button"><i class="fab fa-lg fa-instagram"></i></a>-->
+        <a href = "http://twitter.com/share?text=O%20meu%20resultado%20no%20quiz%20foi:&%20url=http://localhost/QuizRepository/quiz/result.php?click=" target="_blank" class="tw-ic mr-3" role="button"><i class="fab fa-lg fa-twitter"></i></a>
         <!--WhatsApp-->
-        <a href = "whatsapp://send?text=http://www.example.com" class="whatsapp-ic" role="button"><i class="fab fa-lg fa-whatsapp"></i></a>
+        <a href = "whatsapp://send?text=http://localhost/QuizRepository/quiz/result.php?click=" target="_blank" class="whatsapp-ic" role="button"><i class="fab fa-lg fa-whatsapp"></i></a>
       </div>
 
   </div>
