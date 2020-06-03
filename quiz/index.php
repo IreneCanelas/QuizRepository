@@ -4,8 +4,8 @@
   //echo $_SESSION['user_id'];
   include "select_exam.php";
 
-  $err = filter_input(INPUT_GET, 'error');
-  if ($err === "1") echo "<script>alert('Login inválido! Tente novamente.');</script>";
+  //$err = filter_input(INPUT_GET, 'error');
+  //if ($err === "2") echo "<script>alert('Login inválido! Tente novamente.');</script>";
 
   if ( isset($_GET['search'])) {
     echo "<div class='text-center mb-3'> ";

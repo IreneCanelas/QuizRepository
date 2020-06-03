@@ -10,7 +10,12 @@ if(!empty($_POST)) {
   $user = $result->fetch_assoc();
   //$users = [];
   if($count==0) {
-      header('Location: index.php?error=1');
+      //echo "<script>alert('Login inválido! Tente novamente.');</script>";
+      //header('Location: index.php');
+      echo "<script>
+        alert('Login inválido!Tente novamente.');
+        window.location.href='index.php';
+      </script>";
   } else {
      $_SESSION['user_id'] = $user['id'];
       $_SESSION['user_email'] = $user['email'];
