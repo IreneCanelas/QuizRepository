@@ -49,7 +49,7 @@ else { include "header2.php"; }
         <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"] . " em 20"; ?></span> <br>
       <?php } else { 
         $_SESSION["scorefinal"] = $no*2;?>
-        <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"]. " em 20";?></span> <br>
+        <span>Pontuação final:&nbsp<?php echo $_SESSION["scorefinal"]. " em 20";?></span>
        
       <?php } ?>
 
@@ -57,8 +57,8 @@ else { include "header2.php"; }
        //Variável Data do final da realização do quiz
         $finalTime = date('H:i:s');
         //$dif = "SELECT DATEDIFF(seconds, 'initialDate', 'finalDate') AS DateDiff";
-        $datetime1 = $_SESSION['initialTime'];
-        $datetime2 = $finalTime;
+        $datetime1 = new Datetime($_SESSION['initialTime']);
+        $datetime2 = new Datetime($finalTime);
         $interval = $datetime1->diff($datetime2);
         $dif = $interval->format('%H:%I:%S');
   
@@ -70,7 +70,8 @@ else { include "header2.php"; }
         //echo $date2->i; die;
         
       ?>
-      <p class="card-text "><span>Tempo: &nbsp;<?php echo $dif; ?>
+      
+      <p class="card-text "><span>Tempo: &nbsp;<?php echo $dif; ?><br>
       <!-- Se foi aprovado ou reprovado -->
       <?php 
         if ($no > $_SESSION['numberOfQuestions']/2 ) {?>
