@@ -57,9 +57,9 @@ else { include "header2.php"; }
        //Variável Data do final da realização do quiz
         $finalTime = date('H:i:s');
         //$dif = "SELECT DATEDIFF(seconds, 'initialDate', 'finalDate') AS DateDiff";
-        $datetime1 = new Datetime($_SESSION['initialTime']);
+        //$datetime1 = new Datetime($_SESSION['initialTime']);
         $datetime2 = new Datetime($finalTime);
-        $interval = $datetime1->diff($datetime2);
+        $interval = $_SESSION['initialTime']->diff($datetime2);
         $dif = $interval->format('%H:%I:%S');
   
         //$date2 = $_SESSION['initialTime']->diff($finalTime);
@@ -95,7 +95,7 @@ else { include "header2.php"; }
         //Se quisermos adicionar a data e hora do quiz
         $scoreDate = date('Y-m-d H:i:s');
         //var_dump($scoreDate);
-        $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `num_questions`, `score_date`, `initialDate`, `finalDate`, `time`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate', '$_SESSION[initialTime]', '$finalTime', '$dif')";
+        $qryfim = "INSERT INTO `result`(`user_id`, `category_id`, `score`, `num_questions`, `score_date`, `finalDate`, `time`) VALUES ('$useridfinal','$quiz_category', '$score', '$num_questions', '$scoreDate','$finalTime', '$dif')";
         $result = $conn->query($qryfim); 
       }?>
       <!------------------------------------------------------------------->

@@ -112,8 +112,9 @@
       { 
         //Variável Data do início da realização do quiz
         $date = date('H:i:s');
-        $_SESSION['initialTime'] = $date;
-      
+        $datetime1 = new Datetime($date);
+        $_SESSION['initialTime'] = $datetime1;
+
         $fetchqry = "SELECT * FROM `questions` where `question_num`=".$c." and  `category`='$category_selected'";
         $resultt=mysqli_query($conn,$fetchqry);
         $num=mysqli_num_rows($resultt);
