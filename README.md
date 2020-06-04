@@ -70,6 +70,8 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - Nome tabela: questions <p>
 - Nome tabela: results 
 
+Mais detalhes em QuizRepository/phpMyAdmin/readme_PHPMyAdmin.txt
+
 ## Histórico de Releases:
 
 - 1.0: Fim do Módulo I
