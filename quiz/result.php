@@ -56,9 +56,11 @@ else { include "header2.php"; }
       <?php  
        //Variável Data do final da realização do quiz
         $finalTime = date('H:i:s');
+        
         //$dif = "SELECT DATEDIFF(seconds, 'initialDate', 'finalDate') AS DateDiff";
         //$datetime1 = new Datetime($_SESSION['initialTime']);
         $datetime2 = new Datetime($finalTime);
+        $datetime2->modify('+5 seconds');
         $interval = $_SESSION['initialTime']->diff($datetime2);
         $dif = $interval->format('%H:%I:%S');
   

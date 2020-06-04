@@ -2,12 +2,6 @@
 ## Identificação:
 <p>O site QuizQuiz tem como principal objetivo a prática e teste de conhecimento ao responder questões de Quizzes. O site contempla quizzes na área da Matemática, Biologia e Tecnologia. A plataforma é simples e intuitiva possibilitando uma experiência divertida e interativa com o utilizador. É possível participar dos quizzes estando registado ou não no site. Entretanto, para aqueles utilizadores registados haverá uma conta com todos os resultados e estatísticas para que possa avaliar seu desempenho sempre que desejar.</p>
 
-- Nome BD: quizwebsite <p>
-- Nome tabela: quizzes <p>
-- Nome tabela: registos <p>
-- Nome tabela: questions <p>
-- Nome tabela: results 
-
 ## Pré-requisitos:
 
 - Editor de código fonte. 
@@ -54,6 +48,7 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Criar interface geral da página inicial;
 - [X] Criar botão de registo do utilizador;
 - [X] Criar botão de login;
+- [X] Criar conexão com a Base de Dados;
 - [X] Formulário de login;
 - [X] Formulário de registo do utilizador;
 - [X] Criar registos na Base de Dados;
@@ -61,13 +56,28 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - [X] Configurar registo;
 - [X] Configurar login;
 - [X] Configurar _quizzes_;
-- [X] Criar interface geral da conta do utilizador.
+- [X] Criar interface geral da conta do utilizador;
+- [X] Gerar estatísticas dos resultados;
+- [X] Gravar estatísticas na conta do utilizador;
+- [X] Configurar temporizador;
+- [X] Configurar partilha dos resultados nas redes sociais.
 
+## Identificação do PHP MyAdmin:
+
+- Nome BD: quizwebsite <p>
+- Nome tabela: quizzes <p>
+- Nome tabela: registos <p>
+- Nome tabela: questions <p>
+- Nome tabela: results 
+
+Mais detalhes em QuizRepository/phpMyAdmin/readme_PHPMyAdmin.txt
 
 ## Histórico de Releases:
 
 - 1.0: Fim do Módulo I
 - 1.1: Fim do Módulo II
+- 2.0: Intermediate Release
+- 3.0: Final release
 
 ## Autoria:
 - Irene Canelas : [@IreneCanelas](https://www.github.com/IreneCanelas)
@@ -76,6 +86,8 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 - Sara Rocha : [@sararocha25](https://www.github.com/sararocha25)
 
 ## Agradecimentos:
+
+Queremos agradecer a Professora Alina Trifan, da cadeira de Engenharia de Software da Licenciatura em Informática do Instituto Universitário da Maia, por nos conceder toda a base e conceitos necessários para realizar a gestão de um projeto. Somos gratas por nos apresentar as ferramentas de trabalho, GitHub e Trello, que representam mais um acréscimo de conhecimento e experiência académica.
 
 ## Contribuições: 
 
@@ -88,10 +100,10 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 ## Download e uso do código:
 
 - Instalar todos os pré-requisitos deste trabalho;   
-- Faça o download do projeto no formato .zip;
+- Fazer o download do projeto no formato .zip;
 - Guardar o código na pasta xampp/htdocs; 
-- Faça a descompactação do arquivo .zip;
-- Crie uma base de dados para o site no PHP MyAdmin como o nome "quizwebsite";
+- Fazer a descompactação do arquivo .zip;
+- Criar uma base de dados para o site no PHP MyAdmin como o nome "quizwebsite";
 - Fazer upload das tabelas da pasta phpMyAdmin dentro da base de dados criada;
 - No XAMPP Control Panel ativar o Apache e o MySQL;
 - Carregar o projeto no localhost utilizando o browser habitual. 
