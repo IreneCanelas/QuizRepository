@@ -14,7 +14,7 @@ Descrição dos ficheiros:
 
 1.
 	Nome: quizzes.sql
-	Função: 
+	Função: Tabela com as categorias dos quizzes presentes no site. 
 
 2.
 	Nome: registos.sql
