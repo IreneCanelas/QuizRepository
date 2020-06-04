@@ -13,7 +13,7 @@ if(!empty($_POST)) {
       //echo "<script>alert('Login inválido! Tente novamente.');</script>";
       //header('Location: index.php');
       echo "<script>
-        alert('Login inválido!Tente novamente.');
+        alert('Login inválido! Tente novamente.');
         window.location.href='index.php';
       </script>";
   } else {
