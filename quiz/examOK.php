@@ -99,6 +99,11 @@
             <div class="col text-center">
               <div>
               <a href="examOK.php?category=<?php echo $category_selected?>&start"> <div class="bump"><br> <button class="btn btn-primary" float="left"><span>Começar!</span></button></div> </a> 
+              <?php
+              //Variável Data do início da realização do quiz
+                $date = date('H:i:s');
+                $datetime1 = new Datetime($date);
+                $_SESSION['initialTime'] = $datetime1; ?>
             </div>
           </div>
         </div>
@@ -110,10 +115,6 @@
 <table>
     <?php if(isset($c)) 
       { 
-        //Variável Data do início da realização do quiz
-        $date = date('H:i:s');
-        $datetime1 = new Datetime($date);
-        $_SESSION['initialTime'] = $datetime1;
 
         $fetchqry = "SELECT * FROM `questions` where `question_num`=".$c." and  `category`='$category_selected'";
         $resultt=mysqli_query($conn,$fetchqry);
