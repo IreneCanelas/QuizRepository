@@ -6,7 +6,7 @@
 
 - Editor de código fonte. 
 Sugestão:
-[Visual Studio](https://code.visualstudio.com/)
+[Visual Studio Code](https://code.visualstudio.com/)
 
 - Gestão da Base de Dados. 
 Sugestão:
