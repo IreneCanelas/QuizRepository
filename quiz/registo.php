@@ -15,11 +15,10 @@ include "connection.php";
   $name = mysqli_real_escape_string($conn, $_POST['name']);
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password_1 = mysqli_real_escape_string($conn, $_POST['psw']);
-  $passwordfinal = md5($password_1);
 
   //query para inserir na base de dados
   $query = "INSERT INTO registos (name, email, psw) 
-        VALUES('$name', '$email', '$passwordfinal')";
+        VALUES('$name', '$email', '$password_1')";
   mysqli_query($conn, $query);
   $_SESSION['name'] = $name;
   $_SESSION['success'] = "You are now logged in";
