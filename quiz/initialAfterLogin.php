@@ -21,9 +21,9 @@ session_start();
       while($row = $result->fetch_assoc()) {
           $quizzes[] = $row;
       }
-  } else {
-      echo "0 results";
-}
+  } //else {
+    //  echo "0 results";
+//}
 
   if ( isset($_GET['search'])) {
     echo "<div class='text-center mb-3'> ";

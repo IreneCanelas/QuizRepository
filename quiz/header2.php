@@ -16,9 +16,9 @@ include "connection.php";
       while($row = $result->fetch_assoc()) {
           $quizzes[] = $row;
       }
-  } else {
-      echo "0 results";
-}
+  } //else {
+     // echo "0 results";
+//}
 ?>
 
 <!DOCTYPE html>
