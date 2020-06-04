@@ -88,10 +88,10 @@ Abaixo estão listados alguns tutorias utilizados para criar este código:
 ## Download e uso do código:
 
 - Instalar todos os pré-requisitos deste trabalho;   
-- Faça o download do projeto no formato .zip;
+- Fazer o download do projeto no formato .zip;
 - Guardar o código na pasta xampp/htdocs; 
-- Faça a descompactação do arquivo .zip;
-- Crie uma base de dados para o site no PHP MyAdmin como o nome "quizwebsite";
+- Fazer a descompactação do arquivo .zip;
+- Criar uma base de dados para o site no PHP MyAdmin como o nome "quizwebsite";
 - Fazer upload das tabelas da pasta phpMyAdmin dentro da base de dados criada;
 - No XAMPP Control Panel ativar o Apache e o MySQL;
 - Carregar o projeto no localhost utilizando o browser habitual. 
